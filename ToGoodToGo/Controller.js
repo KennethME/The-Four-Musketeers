@@ -190,12 +190,13 @@ function editPostedAds(index)
 let orderById = [];
 function contactAdPoster(i){
     orderById = parseInt(model.app.currentUser);
-    if(userIndex.includes(model.ads[i].userid)){
-        
+    if(orderById == model.ads[i].userid){  
         alert("du kan ikke bestille din egen vare")
+        foodPage()
     }
     else if(model.ads[i].orderedById.includes(orderById)){
         alert("du har trykket bestill")
+        foodPage()
     }
     else
     {
@@ -308,21 +309,8 @@ function resetGiveAwayFoodAllergies(i){
     
     
 let deleteAdsArray = [];
-function deleteMyAds() 
-{
-    for (let i = 0; i < model.ads.length; i++)
-    {
-        if(model.app.currentUser.includes(model.ads[i].userid)){
-            console.log(model.ads[userIndex])
-            model.ads.splice(model.ads[userIndex], 1);
-            deleteMyAds();
-        }
-    }
-    postedAdsPage();
 
-
-};
 function deleteMyAd(index){
     model.ads.splice(model.ads[index], 1)
-    postedAdsPage();
+    postedAdsPageAd(index);
 }

@@ -428,12 +428,10 @@ function giveAway(){
 function postedAdsPage(){
     let userAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
-        if(model.ads[i].userid == model.app.currentUser)
+        if(model.ads[i].userid == userIndex)
         userAdPhoto += /*html*/`
         <img onclick="postedAdsPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
-        <button id="editPostedAdsBtn" onclick="editPostedAds(${i})" >Edit</button>
-        <input class="postedAdsPageSub" type="submit" onclick="submitPostedAds(${i})" id="submitBtn" value="Submit">
-        <button id="deleteMyAdsBtn" onclick="deleteMyAd(${i})">Delete Ad</button>
+        
         `;
         // put inn checkbox her for hver ad.
     }
@@ -487,7 +485,6 @@ function postedAdsPageAd(index){
         <div class="giveAwayFoodFrames">
             <div class="foodDescriptionImage">
             <div id="foodGroupFrame">${userAdPhoto}</div>
-            <button id="deleteMyAdsBtn" onclick="deleteMyAds()">Delete All Ads</button>
             </div>
             <div class="foodDescriptionInputs">
             <label>Tittel:</label>
