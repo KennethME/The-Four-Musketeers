@@ -218,8 +218,8 @@ function accountInformationPage(){
                             <input  class="brukerInfo" type="text" value="${model.users[userIndex].userPw}" oninput="model.inputs.editUser.userPw = this.value">
                             <div>
                                 <button onclick="accountHomePage()" class="mainBtns" type="submit">Tilbake</button>
-                                <button  class="mainBtns" type="submit">Rediger</button>
-                                <button onclick="editAccountInfo()" class="mainBtns" type="submit">Lagre</button>
+                                <button onclick="editAccount(this)" class="mainBtns" type="submit">Rediger</button>
+                                <button onclick="saveEditAccount()" class="mainBtns saveEditAccount" type="submit">Lagre</button>
                             </div>
                         </div>
                     </div>
@@ -450,7 +450,7 @@ function postedAdsPage(){
         <div class="giveAwayFoodFrames">
             <div class="foodDescriptionImage">
             <div id="foodGroupFrame">${userAdPhoto}</div>
-            <button id="deleteMyAdsBtn" onclick="deleteMyAds()">Delete All Ads</button>
+
             </div>
             <div class="foodDescriptionInputs"></div>
     </div> 

@@ -59,8 +59,11 @@ function newUsers()
     console.log("Du er logget inn med BrukerID", newUserid)
     accountHomePage();
 };
+function editAccount(){
+    document.open()
+}
 
-function editAccountInfo()
+function saveEditAccount()
 {
 
     delete model.users[userIndex]['userName'];
