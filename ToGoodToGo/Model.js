@@ -11,8 +11,8 @@ inputs:
 {
     login: // <----- Sendes til Login function
     {
-        userName: '',
-        password: ''
+        // userName: '',
+        // password: ''
     },
     
     newAd: // <---- Sendes til ads
@@ -59,27 +59,52 @@ inputs:
     newUser: // <--- Sendes til users
     [
         {      
-            id: '', 
-            userName:'', 
-            userLoginName: '', 
-            userPw: '', 
-            zipCode: '', 
-            tlf: '',
-            adress: '', 
+            // id: '', 
+            // userName:'', 
+            // userLoginName: '', 
+            // userPw: '', 
+            // zipCode: '', 
+            // tlf: '',
+            // adress: '', 
         } 
     ],
 
-    editUser: 
+    editUser: // <---- sendes til users
     [
         {
-            userName:'', 
-            userLoginName: '', 
-            userPw: '', 
-            zipCode: '', 
-            tlf: '',
-            adress: '', 
+            // id: '',
+            // userName:'', 
+            // userLoginName: '', 
+            // userPw: '', 
+            // zipCode: '', 
+            // tlf: '',
+            // adress: '', 
         }
-    ]
+    ],
+
+    editUserButton: {
+        edit: "enabled",
+        save: "disabled",
+        hide: "isHidden",
+        show: "",
+    },
+
+    hideFFButton: {
+        giveAwayFoodFramesclass: "giveAwayFoodFrames",  //giveAwayFoodFrames
+        foodDescriptionImageclass: "isHidden", //foodDescriptionImage
+        uploadPhotoFrameclass: "isHidden", //uploadPhotoFrame
+    },
+
+    foodDescriptionInputs: {
+        title: "",
+        adress: "",
+        zipCode: "",
+        phoneNumber: "",
+        datePosted: "",
+        dateExpired: "",
+        details: "",
+        image: "",
+    }
 
 },
     //Felles data
@@ -88,8 +113,8 @@ inputs:
     {       
         id: 0,
         userName:'Geir',  
-        userLoginName: '', 
-        userPw: '', 
+        userLoginName: '1', 
+        userPw: '1', 
         zipCode: '5003', 
         tlf: '45932881', 
         adress: 'Johannes Svein Vei 20',
@@ -140,19 +165,6 @@ inputs:
         // {id: 1, type: 'Gluten'},
         // {id: 2, type: 'Nøtter'},
         // {id: 3, type: 'Melk'},
-    ],
-
-    allergyAdEgg:[
-
-    ],
-    allergyAdGluten:[
-
-    ],
-    allergyAdNøtter:[
-
-    ],
-    allergyAdMelk:[
-
     ],
 
     adsHistory: 
@@ -223,6 +235,40 @@ inputs:
             imageId: 0, 
             details: 'MELK', 
             allergyID:[3], 
+            orderedById: [],
+        },
+        {   
+            id: 4, 
+            userLoginName: 't', 
+            UserName: 'Tomas', 
+            userid: 3,
+            title: 'Fisk',
+            zipCode: '5003', 
+            adress: 'Jostein Tords Vei 6',
+            datePosted: '23-11-2021', 
+            dateExpired: '23-11-2021', 
+            phoneNumber: '93435423', 
+            image: 'https://raphaelpedersenblogg.files.wordpress.com/2017/11/img_2003.jpg?resize=1170%2C885', 
+            imageId: 0, 
+            details: 'Fisk', 
+            allergyID:[2], 
+            orderedById: [],
+        },
+        {   
+            id: 5, 
+            userLoginName: 't', 
+            UserName: 'Tomas', 
+            userid: 3,
+            title: 'Fisk',
+            zipCode: '5003', 
+            adress: 'Jostein Tords Vei 7',
+            datePosted: '23-11-2021', 
+            dateExpired: '23-11-2021', 
+            phoneNumber: '93435423', 
+            image: 'https://fiskesprell.no/contentassets/987532cb14b943ed99b455f78a028c52/simen-g.-fangel---kokkesprell_2017_vinnerrett_6_trinn.jpg?width=1000&height=600&transform=downFill&center=0.23%2C0.56', 
+            imageId: 0, 
+            details: 'Fisk', 
+            allergyID:[0, 1], 
             orderedById: [],
         },
         {   
@@ -326,6 +372,40 @@ inputs:
             details: 'Fisk', 
             allergyID:[0, 1, 2], 
             orderedById: [],
+        },
+        {   
+            id: 12, 
+            userLoginName: 'k', 
+            UserName: 'Kenneth', 
+            userid: 4,
+            title: 'Fisk',
+            zipCode: '5003', 
+            adress: 'Jostein Tords Vei 11',
+            datePosted: '23-11-2021', 
+            dateExpired: '23-11-2021', 
+            phoneNumber: '93435423', 
+            image: 'https://thebigmansworld.com/wp-content/uploads/2015/12/hot-chocolate-oatmeal2.jpg', 
+            imageId: 0, 
+            details: 'Fisk', 
+            allergyID:[0, 1, 2], 
+            orderedById: [0],
+        },
+        {   
+            id: 13, 
+            userLoginName: 'k', 
+            UserName: 'Kenneth', 
+            userid: 4,
+            title: 'Fisk',
+            zipCode: '5003', 
+            adress: 'Jostein Tords Vei 11',
+            datePosted: '23-11-2021', 
+            dateExpired: '23-11-2021', 
+            phoneNumber: '93435423', 
+            image: 'https://i2.wp.com/simple-veganista.com/wp-content/uploads/2018/11/cinnamon-oatmeal-3.jpg', 
+            imageId: 0, 
+            details: 'Fisk', 
+            allergyID:[0, 1, 2], 
+            orderedById: [0],
         },
     ],
     
@@ -534,7 +614,7 @@ inputs:
             imageId: 0, 
             details: 'Fisk', 
             allergyID:[0, 1, 2], 
-            orderedById: [],
+            orderedById: [0],
         },
         {   
             id: 12, 
@@ -551,7 +631,7 @@ inputs:
             imageId: 0, 
             details: 'Fisk', 
             allergyID:[0, 1, 2], 
-            orderedById: [],
+            orderedById: [0],
         },
         {   
             id: 13, 
@@ -568,7 +648,7 @@ inputs:
             imageId: 0, 
             details: 'Fisk', 
             allergyID:[0, 1, 2], 
-            orderedById: [],
+            orderedById: [0],
         },
     ],
 

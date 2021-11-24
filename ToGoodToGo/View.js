@@ -21,10 +21,10 @@ function mainPage()
             </div>
             <div class="userLoginFrames"> 
                 <label>Brukernavn:</label>
-                <input type="text" placeholder= "navn"  oninput="model.users.userLoginName=this.value">
+                <input type="text" placeholder= "navn"  oninput="model.inputs.login.userName=this.value">
     
                 <label>Passord:</label>
-                <input type="text" placeholder= "*****" oninput="model.users.userLoginName=this.value">
+                <input type="text" placeholder= "*****" oninput="model.inputs.login.password=this.value">
                 <button onclick="logIn()" class="mainBtns" id="enterBtn" type="submit">Login</button>
             </div>
         </div>
@@ -205,30 +205,30 @@ function accountInformationPage(){
                     </div>
                         <div class="userLoginFrames"> 
                             <label>Navn:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].userName}" oninput="model.inputs.editUser.userName = this.value">
+                            <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].userName}" onchange="model.inputs.editUser.userName = this.value">
                             <label>Brukernavn:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].userLoginName}" oninput="model.inputs.editUser.userLoginName = this.value">
+                            <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].userLoginName}" onchange="model.inputs.editUser.userLoginName = this.value">
                             <label>MobilNr:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].tlf}" oninput="model.inputs.editUser.tlf = this.value">
+                            <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].tlf}" onchange="model.inputs.editUser.tlf = this.value">
                             <label>Adresse:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].adress}" oninput="model.inputs.editUser.adress = this.value">
+                            <input ${model.inputs.editUserButton.save}  class="brukerInfo" type="text" value="${model.users[userIndex].adress}" onchange="model.inputs.editUser.adress = this.value">
                             <label>Zip Code:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].zipCode}" oninput="model.inputs.editUser.zipCode = this.value">
+                            <input ${model.inputs.editUserButton.save}  class="brukerInfo" type="text" value="${model.users[userIndex].zipCode}" onchange="model.inputs.editUser.zipCode = this.value">
                             <label>Passord:</label>
-                            <input  class="brukerInfo" type="text" value="${model.users[userIndex].userPw}" oninput="model.inputs.editUser.userPw = this.value">
+                            <input ${model.inputs.editUserButton.save}  class="brukerInfo" type="text" value="${model.users[userIndex].userPw}" onchange="model.inputs.editUser.userPw = this.value">
                             <div>
                                 <button onclick="accountHomePage()" class="mainBtns" type="submit">Tilbake</button>
-                                <button onclick="editAccount(this)" class="mainBtns" type="submit">Rediger</button>
-                                <button onclick="saveEditAccount()" class="mainBtns saveEditAccount" type="submit">Lagre</button>
+                                <button ${model.inputs.editUserButton.edit} onclick="editAccount()" class="mainBtns" type="submit" >Rediger</button>
+                                <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             `;
-            show();
         }
     }
+    show();
 }
 
 
@@ -362,56 +362,58 @@ function giveAway(){
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
     <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
-        </div>
-        <div class="backButton">
-            <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
-        </div>
+    <div class="userButtons">
+    <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+    <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
     </div>
-        <div class="mainFrame">
-            <div class="giveAwayFoodFrames">
-            <div class="foodDescriptionInputs">
+    <div class="backButton">
+    <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+    </div>
+    </div>
+    <div class="mainFrame">
+    <div class="${model.inputs.hideFFButton.giveAwayFoodFramesclass}" >
+    <button class="${model.inputs.editUserButton.hide}" onclick="hideFunction()">Skjul min Historikk</button>
+    <button class="${model.inputs.editUserButton.show}" onclick="showFunction()">Se min Historikk</button>
+            <div class="${model.inputs.hideFFButton.foodDescriptionImageclass}" >
                 <h3>Din Ad Historikk</h3>
-                <div id="foodGroupFrame">${userAdPhoto}</div>
+                ${userAdPhoto}
             </div>
                 <div class="foodDescriptionInputs">
                     <label>Tittel:</label>
-                    <input id="newAdTittel" type="text" oninput="model.inputs.newAd.title=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.newAd.title=this.value">
                     <label>Adresse:</label>
-                    <input id="newAdAdresse" type="text" oninput="model.inputs.newAd.adress=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.newAd.adress=this.value">
                     <label>PostNr:</label>
-                    <input id="newAdPostNr" type="text" oninput="model.inputs.newAd.zipCode=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.newAd.zipCode=this.value">
                     <label>Telefon:</label>
-                    <input id="newAdTlf"    type="text" oninput="model.inputs.newAd.phoneNumber=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.newAd.phoneNumber=this.value">
                     <label>Dato fra:</label>
-                    <input id="newAdCurrentDate"type="text" value="${date}" oninput="model.inputs.newAd.datePosted=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.newAd.datePosted=this.value">
                     <label>Dato Til:</label>
-                    <input id="newAdExpireDate"type="text" oninput="model.inputs.newAd.dateExpired=this.value">
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.newAd.dateExpired=this.value">
                     <br>
                         <div>
                             <label>Egg:</label>
-                            <input onclick="checkEgg()" id="checkEggs" type="checkbox"> 
+                            <input onclick="checkEgg()" type="checkbox"> 
                                                       
                             <label>Gluten:</label>
-                            <input onclick="checkGluten()" id="checkGluten" type="checkbox">
+                            <input onclick="checkGluten()"  type="checkbox">
                             
                             <label>Nøtter:</label>
-                            <input onclick="checkNøtter()" id="checkNøtter" type="checkbox">
+                            <input onclick="checkNøtter()"  type="checkbox">
                             
                             <label>Melk:</label>
-                            <input onclick="checkMelk()" id="checkMelk" type="checkbox">
+                            <input onclick="checkMelk()"  type="checkbox">
                         </div>
                         <button onclick="resetGiveAwayFoodAllergies()">Reset</button>
                         <br>
                     <label>Beskrivelse:</label>
-                    <input id="newAdBeskrivelse" class="beskrivelseInput" type="text" placeholder=""oninput=" model.inputs.newAd.details=this.value">
+                    <input class="beskrivelseInput" type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.newAd.details=this.value">
                 </div>
                
                 <div class="foodDescriptionInputs"> 
                     <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
-                    <img class="uploadPhotoFrame" id="output" onchange="model.inputs.newAd.image=this.value"/>
+                    <img class="${model.inputs.hideFFButton.uploadPhotoFrameclass}" src="${model.inputs.foodDescriptionInputs.image}"id="output" onchange="model.inputs.newAd.image=this.value"/>
                     <div>
                         <input type="checkbox" onclick="anonymUserBtn()">
                         <label  type="text">jeg vil være anonym og vil bruke "ta kontakt" funksjon</label>

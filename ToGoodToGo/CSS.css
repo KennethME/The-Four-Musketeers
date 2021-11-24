@@ -123,6 +123,29 @@ body
     justify-content: center;
     text-align: center;
 }
+.giveAwayFoodFramesA
+{
+    background-color: rgb(211, 211, 211);
+    border: 2px solid rgb(106, 168, 79);
+    border-radius: 10px;
+    height: 65vh;
+    width: 75vw;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeOut 2s, 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
 .foodDescriptionImage
 {
     display:flex;
@@ -222,8 +245,8 @@ body
 .uploadPhotoFrame
 {
     text-align: center;
-    width: 375px;
-    height: 211px;
+    width: 200px;
+    height: 150px;
     border: 1px solid rgb(106, 168, 79);
     display: flex;
     align-items: center;
@@ -231,8 +254,8 @@ body
     background-size: cover;
 }
 #output{
-    width: 300px;
-    height: 250px;
+    width: 200px;
+    height: 150px;
 }
 .brukerInfo
 {

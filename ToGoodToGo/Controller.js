@@ -17,6 +17,7 @@ function logIn()
              currentId.push(id);
              userIndex.push(id);
              console.log("Du er logget inn med BrukerID:", currentId)
+             model.inputs.login = {};
         accountHomePage();
         }
     }
@@ -59,26 +60,31 @@ function newUsers()
     console.log("Du er logget inn med BrukerID", newUserid)
     accountHomePage();
 };
-function editAccount(){
-    document.open()
+
+function editAccount()
+{
+    model.inputs.editUserButton.edit = "disabled";
+    model.inputs.editUserButton.save = "enabled";
+    accountInformationPage();
 }
 
 function saveEditAccount()
 {
-
-    delete model.users[userIndex]['userName'];
-    delete model.users[userIndex]['userLoginName'];
-    delete model.users[userIndex]['zipCode'];
-    delete model.users[userIndex]['userPw'];
-    delete model.users[userIndex]['tlf'];
-    delete model.users[userIndex]['adress'];
-   
-    model.users[userIndex].userName = model.inputs.editUser.userName;
-    model.users[userIndex].userLoginName = model.inputs.editUser.userLoginName;
-    model.users[userIndex].userPw = model.inputs.editUser.userPw;
-    model.users[userIndex].zipCode = model.inputs.editUser.zipCode;
-    model.users[userIndex].tlf = model.inputs.editUser.tlf;
-    model.users[userIndex].adress = model.inputs.editUser.adress;
+    let id = parseInt(userIndex);
+    model.users.splice(id, 1, 
+                        {
+                        id: id,
+                        userName: model.inputs.editUser.userName,
+                        userLoginName: model.inputs.editUser.userLoginName,
+                        userPw: model.inputs.editUser.userPw,    
+                        zipCode: model.inputs.editUser.zipCode,
+                        tlf: model.inputs.editUser.tlf,
+                        adress: model.inputs.editUser.adress    
+                        })
+    console.log(model.users[id])
+    model.inputs.editUserButton.edit = "enabled";
+    model.inputs.editUserButton.save = "disabled";
+    accountInformationPage();
   
 };
 
@@ -153,11 +159,41 @@ function postAd()
     model.ads.push(newAd);
     model.adsHistory.push(newAd);
     model.allergies = [];
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: ""}
+    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
     console.log(model.ads);
     accountHomePage();
     
     };
 };
+
+function userAdHistory(index){
+    model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
+
+    model.inputs.foodDescriptionInputs.title = model.adsHistory[index].title;
+    model.inputs.foodDescriptionInputs.adress = model.adsHistory[index].adress;
+    model.inputs.foodDescriptionInputs.zipCode = model.adsHistory[index].zipCode;
+    model.inputs.foodDescriptionInputs.phoneNumber = model.adsHistory[index].phoneNumber;
+    model.inputs.foodDescriptionInputs.details = model.adsHistory[index].details;
+    model.inputs.foodDescriptionInputs.image = model.adsHistory[index].image
+    giveAway()
+}
+function hideFunction()
+{
+    model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
+    model.inputs.editUserButton.hide = "isHidden"
+    model.inputs.editUserButton.show = ""
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: ""}
+    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
+    giveAway()
+}
+function showFunction()
+{
+    model.inputs.hideFFButton.foodDescriptionImageclass = "foodDescriptionImage"
+    model.inputs.editUserButton.show = "isHidden"
+    model.inputs.editUserButton.hide = ""
+    giveAway()
+}
 
 var loadFile = function(event) 
 {
@@ -295,14 +331,6 @@ function checkMelk()
 {
     model.allergies.push(3)
 };
-
-function userAdHistory(index){
-    document.getElementById("newAdTittel").value = model.ads[index].title;
-    document.getElementById("newAdAdresse").value = model.ads[index].adress;
-    document.getElementById("newAdPostNr").value = model.ads[index].zipCode;
-    document.getElementById("newAdBeskrivelse").value = model.ads[index].details;
-
-}
 
 function resetGiveAwayFoodAllergies(i){
 
