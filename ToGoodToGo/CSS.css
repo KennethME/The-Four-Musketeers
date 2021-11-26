@@ -283,3 +283,13 @@ text-align: center;
 {
     display: none;
 }
+#giveAwayAllergyCheckBoxes
+{
+display: flex;
+flex-direction: row;
+}
+.btnRow
+{
+    display: flex;
+    flex-direction: row;
+}

@@ -19,7 +19,7 @@ inputs:
     {
         id: '', 
         userLoginName: '', 
-        UserName: '', 
+        userName: '', 
         userid: '',
         title: '',
         details: '', 
@@ -30,7 +30,6 @@ inputs:
         phoneNumber: '', 
         image: '', 
         imageId: '',
-        details: '',
         allergyID:[''], 
         orderedById: [],
     },
@@ -39,7 +38,7 @@ inputs:
     {
         id: '', 
         userLoginName: '', 
-        UserName: '', 
+        userName: '', 
         userid: '',
         title: '',
         details: '', 
@@ -50,7 +49,6 @@ inputs:
         phoneNumber: '', 
         image: '', 
         imageId: '',
-        details: '',
         allergyID:[''], 
         orderedById: [],
     },
@@ -89,10 +87,25 @@ inputs:
         show: "",
     },
 
+    editAdButton: {
+        edit: "enabled",
+        save: "disabled",
+        hide: "isHidden",
+        show: "",
+    },
+    editAdInputButton: {
+        edit: "enabled",
+        save: "disabled",
+        hide: "isHidden",
+        show: "",
+    },
+
     hideFFButton: {
         giveAwayFoodFramesclass: "giveAwayFoodFrames",  //giveAwayFoodFrames
         foodDescriptionImageclass: "isHidden", //foodDescriptionImage
         uploadPhotoFrameclass: "isHidden", //uploadPhotoFrame
+        userLoginFramesclass: "userLoginFrames", //userLoginFrames
+        userLoginFramesclass2: "isHidden", //userLoginFrames
     },
 
     foodDescriptionInputs: {
@@ -103,7 +116,7 @@ inputs:
         datePosted: "",
         dateExpired: "",
         details: "",
-        image: "",
+        image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg",
     }
 
 },
@@ -172,7 +185,7 @@ inputs:
         {   
             id: 0, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'EGG Chicken',
             zipCode: '5000', 
@@ -189,7 +202,7 @@ inputs:
         {   
             id: 1, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'GLUTEN',
             zipCode: '5001', 
@@ -206,7 +219,7 @@ inputs:
         {   
             id: 2, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'NUTS',
             zipCode: '5002', 
@@ -223,7 +236,7 @@ inputs:
         {   
             id: 3, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'MILK',
             zipCode: '5003', 
@@ -240,7 +253,7 @@ inputs:
         {   
             id: 4, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -257,7 +270,7 @@ inputs:
         {   
             id: 5, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -274,7 +287,7 @@ inputs:
         {   
             id: 6, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -291,7 +304,7 @@ inputs:
         {   
             id: 7, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -308,7 +321,7 @@ inputs:
         {   
             id: 8, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -325,7 +338,7 @@ inputs:
         {   
             id: 9, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -342,7 +355,7 @@ inputs:
         {   
             id: 10, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -359,7 +372,7 @@ inputs:
         {   
             id: 11, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -376,7 +389,7 @@ inputs:
         {   
             id: 12, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -393,7 +406,7 @@ inputs:
         {   
             id: 13, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -415,7 +428,7 @@ inputs:
         {   
             id: 0, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'EGG Chicken',
             zipCode: '5000', 
@@ -432,7 +445,7 @@ inputs:
         {   
             id: 1, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'GLUTEN',
             zipCode: '5001', 
@@ -449,7 +462,7 @@ inputs:
         {   
             id: 2, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'NUTS',
             zipCode: '5002', 
@@ -466,7 +479,7 @@ inputs:
         {   
             id: 3, 
             userLoginName: 'aa', 
-            UserName: 'Geir', 
+            userName: 'Geir', 
             userid: 0,
             title: 'MILK',
             zipCode: '5003', 
@@ -483,7 +496,7 @@ inputs:
         {   
             id: 4, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -500,7 +513,7 @@ inputs:
         {   
             id: 5, 
             userLoginName: 't', 
-            UserName: 'Tomas', 
+            userName: 'Tomas', 
             userid: 3,
             title: 'Fisk',
             zipCode: '5003', 
@@ -517,7 +530,7 @@ inputs:
         {   
             id: 6, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -534,7 +547,7 @@ inputs:
         {   
             id: 7, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -551,7 +564,7 @@ inputs:
         {   
             id: 8, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -568,7 +581,7 @@ inputs:
         {   
             id: 9, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -585,7 +598,7 @@ inputs:
         {   
             id: 10, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -602,7 +615,7 @@ inputs:
         {   
             id: 11, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
             title: 'Fisk',
             zipCode: '5003', 
@@ -619,34 +632,34 @@ inputs:
         {   
             id: 12, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
-            title: 'Fisk',
+            title: 'Blaut Graut',
             zipCode: '5003', 
             adress: 'Jostein Tords Vei 11',
-            datePosted: '23-11-2021', 
-            dateExpired: '23-11-2021', 
+            datePosted: '21-11-2021', 
+            dateExpired: '27-12-2021', 
             phoneNumber: '93435423', 
             image: 'https://thebigmansworld.com/wp-content/uploads/2015/12/hot-chocolate-oatmeal2.jpg', 
             imageId: 0, 
-            details: 'Fisk', 
+            details: 'Vetsje ka dette her e', 
             allergyID:[0, 1, 2], 
             orderedById: [0],
         },
         {   
             id: 13, 
             userLoginName: 'k', 
-            UserName: 'Kenneth', 
+            userName: 'Kenneth', 
             userid: 4,
-            title: 'Fisk',
-            zipCode: '5003', 
-            adress: 'Jostein Tords Vei 11',
-            datePosted: '23-11-2021', 
+            title: 'Graut',
+            zipCode: '5033', 
+            adress: 'Jostein evens Vei 111',
+            datePosted: '21-11-2021', 
             dateExpired: '23-11-2021', 
             phoneNumber: '93435423', 
             image: 'https://i2.wp.com/simple-veganista.com/wp-content/uploads/2018/11/cinnamon-oatmeal-3.jpg', 
             imageId: 0, 
-            details: 'Fisk', 
+            details: 'Dette er den tredje grøten eg har laget idag', 
             allergyID:[0, 1, 2], 
             orderedById: [0],
         },

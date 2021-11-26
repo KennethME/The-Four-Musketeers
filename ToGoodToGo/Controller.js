@@ -53,6 +53,7 @@ function newUsers()
     })
 
     let currentId = model.app.currentUser;
+    model.inputs.newUser = {};
     userIndex.push(newUserid);
     currentId.push(newUserid);
     console.log("dette er antall brukere", model.users);
@@ -63,8 +64,19 @@ function newUsers()
 
 function editAccount()
 {
+    model.inputs.hideFFButton.userLoginFramesclass = "isHidden";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "userLoginFrames";
     model.inputs.editUserButton.edit = "disabled";
     model.inputs.editUserButton.save = "enabled";
+    accountInformationPage();
+}
+
+function cancelEditAccount()
+{
+    model.inputs.hideFFButton.userLoginFramesclass = "userLoginFrames";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "isHidden";
+    model.inputs.editUserButton.edit = "enabled";
+    model.inputs.editUserButton.save = "disabled";
     accountInformationPage();
 }
 
@@ -81,9 +93,12 @@ function saveEditAccount()
                         tlf: model.inputs.editUser.tlf,
                         adress: model.inputs.editUser.adress    
                         })
+
     console.log(model.users[id])
     model.inputs.editUserButton.edit = "enabled";
     model.inputs.editUserButton.save = "disabled";
+    model.inputs.hideFFButton.userLoginFramesclass = "userLoginFrames";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "isHidden";
     accountInformationPage();
   
 };
@@ -115,13 +130,13 @@ function postAd()
         if(anonymUs === true){
         let newAd = 
         {
-            id:anonym,
+            id: newAdId,
             userLoginName: model.users[currentId].userLoginName,
             userid: model.users[currentId].id,
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
-            image: model.inputs.newAd.image,
+            image: foodImage,
             imageId: model.inputs.newAd.imageId,
             details: model.inputs.newAd.details,
             allergyID: newAllergyID,
@@ -183,7 +198,7 @@ function hideFunction()
     model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
     model.inputs.editUserButton.hide = "isHidden"
     model.inputs.editUserButton.show = ""
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: ""}
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
     model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
     giveAway()
 }
@@ -201,30 +216,90 @@ var loadFile = function(event)
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
 
-
-function submitPostedAds(index)
+function postedAd(index)
 {
-    model.ads[index].title = model.inputs.editAd.title
-    model.ads[index].adress = model.inputs.editAd.adress
-    model.ads[index].zipCode = model.inputs.editAd.zipCode
-    model.ads[index].phoneNumber = model.inputs.editAd.phoneNumber
-    model.ads[index].datePosted = model.inputs.editAd.datePosted
-    model.ads[index].dateExpired = model.inputs.editAd.dateExpired
-    model.ads[index].details = model.inputs.editAd.details
+    model.inputs.editAd = model.ads[index];
+    model.inputs.editAdButton.save = "enabled";
+    postedAdsPage(); 
+}
+
+function editPostedAd()  
+{
+
+    model.inputs.hideFFButton.userLoginFramesclass = "isHidden";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "userLoginFrames";
+    model.inputs.editAdInputButton.save = "enabled";
+    model.inputs.editUserButton.save = "enabled";
+    postedAdsPage();
+};
+function cancelPostedAd()
+{
+    model.inputs.editAd = model.inputs.newAd;
+    model.inputs.hideFFButton.userLoginFramesclass = "userLoginFrames";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "isHidden";
+    model.inputs.editAdInputButton.save = "disabled";
+    model.inputs.editUserButton.save = "disabled";
+    model.inputs.editAdButton.save = "disabled";
+    model.inputs.editAd = model.inputs.newAd;
+    postedAdsPage();
+}
+
+function submitPostedAd(index)
+{
+    let adId = model.ads[index].id
+    console.log(adId);
+    model.ads.splice(adId, 1,{
+        id: model.ads[index].id, 
+        userLoginName: model.ads[index].userLoginName, 
+        userName: model.ads[index].userName, 
+        userid: model.ads[index].userid,
+        title: model.inputs.editAd.title,
+        details: model.inputs.editAd.details, 
+        zipCode: model.inputs.editAd.zipCode, 
+        adress: model.inputs.editAd.adress,
+        datePosted: model.inputs.editAd.datePosted, 
+        dateExpired: model.inputs.editAd.dateExpired, 
+        phoneNumber: model.inputs.editAd.phoneNumber, 
+        image: model.ads[index].image, 
+        imageId: model.ads[index].imageId,
+        allergyID:model.ads[index].allergyID, 
+        orderedById: model.ads[index].orderedById,
+    });
+
+    model.inputs.hideFFButton.userLoginFramesclass = "userLoginFrames";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "isHidden";
+    model.inputs.editAdInputButton.save = "disabled";
+    model.inputs.editUserButton.save = "disabled";
+    model.inputs.editAdButton.save = "disabled";
+    model.inputs.editAd = model.inputs.newAd;
+    console.log(model.ads[index])
+
+    postedAdsPage();
 };
 
+function deleteMyAd(index){
+
+    for (let i = 0; i < model.ads.length; i++) {
+        if(model.ads[i].id === index)
+        model.ads.splice(i, 1);
+    }
+    model.inputs.hideFFButton.userLoginFramesclass = "userLoginFrames";
+    model.inputs.hideFFButton.userLoginFramesclass2 = "isHidden";
+    model.inputs.editAdInputButton.save = "disabled";
+    model.inputs.editUserButton.save = "disabled";
+    model.inputs.editAdButton.save = "disabled";
+    model.inputs.editAd = model.inputs.newAd;
+    postedAdsPage();
+}
 
 
-function editPostedAds(index)  
+function orderedAd(index)
 {
-    delete model.ads[index]['title'];
-    delete model.ads[index]['adress'];
-    delete model.ads[index]['zipCode'];
-    delete model.ads[index]['phoneNumber'];
-    delete model.ads[index]['datePosted'];
-    delete model.ads[index]['dateExpired'];
-    delete model.ads[index]['details'];
-};
+    model.inputs.editAd = model.ads[index];
+    activeAdInformationPage();
+}
+
+
 
 let orderById = [];
 function contactAdPoster(i){
@@ -247,7 +322,6 @@ function contactAdPoster(i){
 }
 
 let removedAllergyArray = [];
-
 function resetAllergies()
 {
     for(let i = 0; i < removedAllergyArray.length; i++) 
@@ -336,12 +410,4 @@ function resetGiveAwayFoodAllergies(i){
 
     model.allergies = [];
     model.allergies.splice(i, 4,);
-    };
-    
-    
-let deleteAdsArray = [];
-
-function deleteMyAd(index){
-    model.ads.splice(model.ads[index], 1)
-    postedAdsPageAd(index);
-}
+};
