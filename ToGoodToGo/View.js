@@ -386,11 +386,11 @@ function giveAway(){
                     <label>Egg:</label>
                     <input onclick="checkEgg()" type="checkbox"> 
                     <label>Gluten:</label>
-                    <input onclick="checkGluten()"  type="checkbox">
+                    <input onclick="checkGluten()" type="checkbox">
                     <label>Nøtter:</label>
-                    <input onclick="checkNøtter()"  type="checkbox">
+                    <input onclick="checkNøtter()" type="checkbox">
                     <label>Melk:</label>
-                    <input onclick="checkMelk()"  type="checkbox">
+                    <input onclick="checkMelk()" type="checkbox">
                 </div>
             <button onclick="resetGiveAwayFoodAllergies()">Reset</button>
         </div>    

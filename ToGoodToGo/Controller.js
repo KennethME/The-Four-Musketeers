@@ -108,14 +108,21 @@ function saveEditAccount()
 let anonymUser = false; 
 function anonymUserBtn(){
     anonymUser = true;
+    
 };
 
 function postAd()
 {
-    
-     let foodImage = document.getElementById('output').src
+    let foodImage = document.getElementById('output').src
     let newAllergyID = model.allergies;
-    
+
+    model.inputs.newAd.title = model.inputs.foodDescriptionInputs.title;
+    model.inputs.newAd.adress = model.inputs.foodDescriptionInputs.adress;
+    model.inputs.newAd.zipCode = model.inputs.foodDescriptionInputs.zipCode;
+    model.inputs.newAd.phoneNumber = model.inputs.foodDescriptionInputs.phoneNumber;
+    model.inputs.newAd.datePosted = model.inputs.foodDescriptionInputs.datePosted;
+    model.inputs.newAd.dateExpired = model.inputs.foodDescriptionInputs.dateExpired;
+    model.inputs.newAd.details = model.inputs.foodDescriptionInputs.details;
     
         let currentId = model.app.currentUser;
         let anonymUs = anonymUser
@@ -158,6 +165,7 @@ function postAd()
             id: newAdId,
             userLoginName: model.users[currentId].userLoginName,
             userid: model.users[currentId].id,
+            userName: model.users[currentId].userName,
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
@@ -168,7 +176,6 @@ function postAd()
             zipCode: model.inputs.newAd.zipCode,
             adress: model.inputs.newAd.adress,
             phoneNumber: model.inputs.newAd.phoneNumber,
-            userName: model.users[currentId].userName,
             orderedById: orderId,
         }
     model.ads.push(newAd);
