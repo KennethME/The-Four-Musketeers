@@ -57,26 +57,26 @@ inputs:
     newUser: // <--- Sendes til users
     [
         {      
-            // id: '', 
-            // userName:'', 
-            // userLoginName: '', 
-            // userPw: '', 
-            // zipCode: '', 
-            // tlf: '',
-            // adress: '', 
+            id: '', 
+            userName:'', 
+            userLoginName: '', 
+            userPw: '', 
+            zipCode: '', 
+            tlf: '',
+            adress: '', 
         } 
     ],
 
     editUser: // <---- sendes til users
     [
         {
-            // id: '',
-            // userName:'', 
-            // userLoginName: '', 
-            // userPw: '', 
-            // zipCode: '', 
-            // tlf: '',
-            // adress: '', 
+            id: '',
+            userName:'', 
+            userLoginName: '', 
+            userPw: '', 
+            zipCode: '', 
+            tlf: '',
+            adress: '', 
         }
     ],
 
@@ -99,6 +99,18 @@ inputs:
         hide: "isHidden",
         show: "",
     },
+    checkedbtn:{
+        isChecked: true,
+    },
+
+    checkAllergy:{
+        egg: false,
+        gluten: false,
+        nøtter: false,
+        melk: false,
+    },
+    
+
 
     hideFFButton: {
         giveAwayFoodFramesclass: "giveAwayFoodFrames",  //giveAwayFoodFrames
@@ -106,6 +118,8 @@ inputs:
         uploadPhotoFrameclass: "isHidden", //uploadPhotoFrame
         userLoginFramesclass: "userLoginFrames", //userLoginFrames
         userLoginFramesclass2: "isHidden", //userLoginFrames
+        foodDescriptionInputsclass: "foodDescriptionBorder",
+        foodDescriptionInputsclass2: "isHidden"
     },
 
     foodDescriptionInputs: {
@@ -174,10 +188,7 @@ inputs:
 
     allergies: 
     [
-        // {id: 0, type: 'Egg'},
-        // {id: 1, type: 'Gluten'},
-        // {id: 2, type: 'Nøtter'},
-        // {id: 3, type: 'Melk'},
+        
     ],
 
     adsHistory: 

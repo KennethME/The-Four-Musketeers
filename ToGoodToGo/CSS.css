@@ -9,6 +9,8 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 3;
+
 }
 .headLine
 {
@@ -162,7 +164,7 @@ body
     border-radius: 10px;
     margin: 0px 50px 0px 50px;
 }
-.foodDescriptionInputs 
+.foodDescriptionBorder 
 {
     display:flex;
     flex-direction: column;
@@ -177,12 +179,15 @@ body
     border-radius: 10px;
     margin: 0px 100px 0px 100px;
 }
-.foodDescriptionInputs input
+.foodDescriptionInputs
 {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+
 .foodAdDescription
 {
     display:flex;
@@ -293,3 +298,25 @@ flex-direction: row;
     display: flex;
     flex-direction: row;
 }
+
+.announcements{
+    animation: MoveUpDown 1000s linear infinite;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width : 0;
+    z-index: 1;
+    display: flex start 0vh end 100px;
+    flex-direction: row;
+
+    
+}
+@keyframes MoveUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(1000vh);
+    }
+
+  }

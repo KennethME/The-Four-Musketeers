@@ -5,6 +5,36 @@ function show()
    document.getElementById('app').innerHTML = html;
 }
 
+function firstPage(){
+    html = /*html*/`    
+    <h1 class="headLine">Too Good To Go</h1>
+    <div class = 'announcements'>${announcements()}</div>
+    <div>vi kan skrive det vi vil her </div>
+    `;
+    show();
+
+}
+
+firstPage();
+
+
+function announcements(){
+    html = "";
+    for (let ad of model.ads){
+          
+            html += /*html*/`   
+
+        <div onclick= 'mainPage()'>
+        <img src = '${ad.image}' width = '300' height = '300'><br>
+        </div> `; 
+        }
+
+       return html;
+}
+
+
+// Required funker når den ligger inni en <form>
+
 function mainPage()
 {
     html = /*html*/`
@@ -32,10 +62,6 @@ function mainPage()
     `;
     show();
 }
-mainPage();
-
-// Required funker når den ligger inni en <form>
-
 
 
 function newUser(){
@@ -355,29 +381,50 @@ function giveAway(){
                 
         <!-- Onsubmit burde? ligge i <Formen for at den skal fungere>
         Funket ikke når den lå i <Button> Legg ut Annonse </button> -->
-                <form class="foodDescriptionInputs" onsubmit="postAd()">
+                <div class="${model.inputs.hideFFButton.foodDescriptionInputsclass}">
+                    <form class="foodDescriptionInputs" onsubmit="postAd()">
                     <label>Tittel:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" onsubmit="model.inputs.newAd.title=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.newAd.title = this.value" required />
                     <label>Adresse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" onsubmit="model.inputs.newAd.adress=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.newAd.adress = this.value" required />
                     <label>PostNr:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" onsubmit="model.inputs.newAd.zipCode=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.newAd.zipCode = this.value" required />
                     <label>Telefon:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" onsubmit="model.inputs.newAd.phoneNumber=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.newAd.phoneNumber = this.value" required />
                     <label>Dato fra:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" onsubmit="model.inputs.newAd.datePosted=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.newAd.datePosted = this.value" required />
                     <label>Dato Til:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" onsubmit="model.inputs.newAd.dateExpired=this.value" required />
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
                     <label>Beskrivelse:</label>
                     <input class="beskrivelseInput" type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.newAd.details=this.value">
                     <button type="submit">legg ut annonse</button>
-                </form>
+                    </form>
+                </div>
+                <div class="${model.inputs.hideFFButton.foodDescriptionInputsclass2}" >
+                    <form class="foodDescriptionInputs" onsubmit="postHistoryAd()">
+                    <label>Tittel:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
+                    <label>Adresse:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.foodDescriptionInputs.adress = this.value" required />
+                    <label>PostNr:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.foodDescriptionInputs.zipCode = this.value" required />
+                    <label>Telefon:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.foodDescriptionInputs.phoneNumber = this.value" required />
+                    <label>Dato fra:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.foodDescriptionInputs.datePosted = this.value" required />
+                    <label>Dato Til:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
+                    <label>Beskrivelse:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value">
+                    <button type="submit">legg ut annonse</button>
+                    </form>
+                </div>
    
-                <div class="foodDescriptionInputs"> 
+                <div class="foodDescriptionBorder"> 
                     <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.newAd.image=this.value"/>
                     <div id="giveAwayFoodAnonymUser">
-                        <input type="checkbox" onclick="anonymUserBtn()">
+                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox" onclick="anonymUserBtn()">
                         <label  type="text">jeg vil være anonym og vil bruke "ta kontakt" funksjon</label>
                     </div>      
                     <br>
@@ -392,13 +439,15 @@ function giveAway(){
                     <label>Melk:</label>
                     <input onclick="checkMelk()" type="checkbox">
                 </div>
-            <button onclick="resetGiveAwayFoodAllergies()">Reset</button>
+           
         </div>    
     </div>
 </div>
     `;
     show();
 }
+
+
 function postedAdsPage(){
     let userAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
@@ -426,7 +475,7 @@ function postedAdsPage(){
             <div id="foodGroupFrame">${userAdPhoto}</div>
 
             </div>
-            <div class="foodDescriptionInputs">
+            <div class="foodDescriptionBorder">
             <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                                 <label>Tittel:</label>
                                 <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
@@ -495,21 +544,23 @@ function activeAdInformationPage(){
             <div class="foodDescriptionImage">
             <div id="foodGroupFrame">${activeAdPhoto}</div>
             </div>
-            <div class="foodDescriptionInputs">
-            <label>Tittel:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
-            <label>Adresse:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
-            <label>PostNr:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
-            <label>Telefon:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
-            <label>Dato fra:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
-            <label>Dato Til:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
-            <label>Beskrivelse:</label>
-            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
+            <div class="foodDescriptionBorder">
+                <div class="foodDescriptionInputs">
+                    <label>Tittel:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
+                    <label>Adresse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
+                    <label>PostNr:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
+                    <label>Telefon:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
+                    <label>Dato fra:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
+                    <label>Dato Til:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
+                    <label>Beskrivelse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
+                <div>
             </div>
         </div>
     </div> 

@@ -38,7 +38,7 @@ function newUsers()
 {
     model.users.forEach((item, i) => 
     {
-        
+
         newUserid = i + 1;
     });
 
@@ -61,7 +61,6 @@ function newUsers()
     console.log("Du er logget inn med BrukerID", newUserid)
     accountHomePage();
 };
-
 function editAccount()
 {
     model.inputs.hideFFButton.userLoginFramesclass = "isHidden";
@@ -107,22 +106,30 @@ function saveEditAccount()
 
 let anonymUser = false; 
 function anonymUserBtn(){
-    anonymUser = true;
-    
+    if (anonymUser === false){
+        anonymUser = true;
+    } else {anonymUser = false}
+
+ 
 };
+
 
 function postAd()
 {
     let foodImage = document.getElementById('output').src
     let newAllergyID = model.allergies;
-
-    model.inputs.newAd.title = model.inputs.foodDescriptionInputs.title;
-    model.inputs.newAd.adress = model.inputs.foodDescriptionInputs.adress;
-    model.inputs.newAd.zipCode = model.inputs.foodDescriptionInputs.zipCode;
-    model.inputs.newAd.phoneNumber = model.inputs.foodDescriptionInputs.phoneNumber;
-    model.inputs.newAd.datePosted = model.inputs.foodDescriptionInputs.datePosted;
-    model.inputs.newAd.dateExpired = model.inputs.foodDescriptionInputs.dateExpired;
-    model.inputs.newAd.details = model.inputs.foodDescriptionInputs.details;
+    if(model.inputs.checkAllergy.egg === true){
+        model.allergies.push(0);
+    }
+    if(model.inputs.checkAllergy.gluten === true){
+        model.allergies.push(1);
+    }
+    if(model.inputs.checkAllergy.nøtter === true){
+        model.allergies.push(2);
+    }
+    if(model.inputs.checkAllergy.melk === true){
+        model.allergies.push(3);
+    }
     
         let currentId = model.app.currentUser;
         let anonymUs = anonymUser
@@ -178,10 +185,15 @@ function postAd()
             phoneNumber: model.inputs.newAd.phoneNumber,
             orderedById: orderId,
         }
+    model.inputs.checkAllergy.egg = false;
+    model.inputs.checkAllergy.gluten = false;
+    model.inputs.checkAllergy.nøtter = false;
+    model.inputs.checkAllergy.melk = false;
     model.ads.push(newAd);
     model.adsHistory.push(newAd);
     model.allergies = [];
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: ""}
+    model.inputs.newAd = {};
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
     model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
     console.log(model.ads);
     accountHomePage();
@@ -189,15 +201,103 @@ function postAd()
     };
 };
 
+function postHistoryAd(){
+    let foodImage = document.getElementById('output').src
+    let newAllergyID = model.allergies;
+    if(model.inputs.checkAllergy.egg === true){
+        model.allergies.push(0);
+    }
+    if(model.inputs.checkAllergy.gluten === true){
+        model.allergies.push(1);
+    }
+    if(model.inputs.checkAllergy.nøtter === true){
+        model.allergies.push(2);
+    }
+    if(model.inputs.checkAllergy.melk === true){
+        model.allergies.push(3);
+    }
+        let currentId = model.app.currentUser;
+        let anonymUs = anonymUser
+        let anonym = "Anonym"
+        let orderId = [];
+        model.ads.forEach((item, i) => 
+        {
+
+            newAdId = i + 1;
+        });
+    
+        if(anonymUs === true){
+        let newAd = 
+        {
+            id: newAdId,
+            userLoginName: model.users[currentId].userLoginName,
+            userid: model.users[currentId].id,
+            title: model.inputs.foodDescriptionInputs.title,
+            datePosted: model.inputs.foodDescriptionInputs.datePosted,
+            dateExpired: model.inputs.foodDescriptionInputs.dateExpired,
+            image: foodImage,
+            imageId: model.inputs.newAd.imageId,
+            details: model.inputs.foodDescriptionInputs.details,
+            allergyID: newAllergyID,
+            zipCode: model.inputs.foodDescriptionInputs.zipCode,
+            adress: anonym, // <-------- Anonym Verdi
+            userName: anonym, // <-------- Anonym Verdi
+            phoneNumber: anonym,// <-------- Anonym Verdi
+            orderedById: orderId,
+          };
+          model.ads.push(newAd);
+          model.allergies = [];
+          console.log(model.ads);
+          accountHomePage();
+        }
+        else if (anonymUs === false){
+        let  newAd =  // ikke annonym
+        {
+          
+            id: newAdId,
+            userLoginName: model.users[currentId].userLoginName,
+            userid: model.users[currentId].id,
+            userName: model.users[currentId].userName,
+            title: model.inputs.foodDescriptionInputs.title,
+            datePosted: model.inputs.foodDescriptionInputs.datePosted,
+            dateExpired: model.inputs.foodDescriptionInputs.dateExpired,
+            image: foodImage,
+            imageId: newAdId,
+            details: model.inputs.foodDescriptionInputs.details,
+            allergyID: newAllergyID,
+            zipCode: model.inputs.foodDescriptionInputs.zipCode,
+            adress: model.inputs.foodDescriptionInputs.adress,
+            phoneNumber: model.inputs.foodDescriptionInputs.phoneNumber,
+            orderedById: orderId,
+        }
+    model.inputs.checkAllergy.egg = false;
+    model.inputs.checkAllergy.gluten = false;
+    model.inputs.checkAllergy.nøtter = false;
+    model.inputs.checkAllergy.melk = false;
+    model.ads.push(newAd);
+    model.adsHistory.push(newAd);
+    model.allergies = [];
+    model.inputs.newAd = {};
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
+    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
+    model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
+    model.inputs.editUserButton.hide = "isHidden"
+    model.inputs.editUserButton.show = ""
+    console.log(model.ads);
+    accountHomePage();
+    }
+}
 function userAdHistory(index){
     model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
+    model.inputs.hideFFButton.foodDescriptionInputsclass = "isHidden";
+    model.inputs.hideFFButton.foodDescriptionInputsclass2 = "foodDescriptionBorder"
 
     model.inputs.foodDescriptionInputs.title = model.adsHistory[index].title;
     model.inputs.foodDescriptionInputs.adress = model.adsHistory[index].adress;
     model.inputs.foodDescriptionInputs.zipCode = model.adsHistory[index].zipCode;
     model.inputs.foodDescriptionInputs.phoneNumber = model.adsHistory[index].phoneNumber;
     model.inputs.foodDescriptionInputs.details = model.adsHistory[index].details;
-    model.inputs.foodDescriptionInputs.image = model.adsHistory[index].image
+    model.inputs.foodDescriptionInputs.image = model.adsHistory[index].image;
     giveAway()
 }
 function hideFunction()
@@ -376,6 +476,7 @@ function removeNøtterAllergies(){
         }
     }
     foodPage();
+
     };
 
 function removeMelkAllergies(){
@@ -388,29 +489,42 @@ function removeMelkAllergies(){
         }
     }
     foodPage();
-    };
-    
-function checkEgg()
-{
-
-    model.allergies.push(0)
-    
 };
+
+
+function checkEgg(){
+    if(model.inputs.checkAllergy.egg === false){
+        model.inputs.checkAllergy.egg = true;
+    }
+    else{model.inputs.checkAllergy.egg = false}
+
+};
+
 
 function checkGluten() 
 {
-    model.allergies.push(1)
+    if(model.inputs.checkAllergy.gluten === false){
+        model.inputs.checkAllergy.gluten = true;
+    }
+    else{model.inputs.checkAllergy.gluten = false}
+
 };
 
 function checkNøtter()
 {
-    model.allergies.push(2)
+    if(model.inputs.checkAllergy.nøtter === false){
+        model.inputs.checkAllergy.nøtter = true;
+    }
+    else{model.inputs.checkAllergy.nøtter = false}
 
 };
 
 function checkMelk()
 {
-    model.allergies.push(3)
+    if(model.inputs.checkAllergy.melk === false){
+        model.inputs.checkAllergy.melk = true;
+    }
+    else{model.inputs.checkAllergy.melk = false}
 };
 
 function resetGiveAwayFoodAllergies(i){
