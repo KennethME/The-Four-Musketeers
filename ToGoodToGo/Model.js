@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [0],   
+        currentUser: [],   
 },
 
 // Inputs 
@@ -135,16 +135,23 @@ inputs:
 
     giveAway: {
         historyAdInput: "isHidden",
+        historyAdImages: "isHidden",
         newAdInput: "isHidden",
         newAdInputBtn: "",
         uploadImage: "isHidden",
+        uploadImagebtn: "isHidden",
         uploadAllergy: "isHidden",
+        uploadAllergybtn: "isHidden",
         uploadAnonymous: "isHidden",
+        uploadHistoryAnonymous: "isHidden",
         inputButtons: "",
         disabled: "",
         photoPreview: "isHidden",
         prewView: "giveAwayDescriptionBorder",
         prewViewBtn: "isHidden",
+        historyPrewViewBtn: "isHidden",
+        HistoryUploadImage: "isHidden",
+        uploadAnonymous: "isHidden",
         
     },
 

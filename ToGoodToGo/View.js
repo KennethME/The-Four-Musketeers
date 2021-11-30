@@ -40,14 +40,15 @@ function giveAway(){
     for (let i = 0; i < model.adsHistory.length; i++){
         if(model.adsHistory[i].userid == model.app.currentUser)
         userAdPhoto += /*html*/`
-        <img onclick="userAdHistory(${i})" src="${model.adsHistory[i].image}" class="foodGroupPhotoFrame">`;
+        <img onclick="userAdHistory(${i})" src="${model.adsHistory[i].image}" class="foodGroupPhotoFrame">
+        `;
     }
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
-            <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> 
+            <button onclick="accountInformationPage()" class="mainBtns">Bruker informasjon</button> 
             <br>
             <button onclick="logOut()" class="logge ut mainbtns">Logg ut</button>
         </div>
@@ -62,7 +63,7 @@ function giveAway(){
             <button onclick="historyAdInputs()">Legg ut fra min Historikk</button>
         </div>            
     </div>
-    <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdInput}">
+    <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdImages}">
         <h3>Din Ad Historikk</h3>
         <div class="giveAwayHistoryImage">
             ${userAdPhoto}
@@ -110,14 +111,16 @@ function giveAway(){
                     <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
                     <label>Beskrivelse:</label>
                     <input type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value"/>
-                    <button class="isHidden" type="submit">legg ut annonse</button>
+                    <button class="${model.inputs.giveAway.historyPrewViewBtn}" type="submit">legg ut annonse</button>
                     </form>
+                    <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInput}">Til Bilder</button>
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.newAd.image=this.value"/>  
-                    <button onclick="toAllergyUpload()" id="${model.inputs.giveAway.uploadImage}">Til Allergi</button>
+                    <button onclick="toAllergyUpload()" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
+                    <button onclick="toHistoryAllergyUpload()" id="${model.inputs.giveAway.HistoryUploadImagebtn}">Til Allergi</button>
                     <br>
                     <br>
                 </div>
@@ -138,7 +141,8 @@ function giveAway(){
                         <label>Ingen allergier</label>
                         <input type="checkbox"/> 
                     </div>
-                    <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergy}">Til Personvern</button>
+                    <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}">Til Personvern</button>
+                    <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergy}">Til Personvern</button>
                 </div>    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAnonymous}"> 
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
@@ -157,69 +161,13 @@ function giveAway(){
                     <br>
                     <div>
                         <button onclick="newAdPreview()">Forhåndsvisning</button>
+                        <button id="${model.inputs.giveAway.uploadHistoryAnonymous}" onclick="historyAdPreview()">Forhåndsvisning</button>
                     </div> 
                 </div>
         </div>
     </div>`;
 show();
 }
-giveAway()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -231,39 +179,38 @@ function mainPage()
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
 
-    <div class="mainPageFrame">
         <div class="frames">
         
             <div class="newUserBorder">
-                <p>Ny til "To Good To Go?"</p>
+                <p>Ny til 2 Good 2 Go™?</p>
                 <p>Lag en bruker</p>
                 <button onclick="newUser()" class="mainBtns" type="submit">Klikk her</button>
             </div>
             <form class="userLoginFrames"> 
                 <label>Brukernavn:</label>
-                <input type="text" placeholder= "navn"  oninput="model.inputs.login.userName=this.value" required>
+                <input type="text" placeholder= "username"  oninput="model.inputs.login.userName=this.value" required>
     
                 <label>Passord:</label>
-                <input type="password" oninput="model.inputs.login.password=this.value" required>
+                <input type="password" placeholder="******" oninput="model.inputs.login.password=this.value" required>
                 <button onclick="logIn()" class="mainBtns" id="enterBtn" type="submit">Login</button>
             </form>
         </div>
-    </div>
     `;
     show();
 }
+mainPage()
 
 function newUser(){
     html = /*html*/`
+    
+   
     <h1 class="headLine">Too Good To Go</h1>
-
-    <div class="newUserPageFrame">
         <div class="frames">
 
             <div id="newUserInfo">
-                <h1>Lag en bruker</h1>
+                <h1>L</h1>
             </div>
-
+            
                 <div class="userLoginFrames"> 
                     <label>Navn:</label>
                     <input type="text" placeholder= "Navn" oninput="model.inputs.newUser.userName=this.value">
@@ -281,17 +228,17 @@ function newUser(){
                     <input type="text" placeholder= "Zip Code"oninput="model.inputs.newUser.zipCode=this.value">
     
                     <label>Passord:</label>
-                    <input type="text" placeholder= "*****" oninput="model.inputs.newUser.userPw=this.value">
+                    <input type="text" placeholder="*****" oninput="model.inputs.newUser.userPw=this.value">
         
                     <button onclick="mainPage()" class="mainBtns" type="submit">Avbryt</button>
-                    <button onclick="newUsers()"class="mainBtns" type="submit">Opprett Bruker</button>
+                    <button onclick="newUsers()" class="mainBtns" type="submit">Opprett Bruker</button>
                 </div>
         </div>
-    </div>
+   
     `;
 show();
 }
-
+// width
 function accountHomePage(){
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
@@ -300,28 +247,34 @@ function accountHomePage(){
         <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
         <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
     </div>
+    
     <div class="accountPageFrame">
         <div class="miniFrames">
             <div onclick= "giveAway()">
                 <h3 class ="titleUserPage">Gi ut mat<h3>
+                <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons"width="auto">
             </div>
         </div>
         <div class="miniFrames">
             <div onclick="postedAdsPage()" >
                 <h3 class ="titleUserPage">Dine utlagte annonser<h3>
+                <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
             </div>
         </div>
         <div class="miniFrames">
             <div onclick="foodPage()" >
                 <h3 class ="titleUserPage">Finn mat<h3>
+                <img src="https://img.icons8.com/color/240/000000/hamburger.png" class="icons" width="auto">
             </div>
         </div>
         <div class="miniFrames">
             <div onclick="activeAdInformationPage()">
                 <h3 class ="titleUserPage">Dine aktive bestilinger<h3>
+                <img src="https://img.icons8.com/color/100/000000/prepositions-in.png" class="icons" width="auto">
             </div>
         </div>
     </div>
+  
     `;
     show(); 
 };
@@ -399,10 +352,10 @@ function showMyActiveAds(){
         <div class="userButtons">
             <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> 
             <br>
-            <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
+            <button onclick="logOut()" class= "mainbtns">Logg ut</button>
         </div>
         <div class="backButton">
-            <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+            <button onclick="accountHomePage()" class= "mainbtns">X</button>
         </div>
     </div>
     <div class="mainFrame">
@@ -574,7 +527,7 @@ function postedAdsPage(){
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
                     <label>Adresse:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
-                     <label>PostNr:</label>
+                    <label>PostNr:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
                     <label>Telefon:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">

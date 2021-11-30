@@ -291,6 +291,7 @@ function userAdHistory(index){
     model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
     model.inputs.hideFFButton.foodDescriptionInputsclass = "isHidden";
     model.inputs.hideFFButton.foodDescriptionInputsclass2 = "foodDescriptionBorder"
+    model.inputs.giveAway.historyAdInput = "";
 
     model.inputs.foodDescriptionInputs.title = model.adsHistory[index].title;
     model.inputs.foodDescriptionInputs.adress = model.adsHistory[index].adress;
@@ -309,21 +310,44 @@ function newAdinputs()
 }
 function historyAdInputs()
 {
-    model.inputs.giveAway.historyAdInput = "";
+    model.inputs.giveAway.historyAdImages = "";
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.inputButtons = "isHidden";
     giveAway();
+}
+function toUploadHistoryImage()
+{
+    model.inputs.giveAway.historyAdInput = "isHidden"
+    model.inputs.giveAway.HistoryUploadImagebtn = "";
+    model.inputs.giveAway.uploadImage = "";
+    giveAway()
+}
+function toHistoryAllergyUpload()
+{
+    model.inputs.giveAway.uploadImage = "isHidden";
+    model.inputs.giveAway.uploadAllergy = "";
+    model.inputs.giveAway.uploadHistoryAllergybtn = "";
+    giveAway()
+}
+function toHistoryAnonymousUpload()
+{
+    model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
+    model.inputs.giveAway.uploadAnonymous = "";
+    giveAway()
 }
 function toUploadImage()
 {
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.uploadImage = "";
+    model.inputs.giveAway.uploadImagebtn = "";
     giveAway()
 }
+
 function toAllergyUpload()
 {
     model.inputs.giveAway.uploadImage = "isHidden";
     model.inputs.giveAway.uploadAllergy = "";
+    model.inputs.giveAway.uploadAllergybtn = "";
     giveAway()
 }
 function toAnonymousUpload()
