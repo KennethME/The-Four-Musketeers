@@ -130,7 +130,7 @@ inputs:
         userLoginFramesclass: "userLoginFrames", //userLoginFrames
         userLoginFramesclass2: "isHidden", //userLoginFrames
         foodDescriptionInputsclass: "foodDescriptionBorder",
-        foodDescriptionInputsclass2: "isHidden"
+        foodDescriptionInputsclass2: "isHidden",
     },
 
     giveAway: {
@@ -147,8 +147,7 @@ inputs:
         prewView: "giveAwayDescriptionBorder",
         prewViewBtn: "isHidden",
         
-    }
-
+    },
 
 },
     //Felles data

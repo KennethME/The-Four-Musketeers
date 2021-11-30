@@ -56,9 +56,6 @@ function giveAway(){
                 <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
             </div>
     <div class="giveAwayMain">
-        <button class="${model.inputs.editUserButton.hide}" onclick="hideFunction()">Skjul min Historikk</button>
-        <button class="${model.inputs.editUserButton.show}" onclick="showFunction()">Se min Historikk</button>
-
     <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.inputButtons}">
         <div class="giveAwayAdChoise">
             <button onclick="newAdinputs()">Legg ut noe nytt</button>

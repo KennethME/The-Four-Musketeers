@@ -344,24 +344,6 @@ function newAdPreview()
     giveAway()
 
 }
-function hideFunction()
-{
-    model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
-    model.inputs.editUserButton.hide = "isHidden"
-    model.inputs.editUserButton.show = ""
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "", details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
-    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
-    giveAway();
-}
-function showFunction()
-{
-    model.inputs.hideFFButton.foodDescriptionImageclass = "foodDescriptionImage"
-    model.inputs.editUserButton.show = "isHidden"
-    model.inputs.editUserButton.hide = ""
-    
-    giveAway();
-}
-
 var loadFile = function(event) 
 {
 	var image = document.getElementById('output');
