@@ -143,7 +143,6 @@ inputs:
         inputButtons: "",
         disabled: "",
         photoPreview: "isHidden",
-
         prewView: "giveAwayDescriptionBorder",
         prewViewBtn: "isHidden",
         
