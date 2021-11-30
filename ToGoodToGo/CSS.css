@@ -10,8 +10,183 @@ body
     justify-content: center;
     align-items: center;
     z-index: 3;
-
 }
+:root
+{
+    --MainBackgroudColor: white;
+    --MainBorder: 2px solid white;
+    --FontFamily: arial;
+    --FontSize: 15px;
+    --FontColor: white;
+    --BtnColor:white;
+}
+/* GiveAwayFood */
+/* Color variabler *//* var(--colorName) */
+
+
+.giveAwayMain
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items:center;
+    height: auto;
+    width: 80vw;
+}
+.giveAwayDescriptionBorder
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40vh;
+    width: 30%; 
+    border: 2px solid rgb(106, 168, 79);
+    border-radius: 10px;
+    margin: 0px 100px 50px 100px;
+ 
+}
+.giveAwayDescriptionPreView
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40vh;
+    width: 70%; 
+    border: 2px solid rgb(106, 168, 79);
+    border-radius: 10px;
+    margin: 0px 100px 50px 100px;
+ 
+}
+.giveAwayDescriptionImage
+{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-y: scroll;
+    visibility: visible;
+    height: 80%;
+    width: 100%;
+    border: 2px solid rgb(106, 168, 79);
+    border-radius: 10px;
+    margin: 0px 50px 0px 50px;
+}
+.giveAwayDescriptionInputs, .giveAwayDescriptionInputs input
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.giveAwayAdChoise
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.giveAwayHistoryImageBorder
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-x: scroll;
+    height: 40vh;
+    width: 70%; 
+    border: 2px solid rgb(106, 168, 79);
+    border-radius: 10px;
+    margin: 0px 100px 50px 100px;
+}
+.giveAwayHistoryImage
+{
+    display: flex;
+    flex-direction: row;
+}
+/*variabler {
+    --accent-color: #fcd75f;
+    --background-color: #333;
+    --text-color: rgb(214, 205, 205);
+    transition: var(--transition-delay);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }*/
+
+  /* @-webkit-keyframes */
+  
+  /*small diveices*/
+  @media only screen and (max-width: 375px){   
+   .giveAwayFoodFrames {
+       width: auto;
+   }
+   .giveAwayFoodFramesA{
+       width: auto;
+   }
+   .foodDescriptionBorder{
+       width: 100%;
+   }
+   .mainFrame{
+       width: auto;
+       height: 100%;
+   }
+
+   .giveAwayMain{
+    width: auto;
+   }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .headLine
 {
     display: flex;
@@ -288,6 +463,14 @@ text-align: center;
 {
     display: none;
 }
+#isHidden
+{
+    display: none;
+}
+#isInvisible
+{
+    visibility: hidden;
+}
 #giveAwayAllergyCheckBoxes
 {
 display: flex;
@@ -319,4 +502,82 @@ flex-direction: row;
       transform: translateY(1000vh);
     }
 
+  }
+
+
+
+
+
+
+
+  /***************************
+  her er det noe for chat box 
+  ***************************/
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
   }

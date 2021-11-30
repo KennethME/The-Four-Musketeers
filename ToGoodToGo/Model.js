@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [],   
+        currentUser: [0],   
 },
 
 // Inputs 
@@ -104,12 +104,23 @@ inputs:
     },
 
     checkAllergy:{
-        egg: false,
+        egg: false, 
         gluten: false,
         nøtter: false,
         melk: false,
     },
-    
+
+    foodDescriptionInputs: {
+        title: "",
+        adress: "",
+        zipCode: "",
+        phoneNumber: "",
+        datePosted: "",
+        dateExpired: "",
+        details: "",
+        image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg",
+    },
+        
 
 
     hideFFButton: {
@@ -122,16 +133,22 @@ inputs:
         foodDescriptionInputsclass2: "isHidden"
     },
 
-    foodDescriptionInputs: {
-        title: "",
-        adress: "",
-        zipCode: "",
-        phoneNumber: "",
-        datePosted: "",
-        dateExpired: "",
-        details: "",
-        image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg",
+    giveAway: {
+        historyAdInput: "isHidden",
+        newAdInput: "isHidden",
+        newAdInputBtn: "",
+        uploadImage: "isHidden",
+        uploadAllergy: "isHidden",
+        uploadAnonymous: "isHidden",
+        inputButtons: "",
+        disabled: "",
+        photoPreview: "isHidden",
+
+        prewView: "giveAwayDescriptionBorder",
+        prewViewBtn: "isHidden",
+        
     }
+
 
 },
     //Felles data

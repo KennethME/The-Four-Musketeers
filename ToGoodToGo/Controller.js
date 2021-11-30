@@ -300,27 +300,73 @@ function userAdHistory(index){
     model.inputs.foodDescriptionInputs.image = model.adsHistory[index].image;
     giveAway()
 }
+function newAdinputs()
+{
+    model.inputs.giveAway.newAdInput = "";
+    model.inputs.giveAway.historyAdInput = "isHidden";
+    model.inputs.giveAway.inputButtons = "isHidden";
+    giveAway();
+}
+function historyAdInputs()
+{
+    model.inputs.giveAway.historyAdInput = "";
+    model.inputs.giveAway.newAdInput = "isHidden";
+    model.inputs.giveAway.inputButtons = "isHidden";
+    giveAway();
+}
+function toUploadImage()
+{
+    model.inputs.giveAway.newAdInput = "isHidden";
+    model.inputs.giveAway.uploadImage = "";
+    giveAway()
+}
+function toAllergyUpload()
+{
+    model.inputs.giveAway.uploadImage = "isHidden";
+    model.inputs.giveAway.uploadAllergy = "";
+    giveAway()
+}
+function toAnonymousUpload()
+{
+    model.inputs.giveAway.uploadAllergy = "isHidden";
+    model.inputs.giveAway.uploadAnonymous = "";
+    giveAway()
+}
+function newAdPreview()
+{
+    model.inputs.giveAway.uploadAnonymous = "isHidden";
+    model.inputs.giveAway.newAdInput = "";
+    model.inputs.giveAway.disabled = "disabled";
+    model.inputs.giveAway.photoPreview = "";
+    model.inputs.giveAway.prewView = "giveAwayDescriptionPreView";
+    model.inputs.giveAway.newAdInputBtn = "isHidden";
+    model.inputs.giveAway.prewViewBtn = "";
+    giveAway()
+
+}
 function hideFunction()
 {
     model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
     model.inputs.editUserButton.hide = "isHidden"
     model.inputs.editUserButton.show = ""
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "", details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
     model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
-    giveAway()
+    giveAway();
 }
 function showFunction()
 {
     model.inputs.hideFFButton.foodDescriptionImageclass = "foodDescriptionImage"
     model.inputs.editUserButton.show = "isHidden"
     model.inputs.editUserButton.hide = ""
-    giveAway()
+    
+    giveAway();
 }
 
 var loadFile = function(event) 
 {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
+    model.inputs.newAd.image = image.src;
 };
 
 function postedAd(index)
@@ -413,11 +459,11 @@ function contactAdPoster(i){
     orderById = parseInt(model.app.currentUser);
     if(orderById == model.ads[i].userid){  
         alert("du kan ikke bestille din egen vare")
-        foodPage()
+        foodPage();
     }
     else if(model.ads[i].orderedById.includes(orderById)){
         alert("du har trykket bestill")
-        foodPage()
+        foodPage();
     }
     else
     {

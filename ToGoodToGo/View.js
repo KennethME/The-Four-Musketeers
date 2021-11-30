@@ -1,7 +1,6 @@
 let html = '';
 show();
-function show()
-{
+function show(){
    document.getElementById('app').innerHTML = html;
 }
 
@@ -12,25 +11,220 @@ function firstPage(){
     <div>vi kan skrive det vi vil her </div>
     `;
     show();
-
 }
-
-firstPage();
-
+// firstPage();
 
 function announcements(){
     html = "";
     for (let ad of model.ads){
-          
             html += /*html*/`   
-
         <div onclick= 'mainPage()'>
         <img src = '${ad.image}' width = '300' height = '300'><br>
         </div> `; 
         }
-
        return html;
 }
+
+
+
+// DENNE JOBBER VI MED NÅ
+// DENNE JOBBER VI MED NÅ
+// DENNE JOBBER VI MED NÅ
+// DENNE JOBBER VI MED NÅ
+
+
+
+
+function giveAway(){
+    let userAdPhoto = '';
+    for (let i = 0; i < model.adsHistory.length; i++){
+        if(model.adsHistory[i].userid == model.app.currentUser)
+        userAdPhoto += /*html*/`
+        <img onclick="userAdHistory(${i})" src="${model.adsHistory[i].image}" class="foodGroupPhotoFrame">`;
+    }
+    html = /*html*/`
+    <h1 class="headLine">Too Good To Go</h1>
+
+    <div class="overHeadButtons">
+        <div class="userButtons">
+            <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> 
+            <br>
+            <button onclick="logOut()" class="logge ut mainbtns">Logg ut</button>
+        </div>
+    </div>
+            <div class="backButton">
+                <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+            </div>
+    <div class="giveAwayMain">
+        <button class="${model.inputs.editUserButton.hide}" onclick="hideFunction()">Skjul min Historikk</button>
+        <button class="${model.inputs.editUserButton.show}" onclick="showFunction()">Se min Historikk</button>
+
+    <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.inputButtons}">
+        <div class="giveAwayAdChoise">
+            <button onclick="newAdinputs()">Legg ut noe nytt</button>
+            <button onclick="historyAdInputs()">Legg ut fra min Historikk</button>
+        </div>            
+    </div>
+    <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdInput}">
+        <h3>Din Ad Historikk</h3>
+        <div class="giveAwayHistoryImage">
+            ${userAdPhoto}
+        </div>
+    </div>
+        <!-- Onsubmit burde? ligge i <Formen for at den skal fungere>
+        Funket ikke når den lå i <Button> Legg ut Annonse </button> -->
+                <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
+                        <h3>Dette er helt nye Ads</h3>
+                        <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
+                            <label>Tittel:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
+                            <label>Adresse:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.adress}" oninput="model.inputs.newAd.adress = this.value" required />
+                            <label>PostNr:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.zipCode}" oninput="model.inputs.newAd.zipCode = this.value" required />
+                            <label>Telefon:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.phoneNumber}" oninput="model.inputs.newAd.phoneNumber = this.value" required />
+                            <label>Dato fra:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.datePosted}" oninput="model.inputs.newAd.datePosted = this.value" required />
+                            <label>Dato Til:</label>
+                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
+                            <label>Beskrivelse:</label>
+                            <input ${model.inputs.giveAway.disabled} class="beskrivelseInput" type="text" value="${model.inputs.newAd.details}" oninput="model.inputs.newAd.details=this.value">
+                            <button class="${model.inputs.giveAway.prewViewBtn}" type="submit">legg ut annonse</button>
+                        </form>
+                        <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
+                    <img class="uploadPhotoFrame" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}" id="output"/>
+                </div>
+
+                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.historyAdInput}">
+                    <h3>Dette er Historikk Ads</h3>
+                    <form class="giveAwayDescriptionInputs" onsubmit="postHistoryAd()">
+                    <label>Tittel:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
+                    <label>Adresse:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.foodDescriptionInputs.adress = this.value" required />
+                    <label>PostNr:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.foodDescriptionInputs.zipCode = this.value" required />
+                    <label>Telefon:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.foodDescriptionInputs.phoneNumber = this.value" required />
+                    <label>Dato fra:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.foodDescriptionInputs.datePosted = this.value" required />
+                    <label>Dato Til:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
+                    <label>Beskrivelse:</label>
+                    <input type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value"/>
+                    <button class="isHidden" type="submit">legg ut annonse</button>
+                    </form>
+                </div>
+   
+                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
+                    <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
+                    <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.newAd.image=this.value"/>  
+                    <button onclick="toAllergyUpload()" id="${model.inputs.giveAway.uploadImage}">Til Allergi</button>
+                    <br>
+                    <br>
+                </div>
+                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAllergy}"> 
+                    <h4>Har denne retten noen allergier?</h4>
+                    <div id="giveAwayAllergyCheckBoxes">
+                        <label>Egg:</label>
+                        <input onclick="checkEgg()" type="checkbox"/> 
+                        <label>Gluten:</label>
+                        <input onclick="checkGluten()" type="checkbox"/>
+                        <label>Nøtter:</label>
+                        <input onclick="checkNøtter()" type="checkbox"/>
+                        <label>Melk:</label>
+                        <input onclick="checkMelk()" type="checkbox"/>
+                    </div>
+                    <br>
+                    <div id="giveAwayAllergyCheckBoxes">
+                        <label>Ingen allergier</label>
+                        <input type="checkbox"/> 
+                    </div>
+                    <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergy}">Til Personvern</button>
+                </div>    
+                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAnonymous}"> 
+                    <h4>Godkjenner du at informasjonen din er synlig?</h4>
+                    <p>Når du gir ut mat, så har du mulighet til å skjule kontaktinformasjonen din helt til noen tar kontakt med deg. Ellers så vil kontaktinformasjonen din vises og kunder kan ta kontakt med informasjon som ligger ute</p>
+                    <br>
+                    <br>
+                    <div>
+                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox" onclick="anonymUserBtn()">
+                        <label  type="text">jeg vil at min informasjon skal være skjult</label>
+                    </div>    
+                    <br>
+                    <div>
+                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox" onclick="anonymUserBtn()">
+                        <label  type="text">Jeg godkjenner at min informasjon er synlig</label>
+                    </div>  
+                    <br>
+                    <div>
+                        <button onclick="newAdPreview()">Forhåndsvisning</button>
+                    </div> 
+                </div>
+        </div>
+    </div>`;
+show();
+}
+giveAway()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Required funker når den ligger inni en <form>
@@ -38,7 +232,6 @@ function announcements(){
 function mainPage()
 {
     html = /*html*/`
-    
     <h1 class="headLine">Too Good To Go</h1>
 
     <div class="mainPageFrame">
@@ -54,7 +247,7 @@ function mainPage()
                 <input type="text" placeholder= "navn"  oninput="model.inputs.login.userName=this.value" required>
     
                 <label>Passord:</label>
-                <input type="text" placeholder= "*****" oninput="model.inputs.login.password=this.value" required>
+                <input type="password" oninput="model.inputs.login.password=this.value" required>
                 <button onclick="logIn()" class="mainBtns" id="enterBtn" type="submit">Login</button>
             </form>
         </div>
@@ -63,16 +256,17 @@ function mainPage()
     show();
 }
 
-
 function newUser(){
     html = /*html*/`
-    
     <h1 class="headLine">Too Good To Go</h1>
+
     <div class="newUserPageFrame">
         <div class="frames">
+
             <div id="newUserInfo">
                 <h1>Lag en bruker</h1>
             </div>
+
                 <div class="userLoginFrames"> 
                     <label>Navn:</label>
                     <input type="text" placeholder= "Navn" oninput="model.inputs.newUser.userName=this.value">
@@ -94,17 +288,17 @@ function newUser(){
         
                     <button onclick="mainPage()" class="mainBtns" type="submit">Avbryt</button>
                     <button onclick="newUsers()"class="mainBtns" type="submit">Opprett Bruker</button>
-                    </div>
+                </div>
         </div>
     </div>
-    
     `;
-    show();
+show();
 }
 
 function accountHomePage(){
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
+
     <div class="userInfo">
         <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
         <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
@@ -135,12 +329,12 @@ function accountHomePage(){
     show(); 
 };
 
-function accountInformationPage(){
+function accountInformationPage() {
     html = /*html*/`
-            <h1 class="headLine">Too Good To Go</h1>
-            <div class="backButton">
-                <button onclick= "accountHomePage()" class= "logge ut mainbtns">X</button>
-            </div>
+    <h1 class="headLine">Too Good To Go</h1>
+    <div class="backButton">
+        <button onclick= "accountHomePage()" class= "logge ut mainbtns">X</button>
+    </div>
             <div class="newUserPageFrame">
                 <div class="frames">
                     <div id="newUserInfo">
@@ -158,11 +352,11 @@ function accountInformationPage(){
                                 <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].zipCode}">
                                 <label>Passord:</label>
                                 <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].userPw}">
-                                <div class="btnRow">
+                            <div class="btnRow">
                                 <button ${model.inputs.editUserButton.edit} onclick="accountHomePage()" class="mainBtns" >Tilbake</button>
                                 <button ${model.inputs.editUserButton.edit} onclick="editAccount()" class="mainBtns" >Rediger</button>
                                 <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button>
-                                </div>
+                            </div>
                             </form>
                             <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="saveEditAccount()">
                                 <label>Navn:</label>
@@ -187,8 +381,7 @@ function accountInformationPage(){
                         </div>
                     </div>
                 </div>
-            </div>
-            `;
+            </div>`;
     show();
 }
 
@@ -204,9 +397,11 @@ function showMyActiveAds(){
     }
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
+
     <div class="overHeadButtons">
         <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> 
+            <br>
             <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
         </div>
         <div class="backButton">
@@ -216,10 +411,9 @@ function showMyActiveAds(){
     <div class="mainFrame">
         <div class="giveAwayFoodFrames">
             <div class="foodDescriptionImage">
-            <div id="foodGroupFrame">${activeAdPhoto}</div>
-            </div>
-            <div class="foodDescriptionInputs">
+                <div id="foodGroupFrame">${activeAdPhoto}</div>
         </div>
+            <div class="foodDescriptionInputs"></div>
     </div> 
     `;
 show();
@@ -275,27 +469,30 @@ function foodPage(){
 
     for (let i = 0; i < model.ads.length; i++){
             
-                postingAd += `
+                postingAd += /*html*/`
                 <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" 
                 id="adPhoto" class="foodGroupPhotoFrame">`;
             
         }
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
+
     <div class="overHeadButtons">
         <div class="userButtons">
             <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
+            <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
         </div>
-    <div class="backButton">
-        <button onclick= "accountHomePage()" class= "logge ut mainbtns">X</button>
+        <div class="backButton">
+            <button onclick= "accountHomePage()" class="logge ut mainbtns">X</button>
     </div>
-    </div>
+        </div>
+        
         <div class="FoodPageFrame"> 
-        <div>
-            <label>Post Adresse</label>
-            <input class="ZipSearchBar" type="text" id="zipCodeInput">
-        </div>
+            <div class="zipSearchInput">
+                <label>Post Adresse</label>
+                <input class="ZipSearchBar" type="text" id="zipCodeInput">
+            </div>
+        
     <div class="allergyButtons">
         <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
         <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
@@ -303,9 +500,8 @@ function foodPage(){
         <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
         <button onclick="resetAllergies()">RESET HER</button>
     </div>
-    <div class="foodGroupFrame">${postingAd}
-    </div>
-    </div>
+            <div class="foodGroupFrame">${postingAd}</div>
+        </div>
     `;
     show();
 
@@ -315,6 +511,7 @@ function foodPageAd(index)
 {
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
+
         <div class="overHeadButtons">
             <div class="userButtons">
                 <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> <br>
@@ -324,129 +521,30 @@ function foodPageAd(index)
                     <button onclick= "foodPage()" class="logge ut mainbtns">X</button>
                 </div>
         </div>
+        --------
         <div class="mainFrame">
-        <div class="giveFoodFrames"> 
-            <div class="foodAdDescription">
-                <div class="foodAdDescriptionInputs">
-                    <label>Navn:${model.ads[index].userName}</label>
-                    <label>Adresse:${model.ads[index].adress}</label>
-                    <label>PostNr:${model.ads[index].zipCode}</label>
-                    <label>Tlf:${model.ads[index].phoneNumber}</label>
-                    <label>Dato fra:${model.ads[index].datePosted}</label>
-                    <label>Dato Til:${model.ads[index].dateExpired}</label>
-                    <label>Beskrivelse:${model.ads[index].details}</label>
-                </div>
-                <div class="foodAdDescriptionInputs">
-                 <img src="${model.ads[index].image}" width="250px" height="200px"> 
+            <div class="giveFoodFrames">
+                <div class="foodAdDescription">
+                    <div class="foodAdDescriptionInputs">
+                        <label>Navn:${model.ads[index].userName}</label>
+                        <label>Adresse:${model.ads[index].adress}</label>
+                        <label>PostNr:${model.ads[index].zipCode}</label>
+                        <label>Tlf:${model.ads[index].phoneNumber}</label>
+                        <label>Dato fra:${model.ads[index].datePosted}</label>
+                        <label>Dato Til:${model.ads[index].dateExpired}</label>
+                        <label>Beskrivelse:${model.ads[index].details}</label>
+                    </div>
+                    <div class="foodAdDescriptionInputs">
+                        <img src="${model.ads[index].image}" width="250px" height="200px"> 
+                    </div>
                 </div>
             </div>
-        <div><button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button></div>
+         <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
         </div>
-    </div>
     `;  
     show();
     
 }
-
-function giveAway(){
-    let userAdPhoto = '';
-    for (let i = 0; i < model.adsHistory.length; i++){
-        if(model.adsHistory[i].userid == model.app.currentUser)
-        userAdPhoto += /*html*/`
-        <img onclick="userAdHistory(${i})" src="${model.adsHistory[i].image}" class="foodGroupPhotoFrame">`
-    }
-
-    html = /*html*/`
-    
-    <h1 class="headLine">Too Good To Go</h1>
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
-        </div>
-    </div>
-        
-            <div class="backButton">
-                <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
-            </div>
-
-<div class="mainFrame">
-    <div class="${model.inputs.hideFFButton.giveAwayFoodFramesclass}" >
-                <button class="${model.inputs.editUserButton.hide}" onclick="hideFunction()">Skjul min Historikk</button>
-                <button class="${model.inputs.editUserButton.show}" onclick="showFunction()">Se min Historikk</button>
-                <div class="${model.inputs.hideFFButton.foodDescriptionImageclass}" >
-                    <h3>Din Ad Historikk</h3>
-                    ${userAdPhoto}
-                </div>
-                
-        <!-- Onsubmit burde? ligge i <Formen for at den skal fungere>
-        Funket ikke når den lå i <Button> Legg ut Annonse </button> -->
-                <div class="${model.inputs.hideFFButton.foodDescriptionInputsclass}">
-                    <form class="foodDescriptionInputs" onsubmit="postAd()">
-                    <label>Tittel:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.newAd.title = this.value" required />
-                    <label>Adresse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.newAd.adress = this.value" required />
-                    <label>PostNr:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.newAd.zipCode = this.value" required />
-                    <label>Telefon:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.newAd.phoneNumber = this.value" required />
-                    <label>Dato fra:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.newAd.datePosted = this.value" required />
-                    <label>Dato Til:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
-                    <label>Beskrivelse:</label>
-                    <input class="beskrivelseInput" type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.newAd.details=this.value">
-                    <button type="submit">legg ut annonse</button>
-                    </form>
-                </div>
-                <div class="${model.inputs.hideFFButton.foodDescriptionInputsclass2}" >
-                    <form class="foodDescriptionInputs" onsubmit="postHistoryAd()">
-                    <label>Tittel:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
-                    <label>Adresse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.foodDescriptionInputs.adress = this.value" required />
-                    <label>PostNr:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.foodDescriptionInputs.zipCode = this.value" required />
-                    <label>Telefon:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.foodDescriptionInputs.phoneNumber = this.value" required />
-                    <label>Dato fra:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.foodDescriptionInputs.datePosted = this.value" required />
-                    <label>Dato Til:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
-                    <label>Beskrivelse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value">
-                    <button type="submit">legg ut annonse</button>
-                    </form>
-                </div>
-   
-                <div class="foodDescriptionBorder"> 
-                    <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
-                    <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.newAd.image=this.value"/>
-                    <div id="giveAwayFoodAnonymUser">
-                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox" onclick="anonymUserBtn()">
-                        <label  type="text">jeg vil være anonym og vil bruke "ta kontakt" funksjon</label>
-                    </div>      
-                    <br>
-                    <br>
-                    <div id="giveAwayAllergyCheckBoxes">
-                    <label>Egg:</label>
-                    <input onclick="checkEgg()" type="checkbox"> 
-                    <label>Gluten:</label>
-                    <input onclick="checkGluten()" type="checkbox">
-                    <label>Nøtter:</label>
-                    <input onclick="checkNøtter()" type="checkbox">
-                    <label>Melk:</label>
-                    <input onclick="checkMelk()" type="checkbox">
-                </div>
-           
-        </div>    
-    </div>
-</div>
-    `;
-    show();
-}
-
 
 function postedAdsPage(){
     let userAdPhoto = '';
@@ -457,7 +555,6 @@ function postedAdsPage(){
         `;
     }
         // put inn checkbox her for hver ad.
-    
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
     <div class="overHeadButtons">
@@ -472,53 +569,54 @@ function postedAdsPage(){
     <div class="mainFrame">
         <div class="giveAwayFoodFrames">
             <div class="foodDescriptionImage">
-            <div id="foodGroupFrame">${userAdPhoto}</div>
-
+                <div id="foodGroupFrame">${userAdPhoto}</div>
             </div>
-            <div class="foodDescriptionBorder">
-            <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
-                                <label>Tittel:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
-                                <label>Adresse:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
-                                <label>PostNr:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
-                                <label>Telefon:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
-                                <label>Dato fra:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
-                                <label>Dato Til:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
-                                <label>Beskrivelse:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
-                                <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
-                            </form>
-                            <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="submitPostedAd(${model.inputs.editAd.id})">
-                                <label>Tittel:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.title}" oninput="model.inputs.editAd.title = this.value" required>
-                                <label>Adresse:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.adress}" oninput="model.inputs.editAd.adress = this.value" required>
-                                <label>PostNr:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.zipCode}" oninput="model.inputs.editAd.zipCode = this.value" required>
-                                <label>Telefon:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.phoneNumber}" oninput="model.inputs.editAd.phoneNumber = this.value" required>
-                                <label>Dato fra:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.datePosted}" oninput="model.inputs.editAd.datePosted = this.value" required>
-                                <label>Dato Til:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.dateExpired}" oninput="model.inputs.editAd.dateExpired = this.value" required>
-                                <label>Beskrivelse:</label>
-                                <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.details}" oninput="model.inputs.editAd.details = this.value" required>
-                                <div>
-                                    <button ${model.inputs.editUserButton.save} id="deleteMyAdsBtn" onclick="deleteMyAd(${model.inputs.editAd.id})">Delete Ad</button>
-                                    <button ${model.inputs.editUserButton.save} onclick="cancelPostedAd(${model.inputs.editAd.id})" class="mainBtns">Avbryt</button>
-                                    <input ${model.inputs.editUserButton.save} class="mainBtns"  type="submit" value="Lagre">
-                                </div>
-                            </form>
-            </div>
+                <div class="foodDescriptionBorder">
+                <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
+                    <label>Tittel:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
+                    <label>Adresse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
+                     <label>PostNr:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
+                    <label>Telefon:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
+                    <label>Dato fra:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
+                    <label>Dato Til:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
+                    <label>Beskrivelse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
+                    <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
+                </form>
+                <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="submitPostedAd(${model.inputs.editAd.id})">
+                    <label>Tittel:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.title}" oninput="model.inputs.editAd.title = this.value" required/>
+                    <label>Adresse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.adress}" oninput="model.inputs.editAd.adress = this.value" required/>
+                    <label>PostNr:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.zipCode}" oninput="model.inputs.editAd.zipCode = this.value" required/>
+                    <label>Telefon:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.phoneNumber}" oninput="model.inputs.editAd.phoneNumber = this.value" required/>
+                    <label>Dato fra:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.datePosted}" oninput="model.inputs.editAd.datePosted = this.value" required/>
+                    <label>Dato Til:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.dateExpired}" oninput="model.inputs.editAd.dateExpired = this.value" required/>
+                    <label>Beskrivelse:</label>
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.details}" oninput="model.inputs.editAd.details = this.value" required/>
+                    <div>
+                    <button ${model.inputs.editUserButton.save} id="deleteMyAdsBtn" onclick="deleteMyAd(${model.inputs.editAd.id})">Delete Ad</button>
+                    <button ${model.inputs.editUserButton.save} onclick="cancelPostedAd(${model.inputs.editAd.id})" class="mainBtns">Avbryt</button>
+                    <input ${model.inputs.editUserButton.save} class="mainBtns" type="submit" value="Lagre"/>
+                    </div>
+                </form>
+                </div>        
+        </div>
     </div> 
     `;
     show();
 }
+
 function activeAdInformationPage(){
     let activeAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
@@ -530,20 +628,23 @@ function activeAdInformationPage(){
     }
     html = /*html*/`
     <h1 class="headLine">Too Good To Go</h1>
+
     <div class="overHeadButtons">
         <div class="userButtons">
             <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
             <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
         </div>
         <div class="backButton">
-            <button onclick="accountHomePage()"   class= "logge ut mainbtns">X</button>
+            <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
         </div>
     </div>
+
     <div class="mainFrame">
         <div class="giveAwayFoodFrames">
             <div class="foodDescriptionImage">
-            <div id="foodGroupFrame">${activeAdPhoto}</div>
+                <div id="foodGroupFrame">${activeAdPhoto}</div>
             </div>
+
             <div class="foodDescriptionBorder">
                 <div class="foodDescriptionInputs">
                     <label>Tittel:</label>
@@ -560,7 +661,7 @@ function activeAdInformationPage(){
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
                     <label>Beskrivelse:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
-                <div>
+                </div>
             </div>
         </div>
     </div> 
@@ -568,3 +669,29 @@ function activeAdInformationPage(){
     
 show();
 }
+
+function chatBox(){
+     html = /*html*/`
+     <button class="open-button" onclick="openForm()">Chat</button>
+
+    <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+        <h1>Chat</h1>
+
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+    </div>
+     `;
+}
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
