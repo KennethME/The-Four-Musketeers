@@ -286,7 +286,7 @@ function postHistoryAd(){
     }
     restoreNewAdsInput();
     restoreModelAds();
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
+    
 }
 function userAdHistory(index){
     model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
@@ -305,6 +305,7 @@ function userAdHistory(index){
 }
 function restoreModelAds()
 {
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"};
     model.inputs.newAd = model.inputs.newAd = { id: '', userLoginName: '', userName: '', userid: '', title: '', details: '', zipCode: '', adress: '', datePosted: '', dateExpired: '', phoneNumber: '', image: '', imageId: '', allergyID:[''],  orderedById: [],};
 }
 function restoreNewAdsInput()
@@ -331,10 +332,21 @@ function restoreNewAdsInput()
     model.inputs.giveAway.prewView = "giveAwayDescriptionBorder";
     model.inputs.giveAway.historyPrewView = "giveAwayDescriptionBorder";
     model.inputs.giveAway.uploadHistoryAllergybtn = "isHidden";
+    model.inputs.giveAway.eggCheck = "isGrey";
+    model.inputs.giveAway.melkCheck = "isGrey";
+    model.inputs.giveAway.nøtterCheck = "isGrey";
+    model.inputs.giveAway.glutenCheck = "isGrey";
+    model.inputs.checkAllergy.egg = false;
+    model.inputs.checkAllergy.gluten = false;
+    model.inputs.checkAllergy.nøtter = false;
+    model.inputs.checkAllergy.melk = false;
+    
+    
 }
 function exitGiveAway()
 {
     restoreNewAdsInput();
+    restoreModelAds();
     accountHomePage();
 }
 function newAdinputs()
@@ -604,9 +616,13 @@ function removeMelkAllergies(){
 function checkEgg(){
     if(model.inputs.checkAllergy.egg === false){
         model.inputs.checkAllergy.egg = true;
-    }
-    else{model.inputs.checkAllergy.egg = false}
+        model.inputs.giveAway.eggCheck = "";
 
+    }
+    else{
+        model.inputs.checkAllergy.egg = false
+        model.inputs.giveAway.eggCheck = "isGrey";
+    }
 };
 
 
@@ -614,17 +630,24 @@ function checkGluten()
 {
     if(model.inputs.checkAllergy.gluten === false){
         model.inputs.checkAllergy.gluten = true;
+        model.inputs.giveAway.glutenCheck = "";
     }
-    else{model.inputs.checkAllergy.gluten = false}
-
+    else{
+        model.inputs.checkAllergy.gluten = false
+        model.inputs.giveAway.glutenCheck = "isGrey";
+    }
 };
 
 function checkNøtter()
 {
     if(model.inputs.checkAllergy.nøtter === false){
         model.inputs.checkAllergy.nøtter = true;
+        model.inputs.giveAway.nøtterCheck = "";
     }
-    else{model.inputs.checkAllergy.nøtter = false}
+    else{
+        model.inputs.checkAllergy.nøtter = false;
+        model.inputs.giveAway.nøtterCheck = "isGrey";
+    }
 
 };
 
@@ -632,8 +655,12 @@ function checkMelk()
 {
     if(model.inputs.checkAllergy.melk === false){
         model.inputs.checkAllergy.melk = true;
+        model.inputs.giveAway.melkCheck = "";
     }
-    else{model.inputs.checkAllergy.melk = false}
+    else{
+        model.inputs.checkAllergy.melk = false
+        model.inputs.giveAway.melkCheck = "isGrey";
+    }
 };
 
 function resetGiveAwayFoodAllergies(i){
