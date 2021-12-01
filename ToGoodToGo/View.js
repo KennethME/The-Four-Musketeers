@@ -96,7 +96,19 @@ function giveAway(){
                         <button class="${model.inputs.giveAway.prewViewBtn}" type="submit">legg ut annonse</button>
                     </form>
                     <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
-                    <p>dette</p>
+                    <div class="${model.inputs.giveAway.prewViewBtn}">
+                        <h3>Anonym Bruker:</h3>
+                        <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
+                    <br>
+                    <br>
+                        <h3>Allergi:</h3>
+                        <div>
+                            <img class="${model.inputs.giveAway.nøtterCheck}" src="${model.inputs.allergyImage.nøtterFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.melkCheck}" src="${model.inputs.allergyImage.melkFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.eggCheck}" src="${model.inputs.allergyImage.eggFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.glutenCheck}" src="${model.inputs.allergyImage.glutenFalse}" width="60px"/>
+                        </div>
+                    </div>
                     <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}"/>
                 </div>  
 
@@ -120,6 +132,10 @@ function giveAway(){
                     </form>
                     <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInputbtn}">Til Bilder</button>
                     <div class="${model.inputs.giveAway.historyPrewViewBtn}">
+                        <h3>Anonym Bruker:</h3>
+                        <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
+                    <br>
+                    <br>
                         <h3>Allergi:</h3>
                         <div>
                             <img class="${model.inputs.giveAway.nøtterCheck}" src="${model.inputs.allergyImage.nøtterFalse}" width="60px"/>
@@ -161,6 +177,7 @@ function giveAway(){
                 </div>    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAnonymous}"> 
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
+                    <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
                     <p>Når du gir ut mat, så har du mulighet til å skjule kontaktinformasjonen din helt til noen tar kontakt med deg. Ellers så vil kontaktinformasjonen din vises og kunder kan ta kontakt med informasjon som ligger ute</p>
                     <br>
                     <br>
@@ -302,12 +319,12 @@ function accountHomePage(){
     `;
     show(); 
 };
-{/* <h1 class="headLine">2 Good 2 Go</h1>
+/* <h1 class="headLine">2 Good 2 Go</h1>
 
 <div class="userInfo">
     <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
     <button onclick= "logOut()" class= "logge ut mainBtns">Logg ut</button>
-</div>
+</div> */
 
 
 function accountInformationPage() {
@@ -447,62 +464,49 @@ show();
 
 function foodPage(){
     let postingAd = '';
-
     for (let i = 0; i < model.ads.length; i++){
-            
                 postingAd += /*html*/`
-                <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" 
-                id="adPhoto" class="foodGroupPhotoFrame">`;
-            
-        }
+                <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
+        
+    }
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
 
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
-        </div>
-        <div class="backButton">
+    <div class="backButton">
             <button onclick= "accountHomePage()" class="logge ut mainbtns">X</button>
     </div>
-        </div>
-        
-        <div class="FoodPageFrame"> 
-            <div class="zipSearchInput">
-                <label>Post Adresse</label>
-                <input class="ZipSearchBar" type="text" id="zipCodeInput">
-            </div>
-        
-    <div class="allergyButtons">
-        <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
-        <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
-        <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
-        <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
-        <button onclick="resetAllergies()">RESET HER</button>
-    </div>
-            <div class="foodGroupFrame">${postingAd}</div>
-        </div>
-    `;
-    show();
 
+    <div class="FoodPageFrame"> 
+        <div class="allergyButtons">
+            <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
+            <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
+            <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
+            <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
+            <button onclick="resetAllergies()">RESET HER</button>
+        </div>
+        <div class="zipSearchInput">
+            <label>Post Adresse</label>
+            <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
+        </div>
+        <div class="foodGroupFrame">${postingAd}</div>
+    </div>
+    `;
+show();
 };
 
 function foodPageAd(index)
 {
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
-
         <div class="overHeadButtons">
             <div class="userButtons">
                 <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> <br>
                 <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
             </div>
-                <div class="backButton">
-                    <button onclick= "foodPage()" class="logge ut mainbtns">X</button>
-                </div>
+            <div class="backButton">
+                <button onclick= "foodPage()" class="logge ut mainbtns">X</button>
+            </div>
         </div>
-        --------
         <div class="mainFrame">
             <div class="giveFoodFrames">
                 <div class="foodAdDescription">
@@ -520,11 +524,10 @@ function foodPageAd(index)
                     </div>
                 </div>
             </div>
-         <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
-        </div>
+        <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
+    </div>
     `;  
-    show();
-    
+show();
 }
 
 function postedAdsPage(){
@@ -595,7 +598,7 @@ function postedAdsPage(){
         </div>
     </div> 
     `;
-    show();
+show();
 }
 
 function activeAdInformationPage(){
@@ -647,7 +650,6 @@ function activeAdInformationPage(){
         </div>
     </div> 
     `;
-    
 show();
 }
 

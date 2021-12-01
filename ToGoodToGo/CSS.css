@@ -642,6 +642,11 @@ text-align: center;
 {
     filter: grayscale(1);
 }
+.adGrey
+{
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
 #isHidden
 {
     display: none;

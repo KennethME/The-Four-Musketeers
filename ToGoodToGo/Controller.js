@@ -1,4 +1,4 @@
-var userIndex = [];
+var userIndex = [0];
 var today = new Date();
 var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
@@ -109,7 +109,12 @@ let anonymUser = false;
 function anonymUserBtn(){
     if (anonymUser === false){
         anonymUser = true;
-    } else {anonymUser = false}
+        model.inputs.giveAway.anonymUserCheck = "";
+    } 
+    else{
+        anonymUser = false
+        model.inputs.giveAway.anonymUserCheck = "isGrey";
+    }
 
  
 };
@@ -336,6 +341,7 @@ function restoreNewAdsInput()
     model.inputs.giveAway.melkCheck = "isGrey";
     model.inputs.giveAway.nøtterCheck = "isGrey";
     model.inputs.giveAway.glutenCheck = "isGrey";
+    model.inputs.giveAway.anonymUserCheck = "isGrey";
     model.inputs.checkAllergy.egg = false;
     model.inputs.checkAllergy.gluten = false;
     model.inputs.checkAllergy.nøtter = false;

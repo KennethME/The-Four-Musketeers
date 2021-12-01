@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [],   
+        currentUser: [0],   
 },
 
 // Inputs 
@@ -116,6 +116,9 @@ inputs:
         glutenFalse: "https://img.icons8.com/fluency/48/000000/wheat.png",
         melkFalse: "https://img.icons8.com/fluency/48/000000/milk-bottle.png",
     },
+    anonymUserImage:{
+        anonym: "https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-anonymous-cryptocurrency-vitaliy-gorbachev-blue-vitaly-gorbachev.png",
+    },
 
     foodDescriptionInputs: {
         title: "",
@@ -168,7 +171,13 @@ inputs:
         melkCheck:"isGrey",
         nøtterCheck:"isGrey",
         glutenCheck:"isGrey",
+        anonymUserCheck: "isGrey",
         
+    },
+
+    foodPage: {
+        searchBar: "",
+        zipCode: "",
     },
 
 },
