@@ -33,8 +33,16 @@ function announcements(){
 // DENNE JOBBER VI MED NÅ
 // DENNE JOBBER VI MED NÅ
 
-
-
+{/* <div class="overHeadButtons">
+<div class="userButtons">
+    <button onclick="accountInformationPage()" class="mainBtns">Bruker informasjon</button> 
+    <br>
+    <button onclick="logOut()" class="mainbtns">Logg ut</button>
+</div>
+</div>
+    <div class="backButton">
+        <button onclick="exitGiveAway()" class="mainbtns">X</button>
+    </div> */}
 
 function giveAway(){
     let userAdPhoto = '';
@@ -45,23 +53,20 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine GiveAwayHeadLine">2 Good 2 Go</h1>
 
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class="mainBtns">Bruker informasjon</button> 
-            <br>
-            <button onclick="logOut()" class="mainbtns">Logg ut</button>
-        </div>
-    </div>
-            <div class="backButton">
-                <button onclick="exitGiveAway()" class="mainbtns">X</button>
-            </div>
+
     <div class="giveAwayMain">
-    <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.inputButtons}">
+    <div class="frames " id="${model.inputs.giveAway.inputButtons}">
         <div class="giveAwayAdChoise">
-            <button onclick="newAdinputs()">Legg ut noe nytt</button>
-            <button onclick="historyAdInputs()">Legg ut fra min Historikk</button>
+        <button class="giveAwayFoodBtns" onclick="newAdinputs()">
+        <img src="https://img.icons8.com/color/200/000000/giving.png"/>    
+        </button>
+          
+        
+            <button class="giveAwayFoodBtns" onclick="historyAdInputs()">
+            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>
+            </button>
         </div>            
     </div>
     <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdImages}">
@@ -200,8 +205,9 @@ function mainPage()
     `;
     show();
 }
-mainPage();
-// accountHomePage();
+//giveAway();
+ //mainPage();
+ accountHomePage();
 
 function newUser(){
     html = /*html*/`
@@ -247,8 +253,9 @@ function accountHomePage(){
     <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="userInfo">
-    <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-    <button onclick= "logOut()" class= "loggUtBtn mainbtns">Logg ut</button>
+    <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> 
+    <br>
+    
 </div>
 
         <div class="miniFrames">
@@ -278,8 +285,10 @@ function accountHomePage(){
 
             <img src="https://img.icons8.com/color/256/000000/prepositions-in.png" class="icons" width="auto">
         </div>
-    </div>
- 
+        </div>
+        <div class="userInfo2">
+        <button onclick= "logOut()" class="loggUtBtn mainBtns">Logg ut</button>
+        </div>
   
   
     `;
@@ -289,7 +298,7 @@ function accountHomePage(){
 
 <div class="userInfo">
     <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-    <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
+    <button onclick= "logOut()" class= "logge ut mainBtns">Logg ut</button>
 </div>
 
 
@@ -297,7 +306,7 @@ function accountInformationPage() {
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
     <div class="backButton">
-        <button onclick= "accountHomePage()" class="logge ut mainbtns">X</button>
+        <button onclick= "accountHomePage()" class="logge ut mainBtns">X</button>
     </div>
             <div class="newUserPageFrame">
                 <div class="frames">

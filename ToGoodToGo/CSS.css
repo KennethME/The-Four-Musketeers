@@ -8,23 +8,55 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body 
-{
-    position: absolute;
-    background-color: #0093E9;
-    background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
-    background-attachment: fixed;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    mix-blend-mode: hard-light;
+@media screen and (max-height: 1080px){
+    .icons {
+        position: relative;
+        width: auto;
+        /* height: 110px; */
+    }
+    body 
+    {
+        position: absolute;
+        background-color: #0093E9;
+        background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
+        background-attachment: fixed;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        /* mix-blend-mode: hard-light; */
+    }
 }
+@media screen and (max-width: 575px ){
+    .icons {
+        position: relative;
+        width: auto;
+        height: 110px;
+    }
+    
+    body 
+    {
+        position: absolute;
+        background-color: #0093E9;
+        background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
+        background-attachment: fixed;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        /* mix-blend-mode: hard-light; */
+    }
+}
+
+
 
 .icons 
 {
@@ -120,12 +152,30 @@ label {
     justify-content: center;
     text-align: center;
 }
+
+.giveAwayFoodBtns{
+    position: relative;
+    height: 24vh;
+    width: 20vw;
+    overflow: hidden;
+}
+
+.giveAwayFoodBtns:hover{
+    box-shadow: -1px 1px 2px 2px black;
+    min-inline-size: -webkit-fill-available;
+}
+
 .giveAwayAdChoise
 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid black;
+    height: auto;
+    width: auto;
+    position: relative;
+
     
 }
 .giveAwayHistoryImageBorder
@@ -159,25 +209,6 @@ label {
   /* @-webkit-keyframes */
   
   /*small diveices*/
-  @media only screen and (max-width: 375px){   
-   .giveAwayFoodFrames {
-       width: auto;
-   }
-   .giveAwayFoodFramesA{
-       width: auto;
-   }
-   .foodDescriptionBorder{
-       width: 100%;
-   }
-   .mainFrame{
-       width: auto;
-       height: 100%;
-   }
-
-   .giveAwayMain{
-    width: auto;
-   }
-  }
 
 
 
@@ -199,16 +230,16 @@ P {
     font-family: var(--fontFamilyP);
     
 }
-#miniFramesDivider{
+/* #miniFramesDivider{
 
-}
+} */
 .headLine {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -12vh;
+    top: -9vh;
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -223,6 +254,11 @@ P {
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
+}
+.GiveAwayHeadLine
+{
+    top: -41vh;
+
 }
 .newUserBorder
 {
@@ -245,7 +281,7 @@ P {
     width: 80vw;
   
 }
-.mainbtns{
+.mainBtns{
     border: 2px;
     border-radius: 7px;
     height: auto;
@@ -254,10 +290,32 @@ P {
     font-family: var(--fontFamilyMainBtns);
     font-size: var(--fontSizeMainBtns);
 }
-
-.clickHere:hover {
-    
+.mainBtns:hover {
+    font-size: 26px;
+    border: 0.5px solid black;
 }
+/* }
+ .edit-mainbtns{
+    border: 2px;
+    border-radius: 7px;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    font-family: var(--fontFamilyMainBtns);
+    font-size: var(--fontSizeMainBtns);
+    
+}  */
+
+.clickHere {
+    min-inline-size: -webkit-fill-available;
+}
+
+    .clickHere:hover {
+        font-size: 18px;
+        background: #5aee5a99;
+        min-inline-size: -webkit-fill-available;
+    }
+
 
 /* .mainbtns:hover {
    
@@ -302,14 +360,27 @@ input {
 .userInfo 
 {
     position: relative;
-    /* top: -36vh; */
+    top: 13px;
+    display: grid;
 }
+.userInfo2
+{
+    /* position: relative; */
+    /* top: 7px; */
+    /* display: grid; */
+    text-align: -webkit-center;
 
+}
+.loggUtBtn{
+    background-color: red;
+    color: white;
+    min-inline-size: -webkit-fill-available;
+}
 .frames
 {
     position: absolute;
-    background-color: rgb(211, 211, 211);
-    border: 2px solid rgb(106, 168, 79);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
     height: 50%;
     width: auto;
