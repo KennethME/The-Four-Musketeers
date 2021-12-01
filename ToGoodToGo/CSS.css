@@ -59,7 +59,9 @@
     }
 }
 
-
+.iconImg2{
+  
+}
 
 .icons 
 {
@@ -172,7 +174,7 @@ flex-direction: column;
 
 .giveAwayFoodBtns:hover{
     box-shadow: -1px 1px 2px 2px black;
-    min-inline-size: -webkit-fill-available;
+    /* min-inline-size: -webkit-fill-available; */
 }
 
 .giveAwayAdChoise
@@ -456,14 +458,18 @@ input {
     justify-content: center;
     text-align: center;
 }
-.giveAwayFoodFrames
-{
-    background-color: rgb(211, 211, 211);
-    border: 2px solid rgb(106, 168, 79);
-    border-radius: 10px;
-    height: 65vh;
-    width: 75vw;
-    display:flex;
+
+.headLinePostedAds {
+    top: -43vh;
+}
+
+.giveAwayFoodFrames {
+    /* background-color: rgb(211, 211, 211); */
+    /* border: 2px solid rgb(106, 168, 79); */
+    /* border-radius: 10px; */
+    /* height: auto; */
+    width: auto;
+    /* display: flex; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -500,11 +506,12 @@ input {
     justify-content: center;
     text-align: center;
     overflow-y: scroll;
-
     height: 80%;
     width: 100%;
-    
-    border: 2px solid rgb(106, 168, 79);
+    /* border: 2px solid rgb(106, 168, 79); */
+    -webkit-writing-mode: vertical-rl;
+    position: relative;
+    top: 29vh;
     border-radius: 10px;
     margin: 0px 50px 0px 50px;
 }

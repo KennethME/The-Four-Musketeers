@@ -214,8 +214,9 @@ function mainPage()
     show();
 }
 //giveAway();
- //mainPage();
- accountHomePage();
+// postedAdsPage();
+//  mainPage();
+ accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
     html = /*html*/`
@@ -268,8 +269,9 @@ function accountHomePage(){
 
         <div class="miniFrames">
             <div onclick= "giveAway()">
-            
-                <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons "width="auto">
+          
+                <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons iconImg2" width="90%">
+                
             </div>
         </div>
 
@@ -302,12 +304,12 @@ function accountHomePage(){
     `;
     show(); 
 };
-{/* <h1 class="headLine">2 Good 2 Go</h1>
+// { <h1 class="headLine">2 Good 2 Go</h1>
 
-<div class="userInfo">
-    <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-    <button onclick= "logOut()" class= "logge ut mainBtns">Logg ut</button>
-</div>
+// <div class="userInfo">
+//     <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+//     <button onclick= "logOut()" class= "logge ut mainBtns">Logg ut</button>
+// </div>
 
 
 function accountInformationPage() {
@@ -526,7 +528,10 @@ function foodPageAd(index)
     show();
     
 }
-
+{/* <div class="userButtons">
+<button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+<button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
+</div> */}
 function postedAdsPage(){
     let userAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
@@ -537,21 +542,17 @@ function postedAdsPage(){
     }
         // put inn checkbox her for hver ad.
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLinePostedAds headLine">2 Good 2 Go</h1>
     <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
-        </div>
+
         <div class="backButton">
-            <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+            <button onclick="accountHomePage()" class="logge ut mainbtns">X</button>
         </div>
     </div>
-    <div class="mainFrame">
-        <div class="giveAwayFoodFrames">
-            <div class="foodDescriptionImage">
-                <div id="foodGroupFrame">${userAdPhoto}</div>
-            </div>
+    <div class="giveAwayFoodFrames frames">
+    asdasdasd</div>
+        <div class="frames">
+            
                 <div class="foodDescriptionBorder">
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                     <label>Tittel:</label>
@@ -593,7 +594,9 @@ function postedAdsPage(){
                 </form>
                 </div>        
         </div>
-    </div> 
+        <div class="foodDescriptionImage">
+        <div id="foodGroupFrame">${userAdPhoto}</div>
+    </div>
     `;
     show();
 }
