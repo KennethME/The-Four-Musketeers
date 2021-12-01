@@ -55,8 +55,11 @@ function giveAway(){
     html = /*html*/`
     <h1 class="headLine GiveAwayHeadLine">2 Good 2 Go</h1>
 
+    <div class="overHeadButtons">
+    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button></div>
 
     <div class="giveAwayMain">
+    
     <div class="frames " id="${model.inputs.giveAway.inputButtons}">
         <div class="giveAwayAdChoise">
         <button class="giveAwayFoodBtns" onclick="newAdinputs()">
@@ -214,9 +217,9 @@ function mainPage()
     show();
 }
 //giveAway();
-// postedAdsPage();
-//  mainPage();
- accountHomePage(); //AccountPage er ferdig med css.
+//  postedAdsPage();
+ mainPage();
+ //accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
     html = /*html*/`
@@ -297,7 +300,7 @@ function accountHomePage(){
         </div>
         </div>
         <div class="userInfo2">
-        <button onclick= "logOut()" class="loggUtBtn mainBtns">Logg ut</button>
+        <button onclick= "logOut()" class="loggUtBtnMenuPage mainBtns">Logg ut</button>
         </div>
   
   
@@ -544,15 +547,32 @@ function postedAdsPage(){
     html = /*html*/`
     <h1 class="headLinePostedAds headLine">2 Good 2 Go</h1>
     <div class="overHeadButtons">
+    <button onclick="accountHomePage()" class="loggUtBtn mainbtns">X</button>
 
-        <div class="backButton">
-            <button onclick="accountHomePage()" class="logge ut mainbtns">X</button>
         </div>
+
+        <div class="postedAdsframe">
+
+
+    <div class="giveAwayFoodFrames anotherWindowForKenneth">
+    <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
+    <label>Tittel:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
+    <label>Adresse:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
+    <label>PostNr:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
+    <label>Telefon:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
+    <label>Dato fra:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
+    <label>Dato Til:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
+    <label>Beskrivelse:</label>
+    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
+    <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
+</form>
     </div>
-    <div class="giveAwayFoodFrames frames">
-    asdasdasd</div>
-        <div class="frames">
-            
                 <div class="foodDescriptionBorder">
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                     <label>Tittel:</label>
