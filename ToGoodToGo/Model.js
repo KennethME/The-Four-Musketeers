@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [0],   
+        currentUser: [],   
 },
 
 // Inputs 
