@@ -12,7 +12,9 @@
 body 
 {
     position: absolute;
-    background: rgb(211, 211, 211);
+    background-color: #0093E9;
+    background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
+    background-attachment: fixed;
     display: flex;
     height: 100%;
     width: 100%;
@@ -21,35 +23,46 @@ body
     z-index: 3;
     top: 0;
     left: 0;
+    mix-blend-mode: hard-light;
 }
 
-    .icons {
-        height: 110px;
-        width: auto;
-        position: relative;
-    }
+.icons 
+{
+    position: relative;
+    width: auto;
+    /* height: 110px; */
+}
 
 :root
 {
     --MainBackgroudColor: white;
     --MainBorder: 2px solid white;
     --FontFamily: arial;
-    --FontSize: 15px;
+    --FontSize: 30px;
     --FontColor: white;
     --BtnColor:white;
     --FontFamilyALL: 'Oswald', sans-serif;
     --fontFamilyHeadline: 'Lobster';
     --fontFamilyP:'Bebas Neue';
+    --fontFamilyHeadlineColor: #ffff;
+    --fontSizeLabels: 20px;
+    --fontFamilyMainBtns:'monospace';
+    --fontSizeMainBtns: 25px;
 }
+/* 
+
+FÅ VEKK mix-blend-mode: hard-light; PÅ BILDER!!! VIKTIG !! */
+
+
 
 label {
    font-family: var(--FontFamilyALL);
+   font-size: var(--fontSizeLabels);
 }
 /*DETTE ER FOR GIVEAWAY FUNCTION*/
 
 .giveAwayMain
 {
-  
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -69,7 +82,6 @@ label {
     border: 2px solid rgb(106, 168, 79);
     border-radius: 10px;
     margin: 0px 100px 50px 100px;
- 
 }
 .giveAwayDescriptionPreView
 {
@@ -187,15 +199,30 @@ P {
     font-family: var(--fontFamilyP);
     
 }
+#miniFramesDivider{
 
+}
 .headLine {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 85px;
     position: relative;
-    top: -43vh;
+    top: -12vh;
     font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
+.MainheadLine {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    top: -41vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
 }
 .newUserBorder
 {
@@ -205,7 +232,8 @@ P {
     /* border: 2px solid rgb(106, 168, 79); */
 }
 .newUserBorder p{
-    margin-top: 10%;
+    /* margin-top: 10%; */
+    font-size: var(--FontSize);
 }
 .mainFrame
 {
@@ -215,6 +243,7 @@ P {
     align-items:center;
     height: 85vh;
     width: 80vw;
+  
 }
 .mainbtns{
     border: 2px;
@@ -222,7 +251,20 @@ P {
     height: auto;
     width: auto;
     padding: 10px;
+    font-family: var(--fontFamilyMainBtns);
+    font-size: var(--fontSizeMainBtns);
 }
+
+.clickHere:hover {
+    
+}
+
+/* .mainbtns:hover {
+   
+}
+.mainbtns:focus:{
+  transform: scale(1.1);
+} */
 .newUserPageFrame
 {
     display: flex;
@@ -233,22 +275,34 @@ P {
     width: 80vw;
 }
 .accountPageFrame {
-    display: flex;
+    /* display: block; */
+    font-variant: discretionary-ligatures;
+    /* display: flex; */
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
-    /* justify-content: space-evenly; */
+    justify-content: space-around;
     /* align-items: center; */
     height: auto;
     width: auto;
     position: relative;
-    top: -35vh;
+    /* top: -35vh; */
     /* grid-gap: 6px; */
     /* margin: 2px 21px; */
-   
+    /* top: 50%; */
+    /* display: grid; */
+    /* justify-items: center; */
+    /* align-content: space-around; */ 
+    border: 2px solid black;
 }
 
 input {
     text-align: -webkit-match-parent;
+}
+
+.userInfo 
+{
+    position: relative;
+    /* top: -36vh; */
 }
 
 .frames
@@ -269,23 +323,43 @@ input {
     transform: translate(-50%, -50%);
     padding: 2px 55px;
 }
+
+
 .miniFrames {
     background-color: rgb(211, 211, 211);
-    border: 2px solid rgb(106, 168, 79);
+    border: 2px solid #607d3b;
     border-radius: 10px;
-    height: 20vh;
-    width: 25vw;
+    /* height: 20vh;
+    width: 25vw; */
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
     margin: 2px;
+    overflow: hidden;
+    position: relative;
+    float: right;
+    /* left: -33px; */
+}
+
+.miniFrames2 {
+    background-color: rgb(211, 211, 211);
+    border: 2px solid #607d3b;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    margin: 2px;
+    overflow: hidden;
+    position: relative;
+    float: right;
+    /* left: -33px; */
 }
 .userLoginFrames{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    
 }
 .giveFoodFrames
 {
