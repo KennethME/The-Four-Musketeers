@@ -30,6 +30,7 @@ function logOut()
     currentId.splice(0,1);
     userIndex.splice(0,1);
     console.log("Du logget ut med BrukerID:", currentId)
+    restoreNewAdsInput();
     mainPage();
 }
 
@@ -150,7 +151,7 @@ function postAd()
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
-            image: foodImage,
+            image: model.inputs.newAd.image,
             imageId: model.inputs.newAd.imageId,
             details: model.inputs.newAd.details,
             allergyID: newAllergyID,
@@ -161,6 +162,7 @@ function postAd()
             orderedById: orderId,
           };
           model.ads.push(newAd);
+          model.adsHistory.push(newAd); 
           model.allergies = [];
           console.log(model.ads);
           accountHomePage();
@@ -176,7 +178,7 @@ function postAd()
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
-            image: foodImage,
+            image: model.inputs.newAd.image,
             imageId: newAdId,
             details: model.inputs.newAd.details,
             allergyID: newAllergyID,
@@ -190,15 +192,16 @@ function postAd()
     model.inputs.checkAllergy.nøtter = false;
     model.inputs.checkAllergy.melk = false;
     model.ads.push(newAd);
-    model.adsHistory.push(newAd);
+    model.adsHistory.push(newAd);   
     model.allergies = [];
-    model.inputs.newAd = {};
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
-    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
     console.log(model.ads);
     accountHomePage();
     
     };
+    
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
+    restoreNewAdsInput();
+    restoreModelAds();
 };
 
 function postHistoryAd(){
@@ -235,7 +238,7 @@ function postHistoryAd(){
             title: model.inputs.foodDescriptionInputs.title,
             datePosted: model.inputs.foodDescriptionInputs.datePosted,
             dateExpired: model.inputs.foodDescriptionInputs.dateExpired,
-            image: foodImage,
+            image: model.inputs.foodDescriptionInputs.image,
             imageId: model.inputs.newAd.imageId,
             details: model.inputs.foodDescriptionInputs.details,
             allergyID: newAllergyID,
@@ -246,6 +249,7 @@ function postHistoryAd(){
             orderedById: orderId,
           };
           model.ads.push(newAd);
+          model.adsHistory.push(newAd); 
           model.allergies = [];
           console.log(model.ads);
           accountHomePage();
@@ -261,7 +265,7 @@ function postHistoryAd(){
             title: model.inputs.foodDescriptionInputs.title,
             datePosted: model.inputs.foodDescriptionInputs.datePosted,
             dateExpired: model.inputs.foodDescriptionInputs.dateExpired,
-            image: foodImage,
+            image: model.inputs.foodDescriptionInputs.image,
             imageId: newAdId,
             details: model.inputs.foodDescriptionInputs.details,
             allergyID: newAllergyID,
@@ -277,21 +281,19 @@ function postHistoryAd(){
     model.ads.push(newAd);
     model.adsHistory.push(newAd);
     model.allergies = [];
-    model.inputs.newAd = {};
-    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
-    model.inputs.hideFFButton.uploadPhotoFrameclass = "isHidden"
-    model.inputs.hideFFButton.foodDescriptionImageclass = "isHidden"
-    model.inputs.editUserButton.hide = "isHidden"
-    model.inputs.editUserButton.show = ""
     console.log(model.ads);
     accountHomePage();
     }
+    restoreNewAdsInput();
+    restoreModelAds();
+    model.inputs.foodDescriptionInputs = {  title: "",adress: "",zipCode: "",phoneNumber: "",datePosted: "", dateExpired: "",details: "", image: "https://sirencomms.com/wp-content/themes/massive-dynamic/assets/img/placeholders/placeholder1.jpg"}
 }
 function userAdHistory(index){
     model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
     model.inputs.hideFFButton.foodDescriptionInputsclass = "isHidden";
     model.inputs.hideFFButton.foodDescriptionInputsclass2 = "foodDescriptionBorder"
     model.inputs.giveAway.historyAdInput = "";
+    model.inputs.giveAway.historyAdInputbtn = "";
 
     model.inputs.foodDescriptionInputs.title = model.adsHistory[index].title;
     model.inputs.foodDescriptionInputs.adress = model.adsHistory[index].adress;
@@ -301,11 +303,46 @@ function userAdHistory(index){
     model.inputs.foodDescriptionInputs.image = model.adsHistory[index].image;
     giveAway()
 }
+function restoreModelAds()
+{
+    model.inputs.newAd = model.inputs.newAd = { id: '', userLoginName: '', userName: '', userid: '', title: '', details: '', zipCode: '', adress: '', datePosted: '', dateExpired: '', phoneNumber: '', image: '', imageId: '', allergyID:[''],  orderedById: [],};
+}
+function restoreNewAdsInput()
+{
+    model.inputs.giveAway.historyAdInput = "isHidden";
+    model.inputs.giveAway.historyAdInputbtn = "isHidden";
+    model.inputs.giveAway.historyAdImages = "isHidden";
+    model.inputs.giveAway.newAdInput = "isHidden";
+    model.inputs.giveAway.uploadImage = "isHidden";
+    model.inputs.giveAway.uploadImagebtn = "isHidden";
+    model.inputs.giveAway.uploadAllergy = "isHidden";
+    model.inputs.giveAway.uploadAllergybtn = "isHidden";
+    model.inputs.giveAway.uploadAnonymous = "isHidden";
+    model.inputs.giveAway.uploadAnonymousbtn = "isHidden";
+    model.inputs.giveAway.photoPreview = "isHidden";
+    model.inputs.giveAway.prewViewBtn = "isHidden";
+    model.inputs.giveAway.historyPrewViewBtn = "isHidden";
+    model.inputs.giveAway.HistoryUploadImage = "isHidden";
+    model.inputs.giveAway.uploadAnonymous = "isHidden";
+    model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
+    model.inputs.giveAway.inputButtons = "";
+    model.inputs.giveAway.disabled = "";
+    model.inputs.giveAway.newAdInputBtn = "";
+    model.inputs.giveAway.prewView = "giveAwayDescriptionBorder";
+    model.inputs.giveAway.historyPrewView = "giveAwayDescriptionBorder";
+    model.inputs.giveAway.uploadHistoryAllergybtn = "isHidden";
+}
+function exitGiveAway()
+{
+    restoreNewAdsInput();
+    accountHomePage();
+}
 function newAdinputs()
 {
     model.inputs.giveAway.newAdInput = "";
     model.inputs.giveAway.historyAdInput = "isHidden";
     model.inputs.giveAway.inputButtons = "isHidden";
+    model.inputs.giveAway.HistoryUploadImagebtn = "isHidden"
     giveAway();
 }
 function historyAdInputs()
@@ -317,6 +354,7 @@ function historyAdInputs()
 }
 function toUploadHistoryImage()
 {
+    model.inputs.giveAway.historyAdImages = "isHidden"
     model.inputs.giveAway.historyAdInput = "isHidden"
     model.inputs.giveAway.HistoryUploadImagebtn = "";
     model.inputs.giveAway.uploadImage = "";
@@ -331,8 +369,24 @@ function toHistoryAllergyUpload()
 }
 function toHistoryAnonymousUpload()
 {
+    model.inputs.giveAway.uploadHistoryAllergybtn = "isHidden";
+    model.inputs.giveAway.uploadAllergy = "isHidden";
     model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
+    model.inputs.giveAway.uploadAnonymousbtn = "isHidden";
     model.inputs.giveAway.uploadAnonymous = "";
+    model.inputs.giveAway.uploadHistoryAnonymousbtn = "";
+    giveAway()
+}
+function historyAdPreview()
+{
+    model.inputs.giveAway.uploadAnonymous = "isHidden";
+    model.inputs.giveAway.uploadHistoryAnonymousbtn = "isHidden";
+    model.inputs.giveAway.historyAdInputbtn = "isHidden";
+    model.inputs.giveAway.historyAdInput = "";
+    model.inputs.giveAway.historyPrewView = "giveAwayDescriptionPreView"
+    model.inputs.giveAway.photoPreview = "";
+    model.inputs.giveAway.disabled = "disabled";
+    model.inputs.giveAway.historyPrewViewBtn = "";
     giveAway()
 }
 function toUploadImage()
@@ -348,17 +402,20 @@ function toAllergyUpload()
     model.inputs.giveAway.uploadImage = "isHidden";
     model.inputs.giveAway.uploadAllergy = "";
     model.inputs.giveAway.uploadAllergybtn = "";
+    model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
     giveAway()
 }
 function toAnonymousUpload()
 {
     model.inputs.giveAway.uploadAllergy = "isHidden";
     model.inputs.giveAway.uploadAnonymous = "";
+    model.inputs.giveAway.uploadAnonymousbtn = "";
     giveAway()
 }
 function newAdPreview()
 {
     model.inputs.giveAway.uploadAnonymous = "isHidden";
+    model.inputs.giveAway.uploadAnonymousbtn = "isHidden";
     model.inputs.giveAway.newAdInput = "";
     model.inputs.giveAway.disabled = "disabled";
     model.inputs.giveAway.photoPreview = "";

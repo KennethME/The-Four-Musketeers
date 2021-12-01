@@ -50,11 +50,11 @@ function giveAway(){
         <div class="userButtons">
             <button onclick="accountInformationPage()" class="mainBtns">Bruker informasjon</button> 
             <br>
-            <button onclick="logOut()" class="logge ut mainbtns">Logg ut</button>
+            <button onclick="logOut()" class="mainbtns">Logg ut</button>
         </div>
     </div>
             <div class="backButton">
-                <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+                <button onclick="exitGiveAway()" class="mainbtns">X</button>
             </div>
     <div class="giveAwayMain">
     <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.inputButtons}">
@@ -92,33 +92,34 @@ function giveAway(){
                         </form>
                         <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
                     <img class="uploadPhotoFrame" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}" id="output"/>
-                </div>
+                </div>  
 
-                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.historyAdInput}">
+                <div class="${model.inputs.giveAway.historyPrewView}" id="${model.inputs.giveAway.historyAdInput}">
                     <h3>Dette er Historikk Ads</h3>
                     <form class="giveAwayDescriptionInputs" onsubmit="postHistoryAd()">
                     <label>Tittel:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
                     <label>Adresse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.foodDescriptionInputs.adress = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.adress}" oninput="model.inputs.foodDescriptionInputs.adress = this.value" required />
                     <label>PostNr:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.foodDescriptionInputs.zipCode = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.zipCode}" oninput="model.inputs.foodDescriptionInputs.zipCode = this.value" required />
                     <label>Telefon:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.foodDescriptionInputs.phoneNumber = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.phoneNumber}" oninput="model.inputs.foodDescriptionInputs.phoneNumber = this.value" required />
                     <label>Dato fra:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.foodDescriptionInputs.datePosted = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.datePosted}" oninput="model.inputs.foodDescriptionInputs.datePosted = this.value" required />
                     <label>Dato Til:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.dateExpired}" oninput="model.inputs.foodDescriptionInputs.dateExpired = this.value" required />
                     <label>Beskrivelse:</label>
-                    <input type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value"/>
+                    <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value"/>
                     <button class="${model.inputs.giveAway.historyPrewViewBtn}" type="submit">legg ut annonse</button>
                     </form>
-                    <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInput}">Til Bilder</button>
+                    <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInputbtn}">Til Bilder</button>
+                    <img class="uploadPhotoFrame" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.foodDescriptionInputs.image}" id="output"/>
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
-                    <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.newAd.image=this.value"/>  
+                    <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.foodDescriptionInputs.image=this.value"/>  
                     <button onclick="toAllergyUpload()" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
                     <button onclick="toHistoryAllergyUpload()" id="${model.inputs.giveAway.HistoryUploadImagebtn}">Til Allergi</button>
                     <br>
@@ -142,7 +143,7 @@ function giveAway(){
                         <input type="checkbox"/> 
                     </div>
                     <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}">Til Personvern</button>
-                    <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergy}">Til Personvern</button>
+                    <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Til Personvern</button>
                 </div>    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAnonymous}"> 
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
@@ -155,13 +156,13 @@ function giveAway(){
                     </div>    
                     <br>
                     <div>
-                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox" onclick="anonymUserBtn()">
+                        <input ${model.inputs.checkedbtn.isChecked} type="checkbox">
                         <label  type="text">Jeg godkjenner at min informasjon er synlig</label>
                     </div>  
                     <br>
                     <div>
-                        <button onclick="newAdPreview()">Forhåndsvisning</button>
-                        <button id="${model.inputs.giveAway.uploadHistoryAnonymous}" onclick="historyAdPreview()">Forhåndsvisning</button>
+                        <button id="${model.inputs.giveAway.uploadAnonymousbtn}" onclick="newAdPreview()">Forhåndsvisning</button>
+                        <button id="${model.inputs.giveAway.uploadHistoryAnonymousbtn}" onclick="historyAdPreview()">Forhåndsvisning</button>
                     </div> 
                 </div>
         </div>
