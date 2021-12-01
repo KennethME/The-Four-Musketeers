@@ -257,6 +257,28 @@ P {
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
 }
+.findFoodPageheadLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: 6vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
+.activeAdPageheadLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: -38vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
 .MainheadLine {
     position: relative;
     display: flex;
@@ -404,9 +426,18 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -11vh;
+    top: -11vw;
     position: relative;
-    left: 21vh;
+    left: -24vw;
+}
+
+.loggUtBtnActiveAdPage {
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    top: -32vh;
+    left: 11vh;
+    position: relative;
 }
 .frames
 {
@@ -563,10 +594,8 @@ input {
     align-items: center;
     justify-content: center;
     text-align: center;
-
     height: 80%;
     width: 80%;
-    
     border: 2px solid rgb(106, 168, 79);
     border-radius: 10px;
     /* margin: 0px 100px 0px 100px; */
@@ -673,13 +702,15 @@ text-align: center;
 .miniFrames2:hover {
     border: 0.2rem solid #ffffff;
 } */
-.overHeadButtons
-{
-    display: flex;
-    justify-content: space-between;
-   
+.overHeadButtons {
+    /* display: flex; */
+    /* justify-content: space-between; */
     position: relative;
     top: -21vh;
+}
+
+.overHeadButtonsActiveAdPage{
+
 }
 .allergyButtons
 {

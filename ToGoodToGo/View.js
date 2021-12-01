@@ -55,10 +55,11 @@ function giveAway(){
     html = /*html*/`
     <h1 class="headLine GiveAwayHeadLine">2 Good 2 Go</h1>
 
-    <div class="overHeadButtons">
-    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button></div>
-
+    
     <div class="giveAwayMain">
+        <div class="overHeadButtons">
+         <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
+        </div>
     
     <div class="frames " id="${model.inputs.giveAway.inputButtons}">
         <div class="giveAwayAdChoise">
@@ -202,11 +203,14 @@ function mainPage()
             <div class="newUserBorder">
                 <p class="mainPageText">Ny til 2 Good 2 Go™?</p>
                 <p>Lag en bruker</p>
-                <button onclick="newUser()" class="clickHere mainBtns" type="submit">Klikk her</button>
+                <button onclick="newUser()" class="clickHere mainBtns" 
+                type="submit">Klikk her</button>
+                <hr>
             </div>
 
             <form class="userLoginFrames"> 
                 <label>Brukernavn:</label>
+                
                 <input type="text" placeholder= "username"  oninput="model.inputs.login.userName=this.value" required>
                 <label>Passord:</label>
                 <input type="password" placeholder="******" oninput="model.inputs.login.password=this.value" required>
@@ -318,9 +322,9 @@ function accountHomePage(){
 function accountInformationPage() {
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
-    <div class="backButton">
-        <button onclick= "accountHomePage()" class="logge ut mainBtns">X</button>
-    </div>
+    
+        <button onclick= "accountHomePage()" class="loggUtBtn mainbtns">X</button>
+  
             <div class="newUserPageFrame">
                 <div class="frames">
                     <div id="newUserInfo">
@@ -382,7 +386,7 @@ function showMyActiveAds(){
         }
     }
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine">2 Good222 2 Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
@@ -461,15 +465,15 @@ function foodPage(){
             
         }
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
+            <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
+            <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         </div>
         <div class="backButton">
-            <button onclick= "accountHomePage()" class="logge ut mainbtns">X</button>
+            <button onclick="accountHomePage()" class="loggUtBtn">X</button>
     </div>
         </div>
         
@@ -496,7 +500,7 @@ function foodPage(){
 function foodPageAd(index)
 {
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine">2 Good222 2 Go</h1>
 
         <div class="overHeadButtons">
             <div class="userButtons">
@@ -507,8 +511,8 @@ function foodPageAd(index)
                     <button onclick= "foodPage()" class="logge ut mainbtns">X</button>
                 </div>
         </div>
-        --------
-        <div class="mainFrame">
+       
+        <div class="frame">
             <div class="giveFoodFrames">
                 <div class="foodAdDescription">
                     <div class="foodAdDescriptionInputs">
@@ -620,7 +624,10 @@ function postedAdsPage(){
     `;
     show();
 }
-
+{/* <div class="userButtons">
+<button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+<button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
+</div> */}
 function activeAdInformationPage(){
     let activeAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
@@ -631,25 +638,20 @@ function activeAdInformationPage(){
         }
     }
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="activeAdPageheadLine">activeAdPage</h1>
 
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
-        </div>
+    <div class="overHeadButtonsActiveAdPage">
+ 
         <div class="backButton">
-            <button onclick="accountHomePage()" class= "logge ut mainbtns">X</button>
+            <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
         </div>
     </div>
 
-    <div class="mainFrame">
-        <div class="giveAwayFoodFrames">
+    <div class="frames">
+        
             <div class="foodDescriptionImage">
                 <div id="foodGroupFrame">${activeAdPhoto}</div>
             </div>
-
-            <div class="foodDescriptionBorder">
                 <div class="foodDescriptionInputs">
                     <label>Tittel:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
@@ -666,8 +668,8 @@ function activeAdInformationPage(){
                     <label>Beskrivelse:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
                 </div>
-            </div>
-        </div>
+         
+        
     </div> 
     `;
     
