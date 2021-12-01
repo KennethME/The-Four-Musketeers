@@ -53,23 +53,29 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="headLine GiveAwayHeadLine">2 Good 2 Go</h1>
+    <h1 class="headLine GiveAwayHeadLine">GiveAwayPage</h1>
 
     
     <div class="giveAwayMain">
-        <div class="overHeadButtons">
-         <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
-        </div>
+     
     
-    <div class="frames " id="${model.inputs.giveAway.inputButtons}">
+    <div class="frames" id="${model.inputs.giveAway.inputButtons}">
+    <div class="overHeadButtons">
+    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
+   </div>
         <div class="giveAwayAdChoise">
         <button class="giveAwayFoodBtns" onclick="newAdinputs()">
-        <img src="https://img.icons8.com/color/200/000000/giving.png"/>    
+        <img src="https://img.icons8.com/color/200/000000/giving.png"/>
+        <div clss="textName">
+            <h3>legg ut annonse</h3>  
+        </div>
+
         </button>
-          
-        
             <button class="giveAwayFoodBtns" onclick="historyAdInputs()">
             <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>
+            <div clss="textName">
+                <h3>Annonse historikk</h3> 
+            </div> 
             </button>
         </div>            
     </div>
@@ -229,13 +235,12 @@ function newUser(){
     html = /*html*/`
     
    
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine">NewUserPage</h1>
         <div class="frames">
 
             <div id="newUserInfo">
-                <h1>L</h1>
+                <h1>NewUserPage</h1>
             </div>
-            
                 <div class="userLoginFrames"> 
                     <label>Navn:</label>
                     <input type="text" placeholder="Navn" oninput="model.inputs.newUser.userName=this.value">
@@ -266,10 +271,10 @@ show();
 // width
 function accountHomePage(){
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
+    <h1 class="headLine">accountHomePage</h1>
 
     <div class="userInfo">
-    <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> 
+    <button onclick="accountInformationPage()" class="edit mainBtns">Brukerinformasjon</button> 
     <br>
     
 </div>
@@ -278,7 +283,7 @@ function accountHomePage(){
             <div onclick= "giveAway()">
           
                 <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons iconImg2" width="90%">
-                
+                <h3>Gi ut mat</h3>
             </div>
         </div>
 
@@ -286,6 +291,7 @@ function accountHomePage(){
         <div onclick="postedAdsPage()">
     
             <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
+            <h3>Arkiverte annonser</h3>
         </div>
     </div>
 
@@ -294,6 +300,7 @@ function accountHomePage(){
         <div onclick="foodPage()" >
     
             <img src="https://img.icons8.com/color/256/00000/hamburger.png" class="icons" width="auto">
+            <h3>Finn mat</h3>
         </div>
     </div>
 
@@ -301,6 +308,7 @@ function accountHomePage(){
         <div onclick="activeAdInformationPage()">
 
             <img src="https://img.icons8.com/color/256/000000/prepositions-in.png" class="icons" width="auto">
+            <h3>Dine annonser</h3>
         </div>
         </div>
         <div class="userInfo2">
@@ -468,13 +476,13 @@ function foodPage(){
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
     <div class="overHeadButtons">
-        <div class="userButtons">
+     
             <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
-        </div>
-        <div class="backButton">
-            <button onclick="accountHomePage()" class="loggUtBtn">X</button>
-    </div>
+            <button onclick="logOut()" class="loggUtBtnGiveAwayPage">Logg ut</button>
+       
+       
+            <button onclick="accountHomePage()" class="loggUtBtnFindFoodPage">X</button>
+ 
         </div>
         
         <div class="FoodPageFrame"> 
@@ -549,9 +557,9 @@ function postedAdsPage(){
     }
         // put inn checkbox her for hver ad.
     html = /*html*/`
-    <h1 class="headLinePostedAds headLine">2 Good 2 Go</h1>
+    <h1 class="headLinePostedAds headLine">postedAdsPage</h1>
     <div class="overHeadButtons">
-    <button onclick="accountHomePage()" class="loggUtBtn mainbtns">X</button>
+    <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns">X</button>
 
         </div>
 
@@ -559,23 +567,7 @@ function postedAdsPage(){
 
 
     <div class="giveAwayFoodFrames anotherWindowForKenneth">
-    <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
-    <label>Tittel:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
-    <label>Adresse:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
-    <label>PostNr:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
-    <label>Telefon:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
-    <label>Dato fra:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
-    <label>Dato Til:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
-    <label>Beskrivelse:</label>
-    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
-    <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
-</form>
+<div id="chatteBox">
     </div>
                 <div class="foodDescriptionBorder">
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
@@ -595,6 +587,7 @@ function postedAdsPage(){
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
                     <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
                 </form>
+                </div>
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="submitPostedAd(${model.inputs.editAd.id})">
                     <label>Tittel:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.title}" oninput="model.inputs.editAd.title = this.value" required/>

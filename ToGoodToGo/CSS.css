@@ -363,7 +363,7 @@ P {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     height: 85vh;
     width: 80vw;
 }
@@ -414,6 +414,16 @@ input {
     /* top: 0vh; */
     left: -8vh;
     position: relative;
+}
+.loggUtBtnFindFoodPage {
+    
+        background-color: red;
+        color: white;
+        /* min-inline-size: -webkit-fill-available; */
+        top: 33vh;
+        left: -2vh;
+        position: relative;
+    
 }
 .loggUtBtnMenuPage {
     background-color: red;
@@ -491,9 +501,16 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    /* left: -33px; */
+    left: -33px;
 }
-
+.loggUtBtnpostedAdsPage{
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    /* top: 0vh; */
+    left: 17vh;
+    position: relative;
+}
 .miniFrames2 {
     background-color: rgb(211, 211, 211);
     border: 2px solid #607d3b;
@@ -504,7 +521,7 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    /* left: -33px; */
+    left: -33px;
 }
 .userLoginFrames{
     display: flex;

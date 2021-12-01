@@ -370,14 +370,14 @@ function toUploadHistoryImage()
     model.inputs.giveAway.historyAdInput = "isHidden"
     model.inputs.giveAway.HistoryUploadImagebtn = "";
     model.inputs.giveAway.uploadImage = "";
-    giveAway()
+    giveAway();
 }
 function toHistoryAllergyUpload()
 {
     model.inputs.giveAway.uploadImage = "isHidden";
     model.inputs.giveAway.uploadAllergy = "";
     model.inputs.giveAway.uploadHistoryAllergybtn = "";
-    giveAway()
+    giveAway();
 }
 function toHistoryAnonymousUpload()
 {
@@ -387,7 +387,7 @@ function toHistoryAnonymousUpload()
     model.inputs.giveAway.uploadAnonymousbtn = "isHidden";
     model.inputs.giveAway.uploadAnonymous = "";
     model.inputs.giveAway.uploadHistoryAnonymousbtn = "";
-    giveAway()
+    giveAway();
 }
 function historyAdPreview()
 {
@@ -399,14 +399,14 @@ function historyAdPreview()
     model.inputs.giveAway.photoPreview = "";
     model.inputs.giveAway.disabled = "disabled";
     model.inputs.giveAway.historyPrewViewBtn = "";
-    giveAway()
+    giveAway();
 }
 function toUploadImage()
 {
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.uploadImage = "";
     model.inputs.giveAway.uploadImagebtn = "";
-    giveAway()
+    giveAway();
 }
 
 function toAllergyUpload()
@@ -415,14 +415,14 @@ function toAllergyUpload()
     model.inputs.giveAway.uploadAllergy = "";
     model.inputs.giveAway.uploadAllergybtn = "";
     model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
-    giveAway()
+    giveAway();
 }
 function toAnonymousUpload()
 {
     model.inputs.giveAway.uploadAllergy = "isHidden";
     model.inputs.giveAway.uploadAnonymous = "";
     model.inputs.giveAway.uploadAnonymousbtn = "";
-    giveAway()
+    giveAway();
 }
 function newAdPreview()
 {
@@ -434,7 +434,7 @@ function newAdPreview()
     model.inputs.giveAway.prewView = "giveAwayDescriptionPreView";
     model.inputs.giveAway.newAdInputBtn = "isHidden";
     model.inputs.giveAway.prewViewBtn = "";
-    giveAway()
+    giveAway();
 
 }
 var loadFile = function(event) 
