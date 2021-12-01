@@ -59,7 +59,9 @@
     }
 }
 
-
+.iconImg2{
+  
+}
 
 .icons 
 {
@@ -172,7 +174,8 @@ flex-direction: column;
 
 .giveAwayFoodBtns:hover{
     box-shadow: -1px 1px 2px 2px black;
-    min-inline-size: -webkit-fill-available;
+    /* min-inline-size: -webkit-fill-available; */
+       
 }
 
 .giveAwayAdChoise
@@ -249,7 +252,29 @@ P {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -9vh;
+    top: -6vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
+.findFoodPageheadLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: 6vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
+.activeAdPageheadLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: -38vh;
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -382,10 +407,37 @@ input {
     text-align: -webkit-center;
 
 }
-.loggUtBtn{
+.loggUtBtn {
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    /* top: 0vh; */
+    left: -8vh;
+    position: relative;
+}
+.loggUtBtnMenuPage {
     background-color: red;
     color: white;
     min-inline-size: -webkit-fill-available;
+ 
+}
+
+.loggUtBtnGiveAwayPage {
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    top: -11vw;
+    position: relative;
+    left: -24vw;
+}
+
+.loggUtBtnActiveAdPage {
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    top: -32vh;
+    left: 11vh;
+    position: relative;
 }
 .frames
 {
@@ -404,6 +456,24 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2px 55px;
+}
+.postedAdsframe
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 50%;
+    width: auto;
+    display:flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px 155px;
 }
 
 
@@ -456,18 +526,27 @@ input {
     justify-content: center;
     text-align: center;
 }
-.giveAwayFoodFrames
-{
-    background-color: rgb(211, 211, 211);
-    border: 2px solid rgb(106, 168, 79);
-    border-radius: 10px;
-    height: 65vh;
-    width: 75vw;
-    display:flex;
+
+.headLinePostedAds {
+    top: -28vh;
+}
+.anotherWindowForKenneth{
+    border: 2px solid black;
+}
+.giveAwayFoodFrames {
+    /* background-color: rgb(211, 211, 211); */
+    /* border: 2px solid rgb(106, 168, 79); */
+    /* border-radius: 10px; */
+    /* height: auto; */
+    width: auto;
+    /* display: flex; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
+    /* left: 17vh; */
+    position: relative;
+    left: -9vh;
 }
 .giveAwayFoodFramesA
 {
@@ -492,21 +571,21 @@ input {
         opacity: 0;
     }
 }
-.foodDescriptionImage
-{
-    display:flex;
+.foodDescriptionImage {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow-y: scroll;
-
-    height: 80%;
-    width: 100%;
-    
-    border: 2px solid rgb(106, 168, 79);
-    border-radius: 10px;
-    margin: 0px 50px 0px 50px;
+    /* overflow-y: scroll; */
+    /* height: 80%; */
+    width: auto;
+    /* border: 2px solid rgb(106, 168, 79); */
+    -webkit-writing-mode: vertical-rl;
+    position: relative;
+    top: 29vh;
+    /* border-radius: 10px; */
+    /* margin: 0px 50px 0px 50px; */
 }
 .foodDescriptionBorder 
 {
@@ -515,13 +594,13 @@ input {
     align-items: center;
     justify-content: center;
     text-align: center;
-
     height: 80%;
     width: 80%;
-    
     border: 2px solid rgb(106, 168, 79);
     border-radius: 10px;
-    margin: 0px 100px 0px 100px;
+    /* margin: 0px 100px 0px 100px; */
+    position: relative;
+    left: 8vw;
 }
 .foodDescriptionInputs
 {
@@ -617,10 +696,21 @@ input {
 display:flex;
 text-align: center;
 }
-.overHeadButtons
-{
-    display: flex;
-    justify-content: space-between;
+/* .miniFrames:hover {
+    border: 0.2rem solid #ffffff;
+}
+.miniFrames2:hover {
+    border: 0.2rem solid #ffffff;
+} */
+.overHeadButtons {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    position: relative;
+    top: -21vh;
+}
+
+.overHeadButtonsActiveAdPage{
+
 }
 .allergyButtons
 {
