@@ -110,6 +110,13 @@ inputs:
         melk: false,
     },
 
+    allergyImage:{
+        nøtterFalse: "https://img.icons8.com/fluency/48/000000/hazelnut.png",
+        eggFalse: "https://img.icons8.com/fluency/48/000000/egg-carton.png",
+        glutenFalse: "https://img.icons8.com/fluency/48/000000/wheat.png",
+        melkFalse: "https://img.icons8.com/fluency/48/000000/milk-bottle.png",
+    },
+
     foodDescriptionInputs: {
         title: "",
         adress: "",
@@ -157,6 +164,10 @@ inputs:
         historyPrewViewBtn: "isHidden",
         HistoryUploadImage: "isHidden",
         uploadAnonymous: "isHidden",
+        eggCheck:"isGrey",
+        melkCheck:"isGrey",
+        nøtterCheck:"isGrey",
+        glutenCheck:"isGrey",
         
     },
 

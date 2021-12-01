@@ -23,7 +23,7 @@ body
     z-index: 3;
     top: 0;
     left: 0;
-    mix-blend-mode: hard-light;
+    /* mix-blend-mode: hard-light; */
 }
 
 .icons 
@@ -79,7 +79,8 @@ label {
     text-align: center;
     height: 40vh;
     width: 30%; 
-    border: 2px solid rgb(106, 168, 79);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: white;
     border-radius: 10px;
     margin: 0px 100px 50px 100px;
 }
@@ -88,14 +89,20 @@ label {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
     height: 40vh;
     width: 70%; 
     border: 2px solid rgb(106, 168, 79);
+    background-color: rgb(255, 255, 255, 0.6);
     border-radius: 10px;
     margin: 0px 100px 50px 100px;
  
+}
+.giveAwaySetup
+{
+display: flex;
+flex-direction: column;
 }
 .giveAwayDescriptionImage
 {
@@ -524,6 +531,12 @@ input {
     width: 200px;
     height: 150px;
 }
+.imageDisplay
+{
+  border: 0.5px solid black;
+  height: 250px;
+  width: 350px;
+}
 .brukerInfo
 {
 display:flex;
@@ -549,6 +562,10 @@ text-align: center;
 .isHidden
 {
     display: none;
+}
+.isGrey
+{
+    filter: grayscale(1);
 }
 #isHidden
 {

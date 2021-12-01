@@ -73,30 +73,29 @@ function giveAway(){
         <!-- Onsubmit burde? ligge i <Formen for at den skal fungere>
         Funket ikke når den lå i <Button> Legg ut Annonse </button> -->
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
-                        <h3>Dette er helt nye Ads</h3>
-                        <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
-                            <label>Tittel:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
-                            <label>Adresse:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.adress}" oninput="model.inputs.newAd.adress = this.value" required />
-                            <label>PostNr:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.zipCode}" oninput="model.inputs.newAd.zipCode = this.value" required />
-                            <label>Telefon:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.phoneNumber}" oninput="model.inputs.newAd.phoneNumber = this.value" required />
-                            <label>Dato fra:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.datePosted}" oninput="model.inputs.newAd.datePosted = this.value" required />
-                            <label>Dato Til:</label>
-                            <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
-                            <label>Beskrivelse:</label>
-                            <input ${model.inputs.giveAway.disabled} class="beskrivelseInput" type="text" value="${model.inputs.newAd.details}" oninput="model.inputs.newAd.details=this.value">
-                            <button class="${model.inputs.giveAway.prewViewBtn}" type="submit">legg ut annonse</button>
-                        </form>
-                        <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
-                    <img class="uploadPhotoFrame" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}" id="output"/>
+                    <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
+                        <label>Tittel:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
+                        <label>Adresse:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.adress}" oninput="model.inputs.newAd.adress = this.value" required />
+                        <label>PostNr:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.zipCode}" oninput="model.inputs.newAd.zipCode = this.value" required />
+                        <label>Telefon:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.phoneNumber}" oninput="model.inputs.newAd.phoneNumber = this.value" required />
+                        <label>Dato fra:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.datePosted}" oninput="model.inputs.newAd.datePosted = this.value" required />
+                        <label>Dato Til:</label>
+                        <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
+                        <label>Beskrivelse:</label>
+                        <input ${model.inputs.giveAway.disabled} class="beskrivelseInput" type="text" value="${model.inputs.newAd.details}" oninput="model.inputs.newAd.details=this.value">
+                        <button class="${model.inputs.giveAway.prewViewBtn}" type="submit">legg ut annonse</button>
+                    </form>
+                    <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
+                    <p>dette</p>
+                    <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}"/>
                 </div>  
 
                 <div class="${model.inputs.giveAway.historyPrewView}" id="${model.inputs.giveAway.historyAdInput}">
-                    <h3>Dette er Historikk Ads</h3>
                     <form class="giveAwayDescriptionInputs" onsubmit="postHistoryAd()">
                     <label>Tittel:</label>
                     <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
@@ -115,7 +114,16 @@ function giveAway(){
                     <button class="${model.inputs.giveAway.historyPrewViewBtn}" type="submit">legg ut annonse</button>
                     </form>
                     <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInputbtn}">Til Bilder</button>
-                    <img class="uploadPhotoFrame" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.foodDescriptionInputs.image}" id="output"/>
+                    <div class="${model.inputs.giveAway.historyPrewViewBtn}">
+                        <h3>Allergi:</h3>
+                        <div>
+                            <img class="${model.inputs.giveAway.nøtterCheck}" src="${model.inputs.allergyImage.nøtterFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.melkCheck}" src="${model.inputs.allergyImage.melkFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.eggCheck}" src="${model.inputs.allergyImage.eggFalse}" width="60px"/>
+                            <img class="${model.inputs.giveAway.glutenCheck}" src="${model.inputs.allergyImage.glutenFalse}" width="60px"/>
+                        </div>
+                    </div>
+                    <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.foodDescriptionInputs.image}"/>
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
