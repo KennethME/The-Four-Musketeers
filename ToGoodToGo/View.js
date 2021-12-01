@@ -6,12 +6,13 @@ function show(){
 
 function firstPage(){
     html = /*html*/`    
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
     <div class = 'announcements'>${announcements()}</div>
     <div>vi kan skrive det vi vil her </div>
     `;
     show();
 }
+
 // firstPage();
 
 function announcements(){
@@ -44,7 +45,7 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
@@ -178,19 +179,19 @@ show();
 function mainPage()
 {
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="MainheadLine">2 Good 2 Go</h1>
 
         <div class="frames">
         
             <div class="newUserBorder">
-                <p>Ny til 2 Good 2 Go™?</p>
+                <p class="mainPageText">Ny til 2 Good 2 Go™?</p>
                 <p>Lag en bruker</p>
-                <button onclick="newUser()" class="mainBtns" type="submit">Klikk her</button>
+                <button onclick="newUser()" class="clickHere mainBtns" type="submit">Klikk her</button>
             </div>
+
             <form class="userLoginFrames"> 
                 <label>Brukernavn:</label>
                 <input type="text" placeholder= "username"  oninput="model.inputs.login.userName=this.value" required>
-    
                 <label>Passord:</label>
                 <input type="password" placeholder="******" oninput="model.inputs.login.password=this.value" required>
                 <button onclick="logIn()" class="mainBtns" id="enterBtn" type="submit">Login</button>
@@ -199,13 +200,14 @@ function mainPage()
     `;
     show();
 }
-mainPage()
+mainPage();
+// accountHomePage();
 
 function newUser(){
     html = /*html*/`
     
    
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
         <div class="frames">
 
             <div id="newUserInfo">
@@ -214,7 +216,7 @@ function newUser(){
             
                 <div class="userLoginFrames"> 
                     <label>Navn:</label>
-                    <input type="text" placeholder= "Navn" oninput="model.inputs.newUser.userName=this.value">
+                    <input type="text" placeholder="Navn" oninput="model.inputs.newUser.userName=this.value">
 
                     <label>Brukernavn:</label>
                     <input type="text" placeholder= "Navn" oninput="model.inputs.newUser.userLoginName=this.value">
@@ -242,49 +244,60 @@ show();
 // width
 function accountHomePage(){
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="userInfo">
-        <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
-        <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
-    </div>
-    
-    <div class="accountPageFrame">
+    <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+    <button onclick= "logOut()" class= "loggUtBtn mainbtns">Logg ut</button>
+</div>
+
         <div class="miniFrames">
             <div onclick= "giveAway()">
-                <h3 class ="titleUserPage">Gi ut mat<h3>
-                <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons"width="auto">
+            
+                <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons "width="auto">
             </div>
         </div>
-        <div class="miniFrames">
-            <div onclick="postedAdsPage()" >
-                <h3 class ="titleUserPage">Dine utlagte annonser<h3>
-                <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
-            </div>
-        </div>
-        <div class="miniFrames">
-            <div onclick="foodPage()" >
-                <h3 class ="titleUserPage">Finn mat<h3>
-                <img src="https://img.icons8.com/color/240/000000/hamburger.png" class="icons" width="auto">
-            </div>
-        </div>
-        <div class="miniFrames">
-            <div onclick="activeAdInformationPage()">
-                <h3 class ="titleUserPage">Dine aktive bestilinger<h3>
-                <img src="https://img.icons8.com/color/100/000000/prepositions-in.png" class="icons" width="auto">
-            </div>
+
+    <div class="miniFrames">
+        <div onclick="postedAdsPage()">
+    
+            <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
         </div>
     </div>
+
+<div id="miniFramesDivider"></div>
+     <div class="miniFrames2">
+        <div onclick="foodPage()" >
+    
+            <img src="https://img.icons8.com/color/256/00000/hamburger.png" class="icons" width="auto">
+        </div>
+    </div>
+
+    <div class="miniFrames2">
+        <div onclick="activeAdInformationPage()">
+
+            <img src="https://img.icons8.com/color/256/000000/prepositions-in.png" class="icons" width="auto">
+        </div>
+    </div>
+ 
+  
   
     `;
     show(); 
 };
+{/* <h1 class="headLine">2 Good 2 Go</h1>
+
+<div class="userInfo">
+    <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
+    <button onclick= "logOut()" class= "logge ut mainbtns">Logg ut</button>
+</div>
+
 
 function accountInformationPage() {
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
     <div class="backButton">
-        <button onclick= "accountHomePage()" class= "logge ut mainbtns">X</button>
+        <button onclick= "accountHomePage()" class="logge ut mainbtns">X</button>
     </div>
             <div class="newUserPageFrame">
                 <div class="frames">
@@ -347,7 +360,7 @@ function showMyActiveAds(){
         }
     }
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
@@ -426,7 +439,7 @@ function foodPage(){
             
         }
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
@@ -461,7 +474,7 @@ function foodPage(){
 function foodPageAd(index)
 {
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
         <div class="overHeadButtons">
             <div class="userButtons">
@@ -507,7 +520,7 @@ function postedAdsPage(){
     }
         // put inn checkbox her for hver ad.
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
     <div class="overHeadButtons">
         <div class="userButtons">
             <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
@@ -578,7 +591,7 @@ function activeAdInformationPage(){
         }
     }
     html = /*html*/`
-    <h1 class="headLine">Too Good To Go</h1>
+    <h1 class="headLine">2 Good 2 Go</h1>
 
     <div class="overHeadButtons">
         <div class="userButtons">
