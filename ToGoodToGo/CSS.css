@@ -435,14 +435,7 @@ input {
     left: -8vh;
     position: relative;
 }
-.loggUtBtnBrukerInfo{
-    background-color: red;
-    color: white;
-    /* min-inline-size: -webkit-fill-available; */
-    top: -32vh;
-    left: 2vh;
-    position: relative;
-}
+
 .loggUtBtnFindFoodPage {
     
         background-color: red;
@@ -464,18 +457,30 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -11vw;
-    position: relative;
-    left: -24vw;
+    /* top: -11vw; */
+    /* position: relative; */
+    /* left: -24vw; */
 }
 
 .loggUtBtnActiveAdPage {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -32vh;
-    left: 11vh;
-    position: relative;
+    /* top: -32vh; */
+    /* left: 11vh; */
+    /* position: relative; */
+    float: left;
+    margin-inline-end: auto;
+}
+.loggUtBtnBrukerInfo {
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    /* top: -32vh; */
+    /* left: 11vh; */
+    /* position: relative; */
+    float: left;
+    margin-inline-end: auto;
 }
 .frames
 {
@@ -531,12 +536,12 @@ input {
     float: right;
     left: -33px;
 }
-.loggUtBtnpostedAdsPage{
+.loggUtBtnpostedAdsPage {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    /* top: 0vh; */
-    left: 17vh;
+    top: -22vh;
+    left: -12vh;
     position: relative;
 }
 .miniFrames2 {

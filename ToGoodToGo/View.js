@@ -85,10 +85,10 @@ function giveAway(){
      
     
     <div class="frames" id="${model.inputs.giveAway.inputButtons}">
+    <div class="giveAwayAdChoise">
     <div class="overHeadButtons">
     <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
    </div>
-        <div class="giveAwayAdChoise">
         <button class="giveAwayFoodBtns" onclick="newAdinputs()">
         <img src="https://img.icons8.com/color/200/000000/giving.png"/>
         <div clss="textName">
@@ -270,9 +270,9 @@ function mainPage()
     show();
 }
 //firstPage();
-//giveAway();
+// giveAway();
 //  postedAdsPage();
- mainPage();
+mainPage();
  //accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
@@ -365,10 +365,10 @@ function accountHomePage(){
 };
 function accountInformationPage() {
     html = /*html*/`
-    <h1 class="headLineBrukerInfo">2 Good 2 Go</h1>
-        <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
-                <div class="frames">
-                    <div id="newUserInfo">
+    <h1 class="headLineBrukerInfo">accountInformationPage</h1>
+    <div class="frames">
+    <div id="newUserInfo">
+    <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
                         <h1>Din Bruker</h1>
                             <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                                 <label>Navn:</label>
@@ -551,10 +551,10 @@ function postedAdsPage(){
     html = /*html*/`
     <h1 class="headLinePostedAds headLine">postedAdsPage</h1>
     <div class="overHeadButtons">
+    </div>
+    
+    <div class="postedAdsframe">
     <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns">X</button>
-        </div>
-
-         <div class="postedAdsframe">
          <div class="chatBoxPostedAdsPage">
 
         <button class="open-button" onclick="openForm()">Chat</button>
@@ -676,11 +676,11 @@ function activeAdInformationPage(){
     <div class="overHeadButtonsActiveAdPage">
  
         <div class="backButton">
-            <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
         </div>
-    </div>
-
-    <div class="frames">
+        </div>
+        
+        <div class="frames">
+        <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
         
             <div class="foodDescriptionImage">
                 <div id="foodGroupFrame">${activeAdPhoto}</div>
