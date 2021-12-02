@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [],   
+        currentUser: [0],   
 },
 
 // Inputs 
@@ -178,6 +178,10 @@ inputs:
     foodPage: {
         searchBar: "",
         zipCode: "",
+    },
+
+    postedAdsPage: {
+        myForm: "isHidden",
     },
 
 },

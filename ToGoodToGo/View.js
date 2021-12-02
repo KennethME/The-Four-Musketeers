@@ -536,8 +536,8 @@ function postedAdsPage(){
     <div class="chatBoxPostedAdsPage">
 
         <button class="open-button" onclick="openForm()">Chat</button>
-        <div class="chat-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
+        <div class="chat-popup" id="${model.inputs.postedAdsPage.myForm}">
+        <form action="/action_page.php" class="form-container">
         <h1>Chat</h1>
 
         <label for="msg"><b>Message</b></label>
@@ -687,9 +687,11 @@ show();
 }
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    model.inputs.postedAdsPage.myForm = "isBlock";
+    postedAdsPage()
   }
   
   function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    model.inputs.postedAdsPage.myForm = "isHidden"
+    postedAdsPage()
   }
