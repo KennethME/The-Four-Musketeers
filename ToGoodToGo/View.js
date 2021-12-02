@@ -4,30 +4,55 @@ function show(){
    document.getElementById('app').innerHTML = html;
 }
 
-function firstPage(){
-    html = /*html*/`    
-    <h1 class="headLine">2 Good 2 Go</h1>
-    <div class = 'announcements'>${announcements()}</div>
-    <div>vi kan skrive det vi vil her </div>
-    `;
-    show();
-}
+// function firstPage(){
+//     html = /*html*/`
+//     <h1 class="FirstPageHeadLine">VELKOMMEN</h1>
+//     <img class="slide">
+//     `;
+//     show();
+// }
 
 // firstPage();
 
-function announcements(){
-    html = "";
-    for (let ad of model.ads){
-            html += /*html*/`   
-        <div onclick= 'mainPage()'>
-        <img src = '${ad.image}' width = '300' height = '300'><br>
-        </div> `; 
-        }
-       return html;
-}
+
+// function initSlideshow() {	
+// 		setImage(0);
+//     setInterval(function(){
+//     		nextImage();
+//     },5000);
+// };
+
+// function nextImage() {
+// 		if(model.images.length === model.app.currentImage + 1){
+//     		model.app.currentImage = 1;
+//     } else {
+//         model.app.currentImage++;
+//     }
+//     setImage(model.app.currentImage);
+// };
+
+// function setImage(image) {
+//     for (let i = 0; i < model.ads.length; i++){
+//         model.images.push(model.ads[i].image);
+//     }
+//     	document.querySelectorAll('.slide')[0].src = model.images[image];
+// };
 
 
 
+
+// function announcements(){
+//     html = "";
+//     for (let ad of model.ads){
+//             html += /*html*/`   
+//         <div onclick= 'mainPage()'>
+//         <img src = '${ad.image}' width='150' height='100'><br>
+//         </div> `; 
+//         }
+//         show();
+//        return html;
+//     }
+    
 // DENNE JOBBER VI MED NÅ
 // DENNE JOBBER VI MED NÅ
 // DENNE JOBBER VI MED NÅ
@@ -221,6 +246,7 @@ function mainPage()
     html = /*html*/`
     <h1 class="MainheadLine">2 Good 2 Go</h1>
 
+
         <div class="frames">
         
             <div class="newUserBorder">
@@ -243,10 +269,11 @@ function mainPage()
     `;
     show();
 }
+//firstPage();
 //giveAway();
 //  postedAdsPage();
- //mainPage();
- accountHomePage(); //AccountPage er ferdig med css.
+ mainPage();
+ //accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
     html = /*html*/`
@@ -338,10 +365,8 @@ function accountHomePage(){
 };
 function accountInformationPage() {
     html = /*html*/`
-    <h1 class="headLine">2 Good 2 Go</h1>
-    
-        <button onclick= "accountHomePage()" class="loggUtBtn mainbtns">X</button>
-  
+    <h1 class="headLineBrukerInfo">2 Good 2 Go</h1>
+        <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
                 <div class="frames">
                     <div id="newUserInfo">
                         <h1>Din Bruker</h1>
@@ -527,13 +552,10 @@ function postedAdsPage(){
     <h1 class="headLinePostedAds headLine">postedAdsPage</h1>
     <div class="overHeadButtons">
     <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns">X</button>
-
         </div>
 
-        <div class="postedAdsframe">
-
-
-    <div class="chatBoxPostedAdsPage">
+         <div class="postedAdsframe">
+         <div class="chatBoxPostedAdsPage">
 
         <button class="open-button" onclick="openForm()">Chat</button>
         <div class="chat-popup" id="${model.inputs.postedAdsPage.myForm}">

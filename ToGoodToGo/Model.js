@@ -3,9 +3,10 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [0],   
+        currentUser: [0],
+        currentImage: 0,
 },
-
+images: [],
 // Inputs 
 inputs: 
 {

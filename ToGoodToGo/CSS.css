@@ -59,9 +59,9 @@
     }
 }
 
-.iconImg2{
+/* .iconImg2{
   
-}
+} */
 
 .icons 
 {
@@ -255,6 +255,28 @@ P {
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
 }
+.FirstPageHeadLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: -23vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
+.headLineBrukerInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: -39vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
 .findFoodPageheadLine {
     display: flex;
     align-items: center;
@@ -411,6 +433,14 @@ input {
     /* min-inline-size: -webkit-fill-available; */
     /* top: 0vh; */
     left: -8vh;
+    position: relative;
+}
+.loggUtBtnBrukerInfo{
+    background-color: red;
+    color: white;
+    /* min-inline-size: -webkit-fill-available; */
+    top: -32vh;
+    left: 2vh;
     position: relative;
 }
 .loggUtBtnFindFoodPage {
@@ -724,9 +754,9 @@ text-align: center;
     top: -21vh;
 }
 
-.overHeadButtonsActiveAdPage{
+/* .overHeadButtonsActiveAdPage{
 
-}
+} */
 .allergyButtons
 {
     padding-bottom: 40px;
@@ -770,25 +800,30 @@ flex-direction: row;
     display: flex;
     flex-direction: row;
 }
-
+.slide
+{
+    width:300px;
+    height:300px;
+}
 .announcements{
-    animation: MoveUpDown 1000s linear infinite;
+    animation: slide 15s linear infinite;
+
     position: absolute;
     left: 0;
     bottom: 0;
     width : 0;
     z-index: 1;
-    display: flex start 0vh end 100px;
+    display: flex start 0vh end 0vh;
     flex-direction: row;
 
     
 }
-@keyframes MoveUpDown {
+@keyframes slide {
     0% {
-      transform: translateY(0);
+      transform: translateY(0,0,0);
     }
     100% {
-      transform: translateY(1000vh);
+      transform: translateY(1500px);
     }
 
   }
