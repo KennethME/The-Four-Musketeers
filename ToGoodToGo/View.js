@@ -245,8 +245,8 @@ function mainPage()
 }
 //giveAway();
 //  postedAdsPage();
- mainPage();
- //accountHomePage(); //AccountPage er ferdig med css.
+ //mainPage();
+ accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
     html = /*html*/`
@@ -568,8 +568,20 @@ function postedAdsPage(){
         <div class="postedAdsframe">
 
 
-    <div class="giveAwayFoodFrames anotherWindowForKenneth">
-<div id="chatteBox">
+    <div class="chatBoxPostedAdsPage">
+
+        <button class="open-button" onclick="openForm()">Chat</button>
+        <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+        <h1>Chat</h1>
+
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+    </div>
     </div>
                 <div class="foodDescriptionBorder">
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
@@ -612,7 +624,7 @@ function postedAdsPage(){
                     </div>
                 </form>
                 </div>        
-        </div>
+      
         <div class="foodDescriptionImage">
         <div id="foodGroupFrame">${userAdPhoto}</div>
     </div>
@@ -670,23 +682,6 @@ function activeAdInformationPage(){
 show();
 }
 
-function chatBox(){
-     html = /*html*/`
-     <button class="open-button" onclick="openForm()">Chat</button>
-
-    <div class="chat-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
-        <h1>Chat</h1>
-
-        <label for="msg"><b>Message</b></label>
-        <textarea placeholder="Type message.." name="msg" required></textarea>
-
-        <button type="submit" class="btn">Send</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-    </div>
-     `;
-}
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
