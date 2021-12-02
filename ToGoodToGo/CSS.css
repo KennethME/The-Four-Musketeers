@@ -175,7 +175,7 @@ flex-direction: column;
 .giveAwayFoodBtns:hover{
     box-shadow: -1px 1px 2px 2px black;
     /* min-inline-size: -webkit-fill-available; */
-       
+
 }
 
 .giveAwayAdChoise
@@ -188,8 +188,6 @@ flex-direction: column;
     height: auto;
     width: auto;
     position: relative;
-
-    
 }
 .giveAwayHistoryImageBorder
 {
@@ -811,10 +809,11 @@ flex-direction: row;
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-    bottom: 23px;
-    right: 28px;
-    width: 280px;
-  }
+    bottom: 210px;
+    right: 29vh;
+    width: 199px;
+    /* top: 22px; */
+}
   
   /* The popup chat - hidden by default */
   .chat-popup {
@@ -828,11 +827,12 @@ flex-direction: row;
   
   /* Add styles to the form container */
   .form-container {
-    max-width: 300px;
+    max-width: 423px;
     padding: 10px;
+    position: relative;
+    left: -3vh;
     background-color: white;
-  }
-  
+}
   /* Full-width textarea */
   .form-container textarea {
     width: 100%;
