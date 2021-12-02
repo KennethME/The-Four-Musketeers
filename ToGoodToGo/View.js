@@ -245,7 +245,7 @@ function mainPage()
 }
 //giveAway();
 //  postedAdsPage();
- mainPage();
+//  mainPage();
  //accountHomePage(); //AccountPage er ferdig med css.
 
 function newUser(){
@@ -308,7 +308,7 @@ function accountHomePage(){
         <div onclick="postedAdsPage()">
     
             <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
-            <h3>Arkiverte annonser</h3>
+            <h3>Akiverte annonser</h3>
         </div>
     </div>
 
@@ -390,41 +390,6 @@ function accountInformationPage() {
             </div>`;
     show();
 }
-
-function showMyActiveAds(){
-    let activeAdPhoto = '';
-    for (let i = 0; i < model.ads.length; i++){
-        if(model.ads[i].orderedById.includes(model.users[userIndex].id)){
-            
-            activeAdPhoto += /*html*/`
-            <img onclick="activeAdInformationPage(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
-            `;
-        }
-    }
-    html = /*html*/`
-    <h1 class="headLine">2 Good222 2 Go</h1>
-
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> 
-            <br>
-            <button onclick="logOut()" class= "mainbtns">Logg ut</button>
-        </div>
-        <div class="backButton">
-            <button onclick="accountHomePage()" class= "mainbtns">X</button>
-        </div>
-    </div>
-    <div class="mainFrame">
-        <div class="giveAwayFoodFrames">
-            <div class="foodDescriptionImage">
-                <div id="foodGroupFrame">${activeAdPhoto}</div>
-        </div>
-            <div class="foodDescriptionInputs"></div>
-    </div> 
-    `;
-show();
-}
-
 /* <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button> */
 
 // function selectElement(selector){
@@ -569,8 +534,7 @@ function postedAdsPage(){
 
 
     <div class="giveAwayFoodFrames anotherWindowForKenneth">
-<div id="chatteBox">
-    </div>
+
                 <div class="foodDescriptionBorder">
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                     <label>Tittel:</label>
@@ -616,6 +580,7 @@ function postedAdsPage(){
         <div class="foodDescriptionImage">
         <div id="foodGroupFrame">${userAdPhoto}</div>
     </div>
+    </div>
     `;
 show();
 }
@@ -623,6 +588,44 @@ show();
 <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> <br>
 <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
 </div> */}
+
+
+
+function showMyActiveAds(){
+    let activeAdPhoto = '';
+    for (let i = 0; i < model.ads.length; i++){
+        if(model.ads[i].orderedById.includes(model.users[userIndex].id)){
+            
+            activeAdPhoto += /*html*/`
+            <img onclick="activeAdInformationPage(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
+            `;
+        }
+    }
+    html = /*html*/`
+    <h1 class="headLine">2 Good222 2 Go</h1>
+
+    <div class="overHeadButtons">
+        <div class="userButtons">
+            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> 
+            <br>
+            <button onclick="logOut()" class= "mainbtns">Logg ut</button>
+        </div>
+        <div class="backButton">
+            <button onclick="accountHomePage()" class= "mainbtns">X</button>
+        </div>
+    </div>
+    <div class="mainFrame">
+        <div class="giveAwayFoodFrames">
+            <div class="foodDescriptionImage">
+                <div id="foodGroupFrame">${activeAdPhoto}</div>
+            </div>
+            <div class="foodDescriptionInputs"></div>
+        </div>
+    </div> 
+    `;
+show();
+}
+
 function activeAdInformationPage(){
     let activeAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
@@ -669,7 +672,6 @@ function activeAdInformationPage(){
     `;
 show();
 }
-
 function chatBox(){
      html = /*html*/`
      <button class="open-button" onclick="openForm()">Chat</button>
