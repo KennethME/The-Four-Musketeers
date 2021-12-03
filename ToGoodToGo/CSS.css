@@ -13,7 +13,7 @@
     .icons {
         position: relative;
         width: auto;
-        /* height: 110px; */
+        /* height: 110px; */   
     }
     body 
     {
@@ -250,7 +250,7 @@ P {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -6vh;
+    top: -41vh;
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -476,9 +476,9 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    /* top: -32vh; */
-    /* left: 11vh; */
-    /* position: relative; */
+    top: -3vh;
+    left: -1vh;
+    position: relative;
     float: left;
     margin-inline-end: auto;
 }
@@ -534,7 +534,7 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    left: -33px;
+    left: -43px;
 }
 .loggUtBtnpostedAdsPage {
     background-color: red;
@@ -554,7 +554,7 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    left: -33px;
+    left: -43px;
 }
 .userLoginFrames{
     display: flex;
@@ -645,7 +645,7 @@ input {
     justify-content: center;
     text-align: center;
     height: 80%;
-    width: 80%;
+    width: 100%;
     border: 2px solid rgb(106, 168, 79);
     border-radius: 10px;
     /* margin: 0px 100px 0px 100px; */
@@ -661,6 +661,8 @@ input {
     text-align: center;
 }
 
+
+
 .foodAdDescription
 {
     display:flex;
@@ -673,6 +675,7 @@ input {
     width: 80%;
     border-radius: 10px;
     margin: 0px 100px 0px 100px;
+
 }
 .foodAdDescriptionInputs
 {

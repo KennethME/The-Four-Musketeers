@@ -4,32 +4,28 @@ function show(){
    document.getElementById('app').innerHTML = html;
 }
 
-// function firstPage(){
-//     html = /*html*/`
-//     <h1 class="FirstPageHeadLine">VELKOMMEN</h1>
-//     <img class="slide">
-//     `;
-//     show();
-// }
+function firstPage(){
+    html = /*html*/`
+    <h1 class="FirstPageHeadLine">VELKOMMEN</h1>
+    <img class="slide">
+    `;
+    show();
+}
 
-// firstPage();
+firstPage();
 
 
-// function initSlideshow() {	
-// 		setImage(0);
-//     setInterval(function(){
-//     		nextImage();
-//     },5000);
-// };
+function initSlideshow() {	
+    setImage(0);
+    
+    for (let i = 0; i < model.ads.length; i++){
+        model.images.push(model.ads[i].image);
+    }
 
-// function nextImage() {
-// 		if(model.images.length === model.app.currentImage + 1){
-//     		model.app.currentImage = 1;
-//     } else {
-//         model.app.currentImage++;
-//     }
-//     setImage(model.app.currentImage);
-// };
+    setInterval(function(){
+    		nextImage();
+    },5000);
+};
 
 // function setImage(image) {
 //     for (let i = 0; i < model.ads.length; i++){
@@ -272,6 +268,7 @@ function mainPage()
 //firstPage();
 // giveAway();
 //  postedAdsPage();
+//foodPage();
 mainPage();
  //accountHomePage(); //AccountPage er ferdig med css.
 
@@ -384,7 +381,7 @@ function accountInformationPage() {
                                 <label>Passord:</label>
                                 <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].userPw}">
                             <div class="btnRow">
-                                <button ${model.inputs.editUserButton.edit} onclick="accountHomePage()" class="mainBtns" >Tilbake</button>
+                           
                                 <button ${model.inputs.editUserButton.edit} onclick="editAccount()" class="mainBtns" >Rediger</button>
                                 <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button>
                             </div>
@@ -476,10 +473,10 @@ function foodPage(){
             <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         </div>
         <div class="backButton">
-            <button onclick="accountHomePage()" class="loggUtBtn">X</button>
-    </div>
-
-    <div class="FoodPageFrame"> 
+        </div>
+        
+        
+        <div class="FoodPageFrame"> 
         <div class="allergyButtons">
             <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
             <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
@@ -491,7 +488,8 @@ function foodPage(){
             <label>Post Adresse</label>
             <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
         </div>
-        <div class="foodGroupFrame">${postingAd}</div>
+        <div class="frames">${postingAd}</div>
+        <button onclick="accountHomePage()" class="loggUtBtn">X</button>
     </div>
     `;
 show();
