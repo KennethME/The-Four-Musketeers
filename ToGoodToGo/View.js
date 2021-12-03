@@ -27,12 +27,29 @@ function initSlideshow() {
     },5000);
 };
 
-// function setImage(image) {
-//     for (let i = 0; i < model.ads.length; i++){
-//         model.images.push(model.ads[i].image);
-//     }
-//     	document.querySelectorAll('.slide')[0].src = model.images[image];
-// };
+// >= dette betyr større eller er lik. "2 er større eller lik 2"  
+//(100 >= 2) = true 
+//(1 >= 2) = false
+// <= Mindre eller er lik;
+// si du har to setintervals og begge bruker samme teller, tilfeldigvis, så kan du ende opp med å skippe
+//teller indexen. SÅ da vil noen ganger if(index === 1) ikke stemme, for det kan bli index = 2. Så bruk if(index >= 1)
+
+
+function nextImage() {
+
+
+    if(model.app.currentImage > model.images.length - 1){
+        model.app.currentImage = 0;
+    }
+    console.log(model.app.currentImage);
+    setImage(model.app.currentImage);
+    
+    model.app.currentImage++;
+};
+function setImage(index) {
+    
+    document.querySelectorAll('.slide')[0].src = model.images[index];
+};
 
 
 
