@@ -430,15 +430,18 @@ function accountInformationPage() {
 function foodPage(){
     let postingAd = '';
     for (let i = 0; i < model.ads.length; i++){
+        if(model.inputs.foodPagezipCode === model.ads[i].zipCode){
                 postingAd += /*html*/`
                 <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
-        
-    }
+        }
+        else if(model.inputs.foodPagezipCode === '')
+        postingAd += /*html*/`
+        <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
+        }
     html = /*html*/`
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
     <div class="overHeadButton">
-        <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
         <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         <button onclick="accountHomePage()" class="loggUtBtn">X</button>
     </div>
@@ -451,9 +454,10 @@ function foodPage(){
     </div>
     <div class="zipSearchInput">
         <label>Post Adresse</label>
-        <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
+        <input class="ZipSearchBar" oninput="model.inputs.foodPagezipCode = this.value" type="text" value="${model.inputs.foodPagezipCode || ''}">
+        <button type="submit" onclick="searchZipCode()">Søk</button>
     </div>
-        <div class="FoodPageFrame">${postingAd}</div> 
+    <div class="FoodPageFrame">${postingAd}</div> 
     `;
 show();
 };
@@ -463,7 +467,7 @@ function foodPageAd(index)
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
 
-        <div class="overHeadButton">
+        <div class="overHeadFoodPageAdButtons">
             <div class="userButtons">
                 <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
             </div>
@@ -475,19 +479,21 @@ function foodPageAd(index)
         <div class="postedAdsframe">
             <div class="foodAdDescription">
                 <div class="foodAdDescriptionInputs">
-                        <label>Navn:${model.ads[index].userName}</label>
-                        <label>Adresse:${model.ads[index].adress}</label>
-                        <label>PostNr:${model.ads[index].zipCode}</label>
-                        <label>Tlf:${model.ads[index].phoneNumber}</label>
-                        <label>Dato fra:${model.ads[index].datePosted}</label>
-                        <label>Dato Til:${model.ads[index].dateExpired}</label>
-                        <label>Beskrivelse:${model.ads[index].details}</label>
+                    <label>Navn:${model.ads[index].userName}</label>
+                    <label>Adresse:${model.ads[index].adress}</label>
+                    <label>PostNr:${model.ads[index].zipCode}</label>
+                    <label>Tlf:${model.ads[index].phoneNumber}</label>
+                    <label>Dato fra:${model.ads[index].datePosted}</label>
+                    <label>Dato Til:${model.ads[index].dateExpired}</label>
+                    <label>Beskrivelse:${model.ads[index].details}</label>
                 </div>
                 <div class="foodAdDescriptionInputs">
                     <img src="${model.ads[index].image}" width="250px" height="200px"> 
                 </div>
+                <div class="foodAdDescriptionInputs">
+                <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
+                </div>
             </div>
-            <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
         </div>
     `;  
 show();

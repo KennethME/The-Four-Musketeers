@@ -329,7 +329,7 @@ p {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: 6vh;
+    top: -3vh;
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -655,6 +655,23 @@ input {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
+    height: auto;
+    width: auto;
+    display:flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.foodPageAdsframe
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
     height: 50%;
     width: auto;
     display:flex;
@@ -665,7 +682,6 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0px 155px;
     contain: content;
 }
 
@@ -838,27 +854,20 @@ input {
     align-items: center;
     justify-content: center;
     text-align: center;
-
-    height: 80%;
-    width: 80%;
     border-radius: 10px;
-    margin: 0px 100px 0px 100px;
 
 }
 .foodAdDescriptionInputs
 {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-
     height: 80%;
     width: 30%;
-    
-    border: 2px solid rgb(106, 168, 79);
     border-radius: 10px;
-    margin: 0px 100px 0px 100px;
+    margin: 50px 50px 50px 50px;
 }
 .FoodPageFrame
 {
@@ -921,8 +930,13 @@ text-align: center;
 .overHeadButtons {
     /* display: flex; */
     /* justify-content: space-between; */
-    position: relative;
+    position: absolute;
     top: -21vh;
+}
+.overHeadFoodPageAdButtons{
+    position: absolute;
+    top: 27vh;
+    left: 50vh;
 }
 
 /* .overHeadButtonsActiveAdPage{
@@ -930,7 +944,9 @@ text-align: center;
 } */
 .allergyButtons
 {
-    padding-bottom: 40px;
+    position: absolute;
+    top: 18vh;
+    transform: translate(100%)
 }
 .beskrivelseInput
 {
