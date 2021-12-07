@@ -431,7 +431,7 @@ function foodPage(){
     html = /*html*/`
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
-    <div class="overHeadButtons">
+    <div class="overHeadButton">
         <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
         <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         <button onclick="accountHomePage()" class="loggUtBtn">X</button>
