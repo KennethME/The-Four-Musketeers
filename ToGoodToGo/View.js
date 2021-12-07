@@ -151,7 +151,7 @@ function giveAway(){
                         <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.dateExpired}" oninput="model.inputs.newAd.dateExpired= this.value" required />
                         <label>Beskrivelse:</label>
                         <input ${model.inputs.giveAway.disabled} class="beskrivelseInput" type="text" value="${model.inputs.newAd.details}" oninput="model.inputs.newAd.details=this.value">
-                        <button class="${model.inputs.giveAway.prewViewBtn}" type="submit">legg ut annonse</button>
+                        <button class="${model.inputs.giveAway.prewViewBtn} addNewAdBtn" type="submit">legg ut annonse</button>
                     </form>
                     <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
                     <div class="${model.inputs.giveAway.prewViewBtn}">
@@ -233,7 +233,8 @@ function giveAway(){
                     <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}">Til Personvern</button>
                     <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Til Personvern</button>
                 </div>    
-                <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAnonymous}"> 
+                <h1 class="txtPreviewAnonym"> Preview på din annonse </h1>
+                <div class="giveAwayDescriptionBorderAnonym" id="${model.inputs.giveAway.uploadAnonymous}"> 
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
                     <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
                     <p>Når du gir ut mat, så har du mulighet til å skjule kontaktinformasjonen din helt til noen tar kontakt med deg. Ellers så vil kontaktinformasjonen din vises og kunder kan ta kontakt med informasjon som ligger ute</p>
@@ -251,7 +252,7 @@ function giveAway(){
                     <br>
                     <div>
                         <button id="${model.inputs.giveAway.uploadAnonymousbtn}" onclick="newAdPreview()">Forhåndsvisning</button>
-                        <button id="${model.inputs.giveAway.uploadHistoryAnonymousbtn}" onclick="historyAdPreview()">Forhåndsvisning</button>
+                        <button id="${model.inputs.giveAway.uploadHistoryAnonymousbtn}" class="" onclick="historyAdPreview()">Forhåndsvisning</button>
                     </div> 
                 </div>
         </div>
