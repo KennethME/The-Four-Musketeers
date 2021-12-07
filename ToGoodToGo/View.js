@@ -123,8 +123,6 @@ function giveAway(){
             ${userAdPhoto}
         </div>
     </div>
-        <!-- Onsubmit burde? ligge i <Formen for at den skal fungere>
-        Funket ikke når den lå i <Button> Legg ut Annonse </button> -->
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
                     <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
                         <label>Tittel:</label>
@@ -250,10 +248,6 @@ show();
 }
 
 
-
-
-// Required funker når den ligger inni en <form>
-
 function mainPage()
 {
     html = /*html*/`
@@ -282,12 +276,9 @@ function mainPage()
     `;
     show();
 }
-//firstPage();
-// giveAway();
-//  postedAdsPage();
-//foodPage();
-mainPage();
- //accountHomePage(); //AccountPage er ferdig med css.
+// mainPage();
+//AccountPage er ferdig med css.
+accountHomePage()
 
 function newUser(){
     html = /*html*/`
@@ -363,10 +354,10 @@ function accountHomePage(){
     </div>
 
     <div class="miniFrames2">
-        <div onclick="activeAdInformationPage()">
+        <div onclick="showMyActiveAds()">
 
             <img src="https://img.icons8.com/color/256/000000/prepositions-in.png" class="icons" width="auto">
-            <h3>Dine annonser</h3>
+            <h3>Dine bestilte annonser</h3>
         </div>
         </div>
         <div class="userInfo2">
@@ -429,50 +420,6 @@ function accountInformationPage() {
             </div>`;
     show();
 }
-/* <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button> */
-
-// function selectElement(selector){
-//     return document.querySelector(selector)
-// }
-
-// function clearResults(){
-//     selectElement('.foodGroupFrame').innerHTML = "";
-// }
-
-// function getResults(){
-//     const search = model.inputs.userSearchZipCode;
-//     console.log(search);
-
-//     clearResults();
-//         for (let i = 0; i < model.ads.length; i++){
-//             if(true){
-//                 let allergi = model.ads[i].allergyID;
-
-//                 selectElement('.foodGroupFrame').innerHTML += `
-//                 <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" id="adPhoto" class="foodGroupPhotoFrame ${allergi}">`;
-                
-//         }
-//     }
-// }
-// selectElement('.ZipSearchBar').addEventListener('load', getResults);
-
-
-// function myFunction() {
-//     var input, filter;
-//     input = document.getElementById("zipCodeInput");
-//     filter = input.value;
- 
-
-//     for (i = 0; i < model.ads.length; i++) {
-//          = .getElementsByTagName("a")[0];
-//         txtValue = a.textContent || a.innerText;
-//         if (txtValue.().indexOf(filter) > -1) {
-//             li[i].style.display = "";
-//         } else {
-//             li[i].style.display = "none";
-//         }
-//     }
-// }
 
 function foodPage(){
     let postingAd = '';
@@ -639,44 +586,40 @@ show();
 <button onclick="logOut()" class= "logge ut mainbtns">Logg ut</button>
 </div> */}
 
-
-
 function showMyActiveAds(){
     let activeAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
         if(model.ads[i].orderedById.includes(model.users[userIndex].id)){
-            
             activeAdPhoto += /*html*/`
-            <img onclick="activeAdInformationPage(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
+            <div class="activeAdAds">
+                <img onclick="activeAdInformationPage(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
+                <div class="activeAdInfo">
+                        <p>${model.ads[i].title}</p>
+                        <p>Dato utlagt:${model.ads[i].datePosted}</p>
+                        <p>Dato utgått:${model.ads[i].dateExpired}</p>
+                        <p>Utlegger:${model.ads[i].userName}</p>
+                </div>
+            </div>
             `;
         }
     }
     html = /*html*/`
-    <h1 class="headLine">2 Good222 2 Go</h1>
-
-    <div class="overHeadButtons">
-        <div class="userButtons">
-            <button onclick="accountInformationPage()" class ="edit mainBtns">Bruker informasjon</button> 
-            <br>
-            <button onclick="logOut()" class= "mainbtns">Logg ut</button>
+    <div class="activeBody">
+        <div><h1>2 Good 2 Go</h1>
+                <button onclick="logOut()" class= "mainbtns">Logg ut</button>
         </div>
         <div class="backButton">
             <button onclick="accountHomePage()" class= "mainbtns">X</button>
         </div>
-    </div>
-    <div class="mainFrame">
-        <div class="giveAwayFoodFrames">
-            <div class="foodDescriptionImage">
-                <div id="foodGroupFrame">${activeAdPhoto}</div>
-            </div>
-            <div class="foodDescriptionInputs"></div>
+        <div class="activeAdframes">
+            <div>${activeAdPhoto}</div>
         </div>
-    </div> 
+    </div>
     `;
 show();
 }
 
-function activeAdInformationPage(){
+function activeAdInformationPage(i){
     let activeAdPhoto = '';
     for (let i = 0; i < model.ads.length; i++){
         if(model.ads[i].orderedById.includes(model.users[userIndex].id)){
@@ -698,37 +641,25 @@ function activeAdInformationPage(){
         <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
         
             <div class="foodDescriptionImage">
-                <div id="foodGroupFrame">${activeAdPhoto}</div>
+                <div id="foodGroupFrame"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
             </div>
                 <div class="foodDescriptionInputs">
                     <label>Tittel:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.title}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].title}" type="text">
                     <label>Adresse:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.adress}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].adress}" type="text">
                     <label>PostNr:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.zipCode}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].zipCode}" type="text">
                     <label>Telefon:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.phoneNumber}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].phoneNumber}" type="text">
                     <label>Dato fra:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.datePosted}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].datePosted}" type="text">
                     <label>Dato Til:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].dateExpired}" type="text">
                     <label>Beskrivelse:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
+                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].details}" type="text">
                 </div>
-         
-        
     </div> 
     `;
 show();
 }
-
-function openForm() {
-    model.inputs.postedAdsPage.myForm = "isBlock";
-    postedAdsPage()
-  }
-  
-  function closeForm() {
-    model.inputs.postedAdsPage.myForm = "isHidden"
-    postedAdsPage()
-  }

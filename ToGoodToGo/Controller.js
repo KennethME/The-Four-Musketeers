@@ -1,4 +1,4 @@
-var userIndex = [];
+var userIndex = [0];
 var today = new Date();
 var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
@@ -684,3 +684,4 @@ function openForm() {
     model.inputs.postedAdsPage.myForm = "isHidden"
     postedAdsPage()
   }
+  

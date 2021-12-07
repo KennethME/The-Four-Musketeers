@@ -3,7 +3,7 @@ const model =
     
     app : {
         currentpage: '', 
-        currentUser: [],
+        currentUser: [0],
         currentImage: 0,
 },
 images: [],
