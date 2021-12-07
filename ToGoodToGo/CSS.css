@@ -562,6 +562,18 @@ input {
     left: 50%;
     transform: translate(-50%, -50%); */
 }
+
+#text1{
+
+}
+#text2 {
+    height: 320px;
+    width: 63vw;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    z-index: -1;
+}
 .giveAwayPage
 {
     position: absolute;
@@ -650,6 +662,23 @@ input {
     text-align: center;
 }
 .postedAdsframe
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+    display:flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.postedAdsframe2
 {
     position: absolute;
     background-color: rgb(255, 255, 255);
@@ -989,7 +1018,7 @@ flex-direction: row;
 }
 .slide
 {
-    /* max-width: 400px; */
+    max-width: 400px;
     max-height: 300px;
     min-width: 400px;
     min-height: 300px;
@@ -998,8 +1027,13 @@ flex-direction: row;
     border-radius: 6%;
     box-shadow: -1px 1px 5px 3px black;
     position: relative;
-    top: 5vw;
-    right: 3vw;
+    top: 4vw;
+    right: -11vw;
+}
+
+.imgSlideShow{
+    display: grid;
+    position: relative;
 }
 .announcements{
     animation: slide 15s linear infinite;

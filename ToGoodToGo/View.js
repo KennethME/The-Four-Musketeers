@@ -9,12 +9,20 @@ function firstPage(){
     <h1 class="FirstPageHeadLine">VELKOMMEN</h1>
     <button onclick=" mainPage()">Gå inn</button>
     <hr>
-    <h1> 2good2go er en mat blah blah blah blah</h1>
+    <h3> 2good2go er en mat blah blah blah blah</h3>
     <br>
+    <div id="text1">
     <p class="firstPageText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tortor purus, dapibus eget augue non, vulputate gravida augue. Etiam lacus lorem, gravida eu libero in, ultricies congue dui. In hac habitasse platea dictumst. Aliquam hendrerit, ligula id volutpat facilisis, orci est aliquet leo, sed commodo tortor magna eu ante. Maecenas consectetur nunc nisi, non pulvinar dolor viverra ut. Morbi commodo nisi aliquam lorem hendrerit elementum. Pellentesque et elit venenatis leo malesuada ultricies. Praesent egestas cursus ipsum, vel cursus dolor molestie vehicula. Phasellus eu finibus nunc. Nullam ultricies malesuada quam, eu volutpat justo elementum a.
 
     Suspendisse tincidunt vehicula euismod. Fusce ornare ipsum leo, at scelerisque felis venenatis ac. Vivamus suscipit tortor sit amet velit semper, vitae tincidunt tortor rhoncus. Suspendisse sodales mi vitae scelerisque congue. Aliquam magna ex, varius ac commodo id, gravida ut magna. Ut faucibus urna dolor, nec malesuada erat molestie mollis. Ut volutpat, nunc sit amet malesuada pretium, nibh elit dignissim diam, at lacinia mi erat eget libero. Etiam volutpat diam ac justo consectetur blandit.</p>
-    <div class="">
+    </div>
+    <div id="text2">
+    <h1>More info</h1>
+    <p class="firstPageText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tortor purus, dapibus eget augue non, vulputate gravida augue. Etiam lacus lorem, gravida eu libero in, ultricies congue dui. In hac habitasse platea dictumst. Aliquam hendrerit, ligula id volutpat facilisis, orci est aliquet leo, sed commodo tortor magna eu ante. Maecenas consectetur nunc nisi, non pulvinar dolor viverra ut. Morbi commodo nisi aliquam lorem hendrerit elementum. Pellentesque et elit venenatis leo malesuada ultricies. Praesent egestas cursus ipsum, vel cursus dolor molestie vehicula. Phasellus eu finibus nunc. Nullam ultricies malesuada quam, eu volutpat justo elementum a.
+
+    Suspendisse tincidunt vehicula euismod. Fusce ornare ipsum leo, at scelerisque felis venenatis ac. Vivamus suscipit tortor sit amet velit semper, vitae tincidunt tortor rhoncus. Suspendisse sodales mi vitae scelerisque congue. Aliquam magna ex, varius ac commodo id, gravida ut magna. Ut faucibus urna dolor, nec malesuada erat molestie mollis. Ut volutpat, nunc sit amet malesuada pretium, nibh elit dignissim diam, at lacinia mi erat eget libero. Etiam volutpat diam ac justo consectetur blandit.</p>
+    </div>
+    <div class="imgSlideShow">
     <img class="slide">
     </div>
     `;
@@ -46,12 +54,11 @@ function initSlideshow() {
 
 function nextImage() {
 
-
     if(model.app.currentImage > model.images.length - 1){
         model.app.currentImage = 0;
     }
-    console.log(model.app.currentImage);
     setImage(model.app.currentImage);
+    console.log(model.app.currentImage)
     
     model.app.currentImage++;
 };
@@ -516,7 +523,7 @@ function postedAdsPage(){
     <div class="overHeadButtons">
     </div>
     
-    <div class="postedAdsframe">
+    <div class="postedAdsframe2">
     <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns">X</button>
          <div class="chatBoxPostedAdsPage">
 
