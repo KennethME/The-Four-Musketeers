@@ -340,7 +340,7 @@ function accountHomePage(){
         <div onclick="postedAdsPage()">
     
             <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
-            <h3>Akiverte annonser</h3>
+            <h3>Arkiverte annonser</h3>
         </div>
     </div>
 
@@ -574,7 +574,8 @@ function postedAdsPage(){
                 </form>
                 </div>        
       
-        <div class="foodDescriptionImage">
+                <div class="foodDescriptionImage">
+                <p class="dinHistorikk"> Din historikk:</p>
         <div id="foodGroupFrame">${userAdPhoto}</div>
     </div>
     </div>
