@@ -524,7 +524,7 @@ input {
     border-radius: 10px;
     overflow-y: scroll;
     height: 60vh;
-    width: 50vw;
+    width: 30vw;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -549,7 +549,20 @@ input {
 .activeAdInfo
 {
     display: flex;
+    flex-direction: column;
+}
+.activeAdInfoframes
+{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 60vh;
+    width: 30vw;
+    display:flex;
+    justify-content: space-around;
     flex-direction: row;
+    align-items: center;
+    text-align: center;
 }
 .postedAdsframe
 {
@@ -683,7 +696,6 @@ input {
     width: auto;
     /* border: 2px solid rgb(106, 168, 79); */
     -webkit-writing-mode: vertical-rl;
-    position: relative;
     top: 29vh;
     /* border-radius: 10px; */
     /* margin: 0px 50px 0px 50px; */
@@ -751,6 +763,7 @@ input {
     align-items:center;
     height: 85vh;
     width: 80vw;
+    background-color: white;
 }
 
 .foodGroupPhotoFrame
