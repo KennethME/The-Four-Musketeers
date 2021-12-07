@@ -97,23 +97,20 @@ function giveAway(){
     <div class="giveAwayMain">
      
     
-    <div class="frames" id="${model.inputs.giveAway.inputButtons}">
+    <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
     <div class="giveAwayAdChoise">
     <div class="overHeadButtons">
-    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
+    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage">X</button>
+  
    </div>
-        <button class="giveAwayFoodBtns" onclick="newAdinputs()">
-        <img src="https://img.icons8.com/color/200/000000/giving.png"/>
-        <div clss="textName">
-            <h3>legg ut annonse</h3>  
-        </div>
-
+        <button onclick="newAdinputs()">asd
+            <img src="https://img.icons8.com/color/200/000000/giving.png"/>
+       
         </button>
-            <button class="giveAwayFoodBtns" onclick="historyAdInputs()">
-            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>
-            <div clss="textName">
-                <h3>Annonse historikk</h3> 
-            </div> 
+
+            <button onclick="historyAdInputs()">
+            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>asd
+         
             </button>
         </div>            
     </div>
