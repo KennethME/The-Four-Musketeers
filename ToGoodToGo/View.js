@@ -7,7 +7,16 @@ function show(){
 function firstPage(){
     html = /*html*/`
     <h1 class="FirstPageHeadLine">VELKOMMEN</h1>
+    <button onclick=" mainPage()">Gå inn</button>
+    <hr>
+    <h1> 2good2go er en mat blah blah blah blah</h1>
+    <br>
+    <p class="firstPageText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tortor purus, dapibus eget augue non, vulputate gravida augue. Etiam lacus lorem, gravida eu libero in, ultricies congue dui. In hac habitasse platea dictumst. Aliquam hendrerit, ligula id volutpat facilisis, orci est aliquet leo, sed commodo tortor magna eu ante. Maecenas consectetur nunc nisi, non pulvinar dolor viverra ut. Morbi commodo nisi aliquam lorem hendrerit elementum. Pellentesque et elit venenatis leo malesuada ultricies. Praesent egestas cursus ipsum, vel cursus dolor molestie vehicula. Phasellus eu finibus nunc. Nullam ultricies malesuada quam, eu volutpat justo elementum a.
+
+    Suspendisse tincidunt vehicula euismod. Fusce ornare ipsum leo, at scelerisque felis venenatis ac. Vivamus suscipit tortor sit amet velit semper, vitae tincidunt tortor rhoncus. Suspendisse sodales mi vitae scelerisque congue. Aliquam magna ex, varius ac commodo id, gravida ut magna. Ut faucibus urna dolor, nec malesuada erat molestie mollis. Ut volutpat, nunc sit amet malesuada pretium, nibh elit dignissim diam, at lacinia mi erat eget libero. Etiam volutpat diam ac justo consectetur blandit.</p>
+    <div class="">
     <img class="slide">
+    </div>
     `;
     show();
 }
@@ -113,7 +122,7 @@ function giveAway(){
 
         </div>            
     </div>
-    <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdImages}">
+    <div class="frames" id="${model.inputs.giveAway.historyAdImages}">
         <h3>Din Ad Historikk</h3>
         <div class="giveAwayHistoryImage">
             ${userAdPhoto}
@@ -272,9 +281,10 @@ function mainPage()
     `;
     show();
 }
-// mainPage();
+firstPage();
+ //mainPage();
 //AccountPage er ferdig med css.
-accountHomePage();
+//accountHomePage();
 
 function newUser(){
     html = /*html*/`
@@ -319,7 +329,7 @@ function accountHomePage(){
     <h1 class="headLine">accountHomePage</h1>
 
     <div class="userInfo">
-    <button onclick="accountInformationPage()" class="edit mainBtns">Brukerinformasjon</button> 
+    <button onclick="accountInformationPage()" class="edit mainBtns"><p class>Brukerinformasjon<p></button> 
     <br>
     
 </div>
@@ -328,7 +338,7 @@ function accountHomePage(){
             <div onclick= "giveAway()">
           
                 <img src="https://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Food-Dome-icon.png" class="icons iconImg2" width="90%">
-                <h3>Gi ut mat</h3>
+                <p>Gi ut mat</p>
             </div>
         </div>
 
@@ -336,7 +346,7 @@ function accountHomePage(){
         <div onclick="postedAdsPage()">
     
             <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/chromium-app-list-icon.png" class="icons" width="auto">
-            <h3>Arkiverte annonser</h3>
+            <p>Arkiverte annonser</p>
         </div>
     </div>
 
@@ -345,7 +355,7 @@ function accountHomePage(){
         <div onclick="foodPage()" >
     
             <img src="https://img.icons8.com/color/256/00000/hamburger.png" class="icons" width="auto">
-            <h3>Finn mat</h3>
+            <p>Finn mat</p>
         </div>
     </div>
 
@@ -353,7 +363,7 @@ function accountHomePage(){
         <div onclick="showMyActiveAds()">
 
             <img src="https://img.icons8.com/color/256/000000/prepositions-in.png" class="icons" width="auto">
-            <h3>Dine bestilte annonser</h3>
+            <p>Dine bestilte annonser</p>
         </div>
         </div>
         <div class="userInfo2">

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Road+Rage&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
 
 * 
 {
@@ -71,19 +72,25 @@
 
 :root
 {
+    --fontFamilyHeadlineColor: #ffff;
     --MainBackgroudColor: white;
     --MainBorder: 2px solid white;
-    --FontFamily: arial;
-    --FontSize: 30px;
     --FontColor: white;
     --BtnColor:white;
+
+    --FontSize: 30px;
+    --FontSizeH3: 35px;
+    --FontSizeP: 25px;
+    --fontSizeLabels: 20px;
+    --fontSizeMainBtns: 25px;
+
+    --FontFamily: arial;
     --FontFamilyALL: 'Oswald', sans-serif;
     --fontFamilyHeadline: 'Lobster';
-    --fontFamilyP:'Bebas Neue';
-    --fontFamilyHeadlineColor: #ffff;
-    --fontSizeLabels: 20px;
+    --fontFamilyP:'Francois One';
     --fontFamilyMainBtns:'monospace';
-    --fontSizeMainBtns: 25px;
+
+    --textAlign-webkit: -webkit-center;
 }
 /* 
 
@@ -122,6 +129,22 @@ label {
     height: auto;
     width: 80vw;
 } */
+h1{
+    text-align: var(--textAlign-webkit);
+}
+h3 {
+    font-size: var(--FontSizeH3);
+    text-align: var(--textAlign-webkit);
+}
+
+p {
+    font-size: var(--FontSizeP);
+    font-family: var(--fontFamilyP);
+    text-align: var(--textAlign-webkit);
+}
+.firstPageText{
+    font-size: 18px;
+}
 .giveAwayDescriptionBorder
 {
     position: absolute;
@@ -140,6 +163,9 @@ label {
     transform: translate(-50%, -50%);
     padding: 2px 55px;
 }
+
+
+
 .giveAwayDescriptionPreView
 {
     display: flex;
@@ -149,7 +175,7 @@ label {
     text-align: center;
     height: 47vh;
     width: auto; 
-    /* border: 2px solid rgb(106, 168, 79); */
+    border: 2px solid black;
     background-color: #ffff;
     border-radius: 10px;
     /* margin: 0px 100px 50px 100px; */
@@ -159,9 +185,10 @@ label {
 }
 .giveAwaySetup
 {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
+
 .giveAwayDescriptionImage
 {
     display:flex;
@@ -259,10 +286,7 @@ flex-direction: column;
     left: 50%;
     transform: translate(-50%, -50%); */
 /* } */
-P {
-    font-family: var(--fontFamilyP);
-    
-}
+
 /* #miniFramesDivider{
 
 } */
@@ -283,7 +307,7 @@ P {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -23vh;
+    /* top: -23vh; */
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -369,7 +393,7 @@ P {
   
 }
 .mainBtns{
-    border: 2px;
+    /* border: 2px; */
     border-radius: 7px;
     height: auto;
     width: auto;
@@ -777,6 +801,7 @@ input {
     left: -22vw;
     position: relative;
     z-index: -1;
+    top: -8vw;
 
 }
 
@@ -948,8 +973,17 @@ flex-direction: row;
 }
 .slide
 {
-    width:300px;
-    height:300px;
+    /* max-width: 400px; */
+    max-height: 300px;
+    min-width: 400px;
+    min-height: 300px;
+    float: right;
+    max-width: fit-content;
+    border-radius: 6%;
+    box-shadow: -1px 1px 5px 3px black;
+    position: relative;
+    top: 5vw;
+    right: 3vw;
 }
 .announcements{
     animation: slide 15s linear infinite;
