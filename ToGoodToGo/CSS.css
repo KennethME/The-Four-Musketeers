@@ -524,7 +524,7 @@ input {
     border-radius: 10px;
     overflow-y: scroll;
     height: 60vh;
-    width: 50vw;
+    width: 30vw;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -549,7 +549,20 @@ input {
 .activeAdInfo
 {
     display: flex;
+    flex-direction: column;
+}
+.activeAdInfoframes
+{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 60vh;
+    width: 30vw;
+    display:flex;
+    justify-content: space-around;
     flex-direction: row;
+    align-items: center;
+    text-align: center;
 }
 .postedAdsframe
 {
@@ -683,6 +696,7 @@ input {
     /* height: 80%; */
     width: auto;
     /* border: 2px solid rgb(106, 168, 79); */
+
     /* -webkit-writing-mode: vertical-rl; */
     position: relative;
     top: -10vh;
@@ -751,22 +765,28 @@ input {
 .FoodPageFrame
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items:center;
-    height: 85vh;
-    width: 80vw;
+    background-color: white;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: fit-content;
+    width: 60vw;
 }
 
 .foodGroupPhotoFrame
 {
-    width: 200px;
     height: 150px;
+    width: 150px;
+    object-fit: cover;
     margin: 30px;
     border: 2px solid rgb(106, 168, 79);
     display: flex;
     align-items: center;
     justify-content: center;
+    image-rendering: auto;
 }
 .uploadPhotoFrame
 {

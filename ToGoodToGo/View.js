@@ -432,29 +432,22 @@ function foodPage(){
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
     <div class="overHeadButtons">
-     
-            <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
-        </div>
-        <div class="backButton">
-        </div>
-        
-        
-        <div class="FoodPageFrame"> 
-        <div class="allergyButtons">
-            <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
-            <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
-            <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
-            <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
-            <button onclick="resetAllergies()">RESET HER</button>
-        </div>
-        <div class="zipSearchInput">
-            <label>Post Adresse</label>
-            <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
-        </div>
-        <div class="frames">${postingAd}</div>
+        <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
+        <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         <button onclick="accountHomePage()" class="loggUtBtn">X</button>
     </div>
+    <div class="allergyButtons">
+        <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
+        <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
+        <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
+        <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
+        <button onclick="resetAllergies()">RESET HER</button>
+    </div>
+    <div class="zipSearchInput">
+        <label>Post Adresse</label>
+        <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
+    </div>
+        <div class="FoodPageFrame">${postingAd}</div> 
     `;
 show();
 };
@@ -595,10 +588,9 @@ function showMyActiveAds(){
             <div class="activeAdAds">
                 <img onclick="activeAdInformationPage(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">
                 <div class="activeAdInfo">
-                        <p>${model.ads[i].title}</p>
+                        <p>Matrett:${model.ads[i].title}</p>
                         <p>Dato utlagt:${model.ads[i].datePosted}</p>
-                        <p>Dato utgått:${model.ads[i].dateExpired}</p>
-                        <p>Utlegger:${model.ads[i].userName}</p>
+                        <p>Postadresse:${model.ads[i].zipCode}</p>
                 </div>
             </div>
             `;
@@ -631,35 +623,30 @@ function activeAdInformationPage(i){
     }
     html = /*html*/`
     <h1 class="activeAdPageheadLine">activeAdPage</h1>
-
     <div class="overHeadButtonsActiveAdPage">
- 
-        <div class="backButton">
-        </div>
-        </div>
-        
-        <div class="frames">
+        <div class="backButton"></div>
         <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
-        
-            <div class="foodDescriptionImage">
-                <div id="foodGroupFrame"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
-            </div>
-                <div class="foodDescriptionInputs">
-                    <label>Tittel:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].title}" type="text">
-                    <label>Adresse:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].adress}" type="text">
-                    <label>PostNr:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].zipCode}" type="text">
-                    <label>Telefon:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].phoneNumber}" type="text">
-                    <label>Dato fra:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].datePosted}" type="text">
-                    <label>Dato Til:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].dateExpired}" type="text">
-                    <label>Beskrivelse:</label>
-                    <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].details}" type="text">
-                </div>
+    </div>   
+    <div class="activeAdInfoframes">
+        <div class="foodDescriptionImage">
+            <div id="foodGroupFrame"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
+        </div>
+        <div class="foodDescriptionInputs">
+            <label>Tittel:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].title}" type="text">
+            <label>Adresse:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].adress}" type="text">
+            <label>PostNr:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].zipCode}" type="text">
+            <label>Telefon:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].phoneNumber}" type="text">
+            <label>Dato fra:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].datePosted}" type="text">
+            <label>Dato Til:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].dateExpired}" type="text">
+            <label>Beskrivelse:</label>
+            <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].details}" type="text">
+        </div>
     </div> 
     `;
 show();
