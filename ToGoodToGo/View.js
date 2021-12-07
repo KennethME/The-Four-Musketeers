@@ -288,10 +288,10 @@ function mainPage()
     `;
     show();
 }
-firstPage();
+//firstPage();
  //mainPage();
 //AccountPage er ferdig med css.
-//accountHomePage();
+accountHomePage();
 
 function newUser(){
     html = /*html*/`

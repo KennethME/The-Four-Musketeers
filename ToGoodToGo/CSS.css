@@ -296,7 +296,7 @@ p {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -41vh;
+    /* top: -41vh; */
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -416,7 +416,10 @@ p {
     font-size: var(--fontSizeMainBtns);
     
 }  */
+.edit:hover{
+border: 2px solid rgb(93, 255, 93);
 
+}
 .clickHere {
     min-inline-size: -webkit-fill-available;
 }
@@ -684,16 +687,18 @@ input {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: auto;
+    height: 53%;
     width: auto;
-    display:flex;
-    /* flex-direction: column; */
-    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow: hidden;
 }
 .foodPageAdsframe
 {
@@ -735,9 +740,12 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -215px;
-    left: -148px;
-    position: relative;
+    top: 8px;
+    left: 8px;
+    /* position: relative; */
+    /* float: left; */
+    position: absolute;
+    /* z-index: 1; */
 }
 .miniFrames2 {
     background-color: rgb(211, 211, 211);
@@ -773,7 +781,7 @@ input {
 }
 
 .headLinePostedAds {
-    top: -28vh;
+    top: 2vh;
 }
 .anotherWindowForKenneth{
     border: 2px solid black;
@@ -858,12 +866,14 @@ input {
     text-align: center;
     /* height: 80%; */
     /* width: 100%; */
-    border: 2px solid rgb(106, 168, 79);
-    border-radius: 10px;
+    /* border: 2px solid rgb(106, 168, 79); */
+    /* border-radius: 10px; */
     /* margin: 0px 100px 0px 100px; */
-    position: relative;
+    /* position: relative; */
     /* left: 6vw; */
     /* overflow: hidden; */
+    position: relative;
+    top: -7vh;
 }
 .foodDescriptionInputs
 {
@@ -1069,17 +1079,21 @@ text-align: -webkit-center;
   her er det noe for chat box 
   ***************************/
   .open-button {
-    background-color: #555;
+    background-color: #599d0e;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 245px;
-    right: 44vh;
-    width: 86px;
+    /* opacity: 0.8; */
+    /* position: fixed; */
+    /* bottom: -8vh; */
+    /* right: 44vh; */
+    width: 222px;
     /* top: 22px; */
+    /* inset-inline: auto; */
+    top: 44vh;
+    position: relative;
+   
 }
   
   /* The popup chat - hidden by default */
@@ -1092,6 +1106,7 @@ text-align: -webkit-center;
     z-index: 9;
     width: 100%;
     left: 0vw;
+    border-radius: 13%;
 }
   /* Add styles to the form container */
   .form-container {
@@ -1100,6 +1115,7 @@ text-align: -webkit-center;
     position: relative;
     /* left: -3vh; */
     background-color: white;
+    border-radius: 2%;
 }
   /* Full-width textarea */
   .form-container textarea {
