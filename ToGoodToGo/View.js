@@ -458,9 +458,8 @@ function foodPageAd(index)
     <h1 class="headLine">2 Good 2 Go</h1>
     <h1 class="headLine">2 Good222 2 Go</h1>
 
-        <div class="overHeadButtons">
+        <div class="overHeadButton">
             <div class="userButtons">
-                <button onclick="accountInformationPage()" class="edit mainBtns">Bruker informasjon</button> <br>
                 <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
             </div>
             <div class="backButton">
@@ -468,10 +467,9 @@ function foodPageAd(index)
             </div>
         </div>
        
-        <div class="frame">
-            <div class="giveFoodFrames">
-                <div class="foodAdDescription">
-                    <div class="foodAdDescriptionInputs">
+        <div class="postedAdsframe">
+            <div class="foodAdDescription">
+                <div class="foodAdDescriptionInputs">
                         <label>Navn:${model.ads[index].userName}</label>
                         <label>Adresse:${model.ads[index].adress}</label>
                         <label>PostNr:${model.ads[index].zipCode}</label>
@@ -479,14 +477,13 @@ function foodPageAd(index)
                         <label>Dato fra:${model.ads[index].datePosted}</label>
                         <label>Dato Til:${model.ads[index].dateExpired}</label>
                         <label>Beskrivelse:${model.ads[index].details}</label>
-                    </div>
-                    <div class="foodAdDescriptionInputs">
-                        <img src="${model.ads[index].image}" width="250px" height="200px"> 
-                    </div>
+                </div>
+                <div class="foodAdDescriptionInputs">
+                    <img src="${model.ads[index].image}" width="250px" height="200px"> 
                 </div>
             </div>
-        <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
-    </div>
+            <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
+        </div>
     `;  
 show();
 }
