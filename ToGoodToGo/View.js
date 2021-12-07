@@ -254,7 +254,7 @@ function mainPage()
     <h1 class="MainheadLine">2 Good 2 Go</h1>
 
 
-        <div class="accountInfoPageFrame">
+        <div class="frames">
         
             <div class="newUserBorder">
                 <p class="mainPageText">Ny til 2 Good 2 Go™?</p>
@@ -278,7 +278,7 @@ function mainPage()
 }
 // mainPage();
 //AccountPage er ferdig med css.
-accountHomePage()
+accountHomePage();
 
 function newUser(){
     html = /*html*/`
@@ -371,7 +371,7 @@ function accountHomePage(){
 function accountInformationPage() {
     html = /*html*/`
     <h1 class="headLineBrukerInfo">accountInformationPage</h1>
-    <div class="frames">
+    <div class="accountInfoPageFrame">
     <div id="newUserInfo">
     <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
                         <h1>Din Bruker</h1>
