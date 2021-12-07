@@ -564,9 +564,10 @@ function postedAdsPage(){
                 </form>
                 </div>        
       
-                <div class="foodDescriptionImage">
-                <p class="dinHistorikk"> Din historikk:</p>
-        <div id="foodGroupFrame">${userAdPhoto}</div>
+                <div class="foodDescriptionImagePostedAdsPage">
+               
+                
+        <div id="foodGroupFrame"> <p class="dinHistorikk"> Din historikk:</p>${userAdPhoto}</div>
     </div>
     </div>
     `;

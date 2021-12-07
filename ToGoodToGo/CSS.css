@@ -696,15 +696,27 @@ input {
     /* height: 80%; */
     width: auto;
     /* border: 2px solid rgb(106, 168, 79); */
-
     /* -webkit-writing-mode: vertical-rl; */
-    position: relative;
-    top: -10vh;
     /* border-radius: 10px; */
-    /* margin: 0px 50px 0px 50px; */
-    float: left;
-    left: -32vw;
+
+}
+
+.foodDescriptionImagePostedAdsPage {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* overflow-y: scroll; */
+    /* height: 80%; */
+    width: auto;
+    /* border: 2px solid rgb(106, 168, 79); */
+    /* -webkit-writing-mode: vertical-rl; */
+    /* border-radius: 10px; */
+    left: -22vw;
+    position: relative;
     z-index: -1;
+
 }
 
 .foodDescriptionBorder {
@@ -903,7 +915,7 @@ flex-direction: row;
 
 
 .dinHistorikk{
-
+text-align: -webkit-center;
 }
 
 
@@ -933,8 +945,8 @@ flex-direction: row;
     /* right: 15px; */
     border: 3px solid #f1f1f1;
     z-index: 9;
-    width: 96%;
-    left: 1vw;
+    width: 100%;
+    left: 0vw;
 }
   /* Add styles to the form container */
   .form-container {
