@@ -758,23 +758,28 @@ input {
 .FoodPageFrame
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items:center;
-    height: 85vh;
-    width: 80vw;
     background-color: white;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: fit-content;
+    width: 60vw;
 }
 
 .foodGroupPhotoFrame
 {
-    width: 200px;
     height: 150px;
+    width: 150px;
+    object-fit: cover;
     margin: 30px;
     border: 2px solid rgb(106, 168, 79);
     display: flex;
     align-items: center;
     justify-content: center;
+    image-rendering: auto;
 }
 .uploadPhotoFrame
 {

@@ -432,26 +432,22 @@ function foodPage(){
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
     <div class="overHeadButtons">
-     
-            <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
-            <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
-        </div>
-        <div class="backButton"></div>
-        <div class="FoodPageFrame"> 
-        <div class="allergyButtons">
-            <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
-            <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
-            <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
-            <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
-            <button onclick="resetAllergies()">RESET HER</button>
-        </div>
-        <div class="zipSearchInput">
-            <label>Post Adresse</label>
-            <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
-        </div>
-        <div class="frames">${postingAd}</div>
+        <button onclick="accountInformationPage()" class="edit">Bruker informasjon</button> <br>
+        <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
         <button onclick="accountHomePage()" class="loggUtBtn">X</button>
     </div>
+    <div class="allergyButtons">
+        <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
+        <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
+        <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
+        <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
+        <button onclick="resetAllergies()">RESET HER</button>
+    </div>
+    <div class="zipSearchInput">
+        <label>Post Adresse</label>
+        <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
+    </div>
+        <div class="FoodPageFrame">${postingAd}</div> 
     `;
 show();
 };
