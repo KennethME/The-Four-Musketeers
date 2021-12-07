@@ -91,30 +91,26 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="headLine GiveAwayHeadLine">GiveAwayPage</h1>
+    <h1 class="GiveAwayHeadLine">GiveAwayPage</h1>
 
-    
-    <div class="giveAwayMain">
-     
-    
-    <div class="frames" id="${model.inputs.giveAway.inputButtons}">
-    <div class="giveAwayAdChoise">
-    <div class="overHeadButtons">
-    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage mainbtns">X<button>
-   </div>
-        <button class="giveAwayFoodBtns" onclick="newAdinputs()">
-        <img src="https://img.icons8.com/color/200/000000/giving.png"/>
-        <div clss="textName">
-            <h3>legg ut annonse</h3>  
+   
+    <div class="giveAwayMainFrames">
+        <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
+        <div class="giveAwayAdChoise">
+        <div class="overHeadButtons">
+        <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage">X</button>
+        
         </div>
-
+        <button onclick="newAdinputs()">Gi ut mat?
+            <img src="https://img.icons8.com/color/200/000000/giving.png"/>
+       
         </button>
-            <button class="giveAwayFoodBtns" onclick="historyAdInputs()">
-            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>
-            <div clss="textName">
-                <h3>Annonse historikk</h3> 
-            </div> 
-            </button>
+
+        <button onclick="historyAdInputs()">
+            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>History?
+         
+        </button>
+
         </div>            
     </div>
     <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdImages}">
@@ -278,7 +274,7 @@ function mainPage()
 }
 // mainPage();
 //AccountPage er ferdig med css.
-accountHomePage()
+accountHomePage();
 
 function newUser(){
     html = /*html*/`
@@ -371,7 +367,7 @@ function accountHomePage(){
 function accountInformationPage() {
     html = /*html*/`
     <h1 class="headLineBrukerInfo">accountInformationPage</h1>
-    <div class="frames">
+    <div class="accountInfoPageFrame">
     <div id="newUserInfo">
     <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
                         <h1>Din Bruker</h1>

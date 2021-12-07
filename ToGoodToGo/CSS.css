@@ -18,7 +18,6 @@
     body 
     {
         position: absolute;
-        background-color: #0093E9;
         background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
         background-attachment: fixed;
         display: flex;
@@ -114,7 +113,7 @@ label {
 }
 /*DETTE ER FOR GIVEAWAY FUNCTION*/
 
-.giveAwayMain
+/* .giveAwayMain
 {
     display: flex;
     justify-content: space-evenly;
@@ -122,20 +121,24 @@ label {
     align-items:center;
     height: auto;
     width: 80vw;
-}
+} */
 .giveAwayDescriptionBorder
 {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 45%;
+    width: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    height: 40vh;
-    width: 30%; 
-    border: 2px solid rgb(0, 0, 0);
-    background-color: white;
-    border-radius: 10px;
-    margin: 0px 100px 50px 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
 }
 .giveAwayDescriptionPreView
 {
@@ -144,12 +147,14 @@ label {
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    height: 40vh;
-    width: 70%; 
-    border: 2px solid rgb(106, 168, 79);
-    background-color: rgb(255, 255, 255, 0.6);
+    height: 47vh;
+    width: auto; 
+    /* border: 2px solid rgb(106, 168, 79); */
+    background-color: #ffff;
     border-radius: 10px;
-    margin: 0px 100px 50px 100px;
+    /* margin: 0px 100px 50px 100px; */
+    overflow: hidden;
+    padding: 1px 42px;
  
 }
 .giveAwaySetup
@@ -200,10 +205,11 @@ flex-direction: column;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
-    height: auto;
+    /* border: 2px solid black; */
+    height: 235px;
     width: auto;
     position: relative;
+    white-space: nowrap;
 }
 .giveAwayHistoryImageBorder
 {
@@ -328,7 +334,17 @@ P {
 }
 .GiveAwayHeadLine
 {
-    top: -41vh;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 85px;
+        position: absolute;
+        top: 7vh;
+        font-family: var(--fontFamilyHeadline);
+        color: var(--fontFamilyHeadlineColor);
+        -webkit-text-stroke: 1.5px black;
+        left: 29vw;
 
 }
 .newUserBorder
@@ -473,9 +489,9 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    /* top: -11vw; */
-    /* position: relative; */
-    /* left: -24vw; */
+    top: 27px;
+    position: relative;
+    left: -51px;
 }
 
 .loggUtBtnActiveAdPage {
@@ -492,11 +508,11 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -3vh;
-    left: -1vh;
-    position: relative;
+    top: 5px;
+    left: 6px;
+    position: fixed;
     float: left;
-    margin-inline-end: auto;
+    /* margin-inline-end: auto; */
 }
 .frames
 {
@@ -515,6 +531,51 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2px 55px;
+}
+.giveAwayMainFrames {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+.giveAwayPage
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 40%;
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow: overlay;
+}
+
+.accountInfoPageFrame
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    /* height: 50%; */
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow: hidden;
 }
 .activeAdframes
 {
@@ -623,8 +684,8 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -191px;
-    left: -146px;
+    top: -215px;
+    left: -148px;
     position: relative;
 }
 .miniFrames2 {
@@ -949,8 +1010,8 @@ text-align: -webkit-center;
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-    bottom: 266px;
-    right: 47vh;
+    bottom: 245px;
+    right: 44vh;
     width: 86px;
     /* top: 22px; */
 }
