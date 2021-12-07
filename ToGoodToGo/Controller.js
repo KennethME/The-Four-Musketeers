@@ -684,4 +684,6 @@ function openForm() {
     model.inputs.postedAdsPage.myForm = "isHidden"
     postedAdsPage()
   }
-  
+  function searchZipCode(){
+      foodPage()
+  }

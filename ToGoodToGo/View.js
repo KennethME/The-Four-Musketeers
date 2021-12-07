@@ -424,10 +424,14 @@ function accountInformationPage() {
 function foodPage(){
     let postingAd = '';
     for (let i = 0; i < model.ads.length; i++){
+        if(model.inputs.foodPagezipCode === model.ads[i].zipCode){
                 postingAd += /*html*/`
                 <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
-        
-    }
+        }
+        else if(model.inputs.foodPagezipCode === '')
+        postingAd += /*html*/`
+        <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
+        }
     html = /*html*/`
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
@@ -445,9 +449,10 @@ function foodPage(){
     </div>
     <div class="zipSearchInput">
         <label>Post Adresse</label>
-        <input class="ZipSearchBar" oninput="${model.inputs.foodPage.searchBar = this.value}" type="text">
+        <input class="ZipSearchBar" oninput="model.inputs.foodPagezipCode = this.value" type="text" value="${model.inputs.foodPagezipCode || ''}">
+        <button type="submit" onclick="searchZipCode()">Søk</button>
     </div>
-        <div class="FoodPageFrame">${postingAd}</div> 
+    <div class="FoodPageFrame">${postingAd}</div> 
     `;
 show();
 };
@@ -456,7 +461,6 @@ function foodPageAd(index)
 {
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
-    <h1 class="headLine">2 Good222 2 Go</h1>
 
         <div class="overHeadButton">
             <div class="userButtons">
@@ -482,8 +486,8 @@ function foodPageAd(index)
                     <img src="${model.ads[index].image}" width="250px" height="200px"> 
                 </div>
             </div>
-            <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
         </div>
+    <button onclick="contactAdPoster(${model.ads[index].id})" class="edit mainBtns">Ta kontakt med utgiver</button>
     `;  
 show();
 }

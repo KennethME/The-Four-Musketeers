@@ -176,10 +176,7 @@ inputs:
         
     },
 
-    foodPage: {
-        searchBar: "",
-        zipCode: "",
-    },
+    foodPagezipCode:'',
 
     postedAdsPage: {
         myForm: "isHidden",
