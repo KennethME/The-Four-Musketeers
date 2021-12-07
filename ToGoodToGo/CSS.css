@@ -89,6 +89,7 @@
     --fontFamilyHeadline: 'Lobster';
     --fontFamilyP:'Francois One';
     --fontFamilyMainBtns:'monospace';
+    --FontFamilyEditDeleteNextBtns: 'Oswald';
 
     --textAlign-webkit: -webkit-center;
 }
@@ -153,6 +154,26 @@ p {
 .firstPageText{
     font-size: 18px;
 }
+
+.editDeleteNextBtns {
+    height: 30px;
+    width: auto;
+    background: lightgrey;
+    font-family: var(--FontFamilyEditDeleteNextBtns);
+}
+
+.editDeleteNextBtns:hover {
+    box-shadow: 0px 1px 5px 1px black;
+    /* color: rgb(115, 255, 0); */
+    height: 40px;
+    width: auto;
+    font-size: 20px;
+
+}
+
+
+
+
 .giveAwayDescriptionBorder
 {
     position: absolute;

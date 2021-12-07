@@ -153,7 +153,7 @@ function giveAway(){
                         <input ${model.inputs.giveAway.disabled} class="beskrivelseInput" type="text" value="${model.inputs.newAd.details}" oninput="model.inputs.newAd.details=this.value">
                         <button class="${model.inputs.giveAway.prewViewBtn} addNewAdBtn" type="submit">legg ut annonse</button>
                     </form>
-                    <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}">Til Bilder</button>
+                    <button onclick="toUploadImage()" id="${model.inputs.giveAway.newAdInputBtn}"class="editDeleteNextBtns">Til Bilder</button>
                     <div class="${model.inputs.giveAway.prewViewBtn}">
                         <h3>Anonym Bruker:</h3>
                         <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
@@ -188,7 +188,7 @@ function giveAway(){
                     <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.details}" oninput="model.inputs.foodDescriptionInputs.details = this.value"/>
                     <button class="${model.inputs.giveAway.historyPrewViewBtn}" type="submit">legg ut annonse</button>
                     </form>
-                    <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInputbtn}">Til Bilder</button>
+                    <button onclick="toUploadHistoryImage()" id="${model.inputs.giveAway.historyAdInputbtn}" class="">Til Bilder</button>
                     <div class="${model.inputs.giveAway.historyPrewViewBtn}">
                         <h3>Anonym Bruker:</h3>
                         <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
@@ -208,8 +208,8 @@ function giveAway(){
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.foodDescriptionInputs.image=this.value"/>  
-                    <button onclick="toAllergyUpload()" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
-                    <button onclick="toHistoryAllergyUpload()" id="${model.inputs.giveAway.HistoryUploadImagebtn}">Til Allergi</button>
+                    <button onclick="toAllergyUpload()" class="editDeleteNextBtns" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
+                    <button onclick="toHistoryAllergyUpload()" class="editDeleteNextBtns" id="${model.inputs.giveAway.HistoryUploadImagebtn}">Til Allergi</button>
                     <br>
                     <br>
                 </div>
@@ -230,8 +230,8 @@ function giveAway(){
                         <label>Ingen allergier</label>
                         <input type="checkbox"/> 
                     </div>
-                    <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}">Til Personvern</button>
-                    <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Til Personvern</button>
+                    <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}" class="editDeleteNextBtns"> Personvern</button>
+                    <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Personvern</button>
                 </div>    
                 <h1 class="txtPreviewAnonym"> Preview på din annonse </h1>
                 <div class="giveAwayDescriptionBorderAnonym" id="${model.inputs.giveAway.uploadAnonymous}"> 
@@ -251,7 +251,7 @@ function giveAway(){
                     </div>  
                     <br>
                     <div>
-                        <button id="${model.inputs.giveAway.uploadAnonymousbtn}" onclick="newAdPreview()">Forhåndsvisning</button>
+                        <button class="editDeleteNextBtns" id="${model.inputs.giveAway.uploadAnonymousbtn}" onclick="newAdPreview()">Forhåndsvisning</button>
                         <button id="${model.inputs.giveAway.uploadHistoryAnonymousbtn}" class="" onclick="historyAdPreview()">Forhåndsvisning</button>
                     </div> 
                 </div>
@@ -557,7 +557,7 @@ function postedAdsPage(){
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.dateExpired}" type="text">
                     <label>Beskrivelse:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.inputs.editAd.details}" type="text">
-                    <button ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
+                    <button class="editDeleteNextBtns" ${model.inputs.editAdButton.save} onclick="editPostedAd(${model.inputs.editAd.id})" >Edit Ad</button>
                 </form>
                 </div>
                 <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="submitPostedAd(${model.inputs.editAd.id})">
@@ -576,9 +576,9 @@ function postedAdsPage(){
                     <label>Beskrivelse:</label>
                     <input ${model.inputs.editAdInputButton.save} class="brukerInfo" type="text" placeholder="${model.inputs.editAd.details}" oninput="model.inputs.editAd.details = this.value" required/>
                     <div>
-                    <button ${model.inputs.editUserButton.save} id="deleteMyAdsBtn" onclick="deleteMyAd(${model.inputs.editAd.id})">Delete Ad</button>
-                    <button ${model.inputs.editUserButton.save} onclick="cancelPostedAd(${model.inputs.editAd.id})" class="mainBtns">Avbryt</button>
-                    <input ${model.inputs.editUserButton.save} class="mainBtns" type="submit" value="Lagre"/>
+                    <button ${model.inputs.editUserButton.save} class="editDeleteNextBtns" onclick="deleteMyAd(${model.inputs.editAd.id})">Delete Ad</button>
+                    <button ${model.inputs.editUserButton.save} onclick="cancelPostedAd(${model.inputs.editAd.id})" class="editDeleteNextBtns">Avbryt</button>
+                    <input ${model.inputs.editUserButton.save} class="editDeleteNextBtns"type="submit" value="Lagre"/>
                     </div>
                 </form>
                 </div>        
