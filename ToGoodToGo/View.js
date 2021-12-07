@@ -91,27 +91,26 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="headLine GiveAwayHeadLine">GiveAwayPage</h1>
+    <h1 class="GiveAwayHeadLine">GiveAwayPage</h1>
 
-    
-    <div class="giveAwayMain">
-     
-    
-    <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
-    <div class="giveAwayAdChoise">
-    <div class="overHeadButtons">
-    <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage">X</button>
-  
-   </div>
-        <button onclick="newAdinputs()">asd
+   
+    <div class="giveAwayMainFrames">
+        <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
+        <div class="giveAwayAdChoise">
+        <div class="overHeadButtons">
+        <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage">X</button>
+        
+        </div>
+        <button onclick="newAdinputs()">Gi ut mat?
             <img src="https://img.icons8.com/color/200/000000/giving.png"/>
        
         </button>
 
-            <button onclick="historyAdInputs()">
-            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>asd
+        <button onclick="historyAdInputs()">
+            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>History?
          
-            </button>
+        </button>
+
         </div>            
     </div>
     <div class="giveAwayHistoryImageBorder" id="${model.inputs.giveAway.historyAdImages}">
@@ -453,7 +452,6 @@ function foodPageAd(index)
 {
     html = /*html*/`
     <h1 class="headLine">2 Good 2 Go</h1>
-    <h1 class="headLine">2 Good222 2 Go</h1>
 
         <div class="overHeadButton">
             <div class="userButtons">
