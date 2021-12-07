@@ -254,7 +254,7 @@ function mainPage()
     <h1 class="MainheadLine">2 Good 2 Go</h1>
 
 
-        <div class="frames">
+        <div class="accountInfoPageFrame">
         
             <div class="newUserBorder">
                 <p class="mainPageText">Ny til 2 Good 2 Go™?</p>

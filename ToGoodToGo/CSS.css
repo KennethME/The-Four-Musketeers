@@ -18,7 +18,6 @@
     body 
     {
         position: absolute;
-        background-color: #0093E9;
         background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
         background-attachment: fixed;
         display: flex;
@@ -492,11 +491,11 @@ input {
     background-color: red;
     color: white;
     /* min-inline-size: -webkit-fill-available; */
-    top: -3vh;
-    left: -1vh;
-    position: relative;
+    top: 5px;
+    left: 6px;
+    position: fixed;
     float: left;
-    margin-inline-end: auto;
+    /* margin-inline-end: auto; */
 }
 .frames
 {
@@ -515,6 +514,26 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2px 55px;
+}
+
+.accountInfoPageFrame
+{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    /* height: 50%; */
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow: hidden;
 }
 .activeAdframes
 {
