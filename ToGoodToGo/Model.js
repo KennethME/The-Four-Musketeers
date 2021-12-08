@@ -159,6 +159,8 @@ inputs:
         uploadAnonymousbtn: "isHidden",
         uploadHistoryAnonymous: "isHidden",
         uploadHistoryAnonymousbtn: "isHidden",
+        returnIdBtn5: 'isHidden',
+        returnClassBtn5: 'giveAwayReturnBtn5',
         inputButtons: "",
         disabled: "",
         photoPreview: "isHidden",
@@ -223,7 +225,7 @@ inputs:
         zipCode: '5004', 
         tlf: '12345678', 
         adress: 'Trond Michel 11',
-    },      
+    }, 
     {      
         id: 4, 
         userName:'Kenneth', 

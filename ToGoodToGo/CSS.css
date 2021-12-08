@@ -202,7 +202,7 @@ p {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: 56%;
+    height: 60%;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -698,6 +698,22 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     position: relative;
     left: -180px;
     top: -12px;
+}
+.giveAwayReturnBtn4{
+    position: relative;
+    left: -223px;
+    top: 5px;
+}
+
+.giveAwayReturnBtn5{
+    position: relative;
+    float: left;
+    left: -110px;
+}
+#giveAwayReturnBtn5{
+    position: relative;
+    left: -37px;
+    top: -207px;
 }
 
 .historyNewAdInputBtns:hover{

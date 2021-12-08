@@ -139,7 +139,9 @@ function giveAway(){
         </div>
     </div>
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
-                <button onclick= "returnNewAdInputs()" class="giveAwayReturnBtn returnBtns">Tilbake</button>
+                <button onclick= " toAnonymousUpload()" id="${model.inputs.giveAway.returnIdBtn5}" class="returnBtns">Tilbake</button>
+
+                <button onclick= "returnNewAdInputs()" class="${model.inputs.giveAway.returnClassBtn5}">Tilbake</button>
                     <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
                         <label>Tittel:</label>
                         <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
@@ -241,7 +243,8 @@ function giveAway(){
                     <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Personvern</button>
                 </div>    
                 <h1 class="txtPreviewAnonym"> Preview på din annonse </h1>
-                <div class="giveAwayDescriptionBorderAnonym" id="${model.inputs.giveAway.uploadAnonymous}"> 
+                <div class="giveAwayDescriptionBorderAnonym" id="${model.inputs.giveAway.uploadAnonymous}">
+                <button onclick="toAllergyUpload()" class="returnBtns giveAwayReturnBtn4">Tilbake</button>
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
                     <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
                     <p>Når du gir ut mat, så har du mulighet til å skjule kontaktinformasjonen din helt til noen tar kontakt med deg. Ellers så vil kontaktinformasjonen din vises og kunder kan ta kontakt med informasjon som ligger ute</p>

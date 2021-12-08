@@ -420,8 +420,11 @@ function toUploadImage()
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.uploadImage = "";
     model.inputs.giveAway.uploadImagebtn = "";
+    model.inputs.giveAway.uploadAllergy = "isHidden";
     giveAway();
 }
+
+
 function returnToUploadImage()
 {
     model.inputs.giveAway.newAdInput = "";
@@ -436,15 +439,22 @@ function toAllergyUpload()
     model.inputs.giveAway.uploadAllergy = "";
     model.inputs.giveAway.uploadAllergybtn = "";
     model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
+    model.inputs.giveAway.uploadAnonymous = 'isHidden';
+    model.inputs.giveAway.uploadAnonymousBtn = 'isHidden';
     giveAway();
 }
+
 function toAnonymousUpload()
 {
     model.inputs.giveAway.uploadAllergy = "isHidden";
     model.inputs.giveAway.uploadAnonymous = "";
     model.inputs.giveAway.uploadAnonymousbtn = "";
+    model.inputs.giveAway.newAdInput = "isHidden";
+    model.inputs.giveAway.photoPreview = "isHidden";
+    model.inputs.giveAway.prewViewBtn = "isHidden";
     giveAway();
 }
+
 function newAdPreview()
 {
     model.inputs.giveAway.uploadAnonymous = "isHidden";
@@ -455,9 +465,11 @@ function newAdPreview()
     model.inputs.giveAway.prewView = "giveAwayDescriptionPreView";
     model.inputs.giveAway.newAdInputBtn = "isHidden";
     model.inputs.giveAway.prewViewBtn = "";
+    model.inputs.giveAway.returnIdBtn5 = "giveAwayReturnBtn5";
+    model.inputs.giveAway.returnClassBtn5 = "isHidden";
     giveAway();
-
 }
+
 var loadFile = function(event) 
 {
 	var image = document.getElementById('output');
