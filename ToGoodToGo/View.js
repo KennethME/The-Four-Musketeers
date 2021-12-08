@@ -139,9 +139,9 @@ function giveAway(){
         </div>
     </div>
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
-                <button onclick= " toAnonymousUpload()" id="${model.inputs.giveAway.returnIdBtn5}" class="returnBtns">Tilbake</button>
+                <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.returnIdBtn5}" class="returnBtns">Tilbake</button>
 
-                <button onclick= "returnNewAdInputs()" class="${model.inputs.giveAway.returnClassBtn5}">Tilbake</button>
+                <button onclick= "returnNewAdInputs()" class="returnBtns ${model.inputs.giveAway.returnClassBtn5}">Tilbake</button>
                     <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
                         <label>Tittel:</label>
                         <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
@@ -212,7 +212,7 @@ function giveAway(){
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
-                <button onclick= "returnToUploadImage()" class="giveAwayReturnBtn2 returnBtns">Tilbake</button>
+                <button onclick= "returnToUploadImage()" class=" returnBtns">Tilbake</button>
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.foodDescriptionInputs.image=this.value"/>  
                     <button onclick="toAllergyUpload()" class="editDeleteNextBtns tilAllergiBtn" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
@@ -221,7 +221,7 @@ function giveAway(){
                     <br>
                 </div>
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAllergy}"> 
-                <button onclick="toUploadImage()" class="returnBtns giveAwayReturnBtn3">Tilbake</button>
+                <button onclick="toUploadImage()" class="returnBtns ">Tilbake</button>
                     <h4>Har denne retten noen allergier?</h4>
                     <div id="giveAwayAllergyCheckBoxes">
                         <label>Egg:</label>
@@ -244,7 +244,7 @@ function giveAway(){
                 </div>    
                 <h1 class="txtPreviewAnonym"> Preview på din annonse </h1>
                 <div class="giveAwayDescriptionBorderAnonym" id="${model.inputs.giveAway.uploadAnonymous}">
-                <button onclick="toAllergyUpload()" class="returnBtns giveAwayReturnBtn4">Tilbake</button>
+                <button onclick="toAllergyUpload()" class="returnBtns ">Tilbake</button>
                     <h4>Godkjenner du at informasjonen din er synlig?</h4>
                     <img class="${model.inputs.giveAway.anonymUserCheck} "src="${model.inputs.anonymUserImage.anonym}">
                     <p>Når du gir ut mat, så har du mulighet til å skjule kontaktinformasjonen din helt til noen tar kontakt med deg. Ellers så vil kontaktinformasjonen din vises og kunder kan ta kontakt med informasjon som ligger ute</p>

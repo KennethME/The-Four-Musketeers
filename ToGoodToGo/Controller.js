@@ -384,6 +384,8 @@ function toUploadHistoryImage()
     model.inputs.giveAway.uploadImage = "";
     giveAway();
 }
+
+
 function toHistoryAllergyUpload()
 {
     model.inputs.giveAway.uploadImage = "isHidden";

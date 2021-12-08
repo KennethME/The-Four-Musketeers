@@ -160,7 +160,7 @@ inputs:
         uploadHistoryAnonymous: "isHidden",
         uploadHistoryAnonymousbtn: "isHidden",
         returnIdBtn5: 'isHidden',
-        returnClassBtn5: 'giveAwayReturnBtn5',
+        returnClassBtn5: 'returnBtns',
         inputButtons: "",
         disabled: "",
         photoPreview: "isHidden",
