@@ -122,7 +122,6 @@ function anonymUserBtn(){
 
 function postAd()
 {
-    let foodImage = document.getElementById('output').src
     let newAllergyID = model.allergies;
     if(model.inputs.checkAllergy.egg === true){
         model.allergies.push(0);
@@ -156,7 +155,7 @@ function postAd()
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
-            image: model.inputs.newAd.image,
+            image: model.inputs.foodDescriptionInputs.image,
             imageId: model.inputs.newAd.imageId,
             details: model.inputs.newAd.details,
             allergyID: newAllergyID,
@@ -183,7 +182,7 @@ function postAd()
             title: model.inputs.newAd.title,
             datePosted: model.inputs.newAd.datePosted,
             dateExpired: model.inputs.newAd.dateExpired,
-            image: model.inputs.newAd.image,
+            image: model.inputs.foodDescriptionInputs.image,
             imageId: newAdId,
             details: model.inputs.newAd.details,
             allergyID: newAllergyID,
@@ -210,7 +209,6 @@ function postAd()
 };
 
 function postHistoryAd(){
-    let foodImage = document.getElementById('output').src
     let newAllergyID = model.allergies;
     if(model.inputs.checkAllergy.egg === true){
         model.allergies.push(0);
@@ -474,9 +472,10 @@ function newAdPreview()
 
 var loadFile = function(event) 
 {
-	var image = document.getElementById('output');
+	var image = document.getElementById('file');
 	image.src = URL.createObjectURL(event.target.files[0]);
-    model.inputs.newAd.image = image.src;
+    model.inputs.foodDescriptionInputs.image = image.src
+    giveAway();
 };
 
 function postedAd(index)
