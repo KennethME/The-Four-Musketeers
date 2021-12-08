@@ -173,7 +173,7 @@ function giveAway(){
                             <img class="${model.inputs.giveAway.glutenCheck}" src="${model.inputs.allergyImage.glutenFalse}" width="60px"/>
                         </div>
                     </div>
-                    <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.newAd.image}"/>
+                    <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.foodDescriptionInputs.image}"/>
                 </div>  
 
                 <div class="${model.inputs.giveAway.historyPrewView}" id="${model.inputs.giveAway.historyAdInput}">
