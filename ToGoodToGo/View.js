@@ -98,6 +98,9 @@ function setImage(index) {
         <button onclick="exitGiveAway()" class="mainbtns">X</button>
     </div> */}
 
+
+
+//NO FILE CHOSEN = RED | BYTT TIL GRØNN NÅR IMG ER VALGT! HUSK 08/12-21
 function giveAway(){
     let userAdPhoto = '';
     for (let i = 0; i < model.adsHistory.length; i++){
@@ -111,18 +114,18 @@ function giveAway(){
 
    
     <div class="giveAwayMainFrames">
-        <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
+    
+    <div class="giveAwayPage" id="${model.inputs.giveAway.inputButtons}">
+    <button onclick="accountHomePage()" class="returnBtns loggUtBtnGiveAwayPage ">Tilbake</button>
         <div class="giveAwayAdChoise">
         <div class="overHeadButtons">
-        <button onclick="accountHomePage()" class="loggUtBtnGiveAwayPage">X</button>
-        
         </div>
-        <button onclick="newAdinputs()">Gi ut mat?
+        <button class="historyNewAdInputBtns" onclick="newAdinputs()">Gi ut mat?
             <img src="https://img.icons8.com/color/200/000000/giving.png"/>
        
         </button>
 
-        <button onclick="historyAdInputs()">
+        <button class="historyNewAdInputBtns" onclick="historyAdInputs()">
             <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>History?
          
         </button>
@@ -137,6 +140,7 @@ function giveAway(){
     </div>
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
                     <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
+                    <button onclick= "accountHomePage()" class="giveAwayReturnBtn returnBtns">Tilbake</button>
                         <label>Tittel:</label>
                         <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
                         <label>Adresse:</label>
@@ -206,9 +210,10 @@ function giveAway(){
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
+                <button onclick= "accountHomePage()" class="giveAwayReturnBtn2 returnBtns">Tilbake</button>
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.foodDescriptionInputs.image=this.value"/>  
-                    <button onclick="toAllergyUpload()" class="editDeleteNextBtns" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
+                    <button onclick="toAllergyUpload()" class="editDeleteNextBtns tilAllergiBtn" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
                     <button onclick="toHistoryAllergyUpload()" class="editDeleteNextBtns" id="${model.inputs.giveAway.HistoryUploadImagebtn}">Til Allergi</button>
                     <br>
                     <br>
@@ -387,7 +392,7 @@ function accountInformationPage() {
     <h1 class="headLineBrukerInfo">accountInformationPage</h1>
     <div class="accountInfoPageFrame">
     <div id="newUserInfo">
-    <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns">X</button>
+    <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns returnBtns">Tilbake</button>
                         <h1>Din Bruker</h1>
                             <form class="${model.inputs.hideFFButton.userLoginFramesclass}">
                                 <label>Navn:</label>
@@ -404,8 +409,8 @@ function accountInformationPage() {
                                 <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text" value="${model.users[userIndex].userPw}">
                             <div class="btnRow">
                            
-                                <button ${model.inputs.editUserButton.edit} onclick="editAccount()" class="mainBtns" >Rediger</button>
-                                <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="mainBtns"  type="submit">Lagre</button>
+                                <button ${model.inputs.editUserButton.edit} onclick="editAccount()" class="EditDeleteNextBtns" >Rediger</button>
+                                <button ${model.inputs.editUserButton.save} onclick="saveEditAccount()" class="EditDeleteNextBtns" type="submit">Lagre</button>
                             </div>
                             </form>
                             <form class="${model.inputs.hideFFButton.userLoginFramesclass2}" onsubmit="saveEditAccount()">
@@ -422,10 +427,10 @@ function accountInformationPage() {
                                 <label>Passord:</label>
                                 <input ${model.inputs.editUserButton.save} class="brukerInfo" type="text"  placeholder="${model.users[userIndex].userPw}" oninput="model.inputs.editUser.userPw = this.value" required>
                                 <div>
-                                    <button ${model.inputs.editUserButton.edit} onclick="accountHomePage()" class="mainBtns">Tilbake</button>
-                                    <button class="${model.inputs.editUserButton.hide}"${model.inputs.editUserButton.edit} onclick="editAccount()" class="mainBtns">Rediger</button>
-                                    <button ${model.inputs.editUserButton.save} onclick="cancelEditAccount()" class="mainBtns">Avbryt</button>
-                                    <input ${model.inputs.editUserButton.save} class="mainBtns"  type="submit" value="Lagre">
+                                    <button ${model.inputs.editUserButton.edit} onclick="accountHomePage()" class="returnBtns EditDeleteNextBtns">Tilbake</button>
+                                    <button class="${model.inputs.editUserButton.hide}"${model.inputs.editUserButton.edit} onclick="editAccount()" class="EditDeleteNextBtns">Rediger</button>
+                                    <button ${model.inputs.editUserButton.save} onclick="cancelEditAccount()" class="EditDeleteNextBtns">Avbryt</button>
+                                    <input ${model.inputs.editUserButton.save} class="EditDeleteNextBtns"  type="submit" value="Lagre">
                                 </div>
                             </form>
                         </div>
@@ -451,7 +456,7 @@ function foodPage(){
 
     <div class="overHeadButton">
         <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
-        <button onclick="accountHomePage()" class="loggUtBtn">X</button>
+        <button onclick="accountHomePage()" class="returnBtns loggUtBtn">Tilbake</button>
     </div>
     <div class="allergyButtons">
         <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
@@ -480,7 +485,7 @@ function foodPageAd(index)
                 <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
             </div>
             <div class="backButton">
-                <button onclick= "foodPage()" class="logge ut mainbtns">X</button>
+                <button onclick= "foodPage()" class="returnBtns mainbtns">Tilbake</button>
             </div>
         </div>
        
@@ -520,12 +525,10 @@ function postedAdsPage(){
     }
         // put inn checkbox her for hver ad.
     html = /*html*/`
-    <h1 class="headLinePostedAds headLine">postedAdsPage</h1>
-    <div class="overHeadButtons">
-    </div>
+  
     
     <div class="postedAdsframe2">
-    <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns">X</button>
+    <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns returnBtns">Tilbake</button>
          <div class="chatBoxPostedAdsPage">
 
         <button class="open-button" onclick="openForm()">Chat</button>
@@ -583,11 +586,10 @@ function postedAdsPage(){
                 </form>
                 </div>        
       
-                <div class="foodDescriptionImagePostedAdsPage">
-               
-                
-        <div id="foodGroupFrame"> <p class="dinHistorikk"> Din historikk:</p>${userAdPhoto}</div>
-    </div>
+             
+        <div id="foodGroupFrame"> <p class="dinHistorikk"> Din historikk:</p>${userAdPhoto}
+        </div>
+    
     </div>
     `;
 show();
@@ -615,13 +617,12 @@ function showMyActiveAds(){
     }
     html = /*html*/`
     <div class="activeBody">
-        <div><h1>2 Good 2 Go</h1>
-                <button onclick="logOut()" class= "mainbtns">Logg ut</button>
-        </div>
-        <div class="backButton">
-            <button onclick="accountHomePage()" class= "mainbtns">X</button>
-        </div>
+       <h1 class="headLineActiveAd">2 Good 2 Go</h1>
+       
+      
         <div class="activeAdframes">
+        
+        <button onclick="accountHomePage() " class="loggUtBtnAccountHomePage returnBtns">Tilbake</button>
             <div>${activeAdPhoto}</div>
         </div>
     </div>
@@ -640,11 +641,9 @@ function activeAdInformationPage(i){
     }
     html = /*html*/`
     <h1 class="activeAdPageheadLine">activeAdPage</h1>
-    <div class="overHeadButtonsActiveAdPage">
-        <div class="backButton"></div>
-        <button onclick="accountHomePage()" class= "loggUtBtnActiveAdPage mainbtns">X</button>
-    </div>   
     <div class="activeAdInfoframes">
+  
+    <button onclick="showMyActiveAds()" class="returnBtns tilbakeActiveAdPage">Tilbake</button>
         <div class="foodDescriptionImage">
             <div id="foodGroupFrame"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
         </div>

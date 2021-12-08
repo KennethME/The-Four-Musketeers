@@ -530,9 +530,9 @@ function deleteMyAd(index){
 function orderedAd(index)
 {
     model.inputs.editAd = model.ads[index];
-    activeAdInformationPage();
 }
 
+// activeAdInformationPage();
 
 
 let orderById = [];

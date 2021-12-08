@@ -162,12 +162,16 @@ p {
     font-family: var(--FontFamilyEditDeleteNextBtns);
 }
 
+.tilAllergiBtn{
+  margin-bottom: -60px;
+}
+
 .editDeleteNextBtns:hover {
     box-shadow: 0px 1px 5px 1px black;
     /* color: rgb(115, 255, 0); */
-    height: 40px;
+    height: 27px;
     width: auto;
-    font-size: 20px;
+    font-size: 15px;
 
 }
 
@@ -371,6 +375,17 @@ input#file {
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
 }
+.headLineActiveAd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    top: -44vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
 .FirstPageHeadLine {
     display: flex;
     align-items: center;
@@ -485,7 +500,9 @@ input#file {
     
 }  */
 .edit:hover{
-border: 2px solid rgb(93, 255, 93);
+     
+        box-shadow: 0px 0px 12px 5px lightgreen;
+    
 
 }
 .clickHere {
@@ -555,8 +572,22 @@ input {
 
 }
 .loggUtBtn {
-    background-color: red;
-    color: white;
+    
+    /* min-inline-size: -webkit-fill-available; */
+    /* top: 0vh; */
+    left: -8vh;
+    position: relative;
+}
+.loggUtBtnAccountHomePage  {
+   
+    /* min-inline-size: -webkit-fill-available; */
+    /* top: 0vh; */
+    left: 2vh;
+    top: 1vh;
+    position: absolute;
+}
+.loggUtBtn1 {
+
     /* min-inline-size: -webkit-fill-available; */
     /* top: 0vh; */
     left: -8vh;
@@ -565,8 +596,7 @@ input {
 
 .loggUtBtnFindFoodPage {
     
-        background-color: red;
-        color: white;
+     
         /* min-inline-size: -webkit-fill-available; */
         top: 33vh;
         left: -2vh;
@@ -574,35 +604,35 @@ input {
     
 }
 .loggUtBtnMenuPage {
-    background-color: red;
-    color: white;
+   
     min-inline-size: -webkit-fill-available;
  
 }
+button.loggUtBtnMenuPage.mainBtns:hover {
+    box-shadow: -1px 2px 26px 7px red;
+}
 
 .loggUtBtnGiveAwayPage {
-    background-color: red;
-    color: white;
+ 
     /* min-inline-size: -webkit-fill-available; */
-    top: 27px;
+    top: -22px;
     position: relative;
-    left: -51px;
+    left: -49px;
+    float: lef;
+    margin-inline-end: auto;
+ 
 }
 
 .loggUtBtnActiveAdPage {
-    background-color: red;
-    color: white;
-    /* min-inline-size: -webkit-fill-available; */
-    /* top: -32vh; */
-    /* left: 11vh; */
-    /* position: relative; */
-    float: left;
-    margin-inline-end: auto;
+  
+    position: relative;
+ 
+    top: 1px;
+    left: -146px
+  
 }
 .loggUtBtnBrukerInfo {
-    background-color: red;
-    color: white;
-    /* min-inline-size: -webkit-fill-available; */
+    
     top: 5px;
     left: 6px;
     position: fixed;
@@ -645,17 +675,39 @@ input {
     position: relative;
     z-index: -1;
 }
-.giveAwayPage
-{
+
+.returnBtns{
+    background-color: rgb(198 198 201);
+}
+.returnBtns:hover{
+    color: #f1f1f1;
+    background-color: red;
+}
+.giveAwayReturnBtn{
+    position: relative;
+    float: left;
+    left: -110px;
+}
+.giveAwayReturnBtn2{
+    position: relative;
+    float: left;
+    left: -153px;
+    top: -11px;
+}
+
+.historyNewAdInputBtns:hover{
+    box-shadow: 0px 1px 7px 2px black;
+}
+.giveAwayPage {
     position: absolute;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: 40%;
+    height: 33%;
     width: auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     text-align: center;
     top: 50%;
@@ -671,7 +723,7 @@ input {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    /* height: 50%; */
+    height: 50%;
     width: auto;
     display:flex;
     flex-direction: column;
@@ -687,16 +739,23 @@ input {
 .activeAdframes
 {
    
+    position: absolute;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    overflow-y: scroll;
-    height: 60vh;
-    width: 30vw;
+    height: 75%;
+    width: auto;
     display:flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow: scroll;
+    inline-size: fit-content;
     
 }
 .activeAdAds{
@@ -719,18 +778,23 @@ input {
     display: flex;
     flex-direction: column;
 }
-.activeAdInfoframes
-{
+.activeAdInfoframes {
+    position: absolute;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: 60vh;
-    width: 30vw;
-    display:flex;
+    height: 63%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    flex-direction: row;
     align-items: center;
     text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2px 55px;
+    overflow-y: scroll;
 }
 .postedAdsframe
 {
@@ -802,7 +866,7 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    left: -43px;
+    left: -46px;
 }
 .miniFrames:hover{
     box-shadow: 1px 2px 10px 1px black;
@@ -814,8 +878,7 @@ input {
 
 
 .loggUtBtnpostedAdsPage {
-    background-color: red;
-    color: white;
+   
     /* min-inline-size: -webkit-fill-available; */
     top: 8px;
     left: 8px;
@@ -834,7 +897,7 @@ input {
     overflow: hidden;
     position: relative;
     float: right;
-    left: -43px;
+    left: -46px;
 }
 .userLoginFrames{
     display: flex;
@@ -858,7 +921,18 @@ input {
 }
 
 .headLinePostedAds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: relative;
+    /* top: -41vh; */
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+    
     top: 2vh;
+    left: 24vw;
 }
 .anotherWindowForKenneth{
     border: 2px solid black;
@@ -916,22 +990,29 @@ input {
 
 }
 
+#foodGroupFrame{
+    position: relative;
+    left: -307px;
+    overflow-y: scroll;
+    height: 533px;
+}
+
 .foodDescriptionImagePostedAdsPage {
     display: flex;
     flex-wrap: wrap;
     /* align-items: center; */
     /* justify-content: center; */
     /* text-align: center; */
-    /* overflow-y: scroll; */
+    overflow-y: hidden;
     /* height: 80%; */
     width: auto;
     /* border: 2px solid rgb(106, 168, 79); */
     /* -webkit-writing-mode: vertical-rl; */
     /* border-radius: 10px; */
-    left: -22vw;
+    left: -37vw;
     position: relative;
     z-index: -1;
-    top: -8vw;
+    top: 5vw;
 
 }
 
@@ -998,7 +1079,9 @@ input {
     height: fit-content;
     width: 60vw;
 }
-
+#test {
+    position: absolute;
+}
 .foodGroupPhotoFrame
 {
     height: 150px;
@@ -1010,6 +1093,7 @@ input {
     align-items: center;
     justify-content: center;
     image-rendering: auto;
+    position: sticky;
 }
 .uploadPhotoFrame
 {
@@ -1185,8 +1269,8 @@ text-align: -webkit-center;
     left: 0vw;
     border-radius: 13%;
     height: fit-content;
-    top: 4vh;
-    box-shadow: 1px 2px 11px 5px grey;
+    top: 3vh;
+    box-shadow: 0px -5px 35px 20px grey;
 }
 
   /* Add styles to the form container */
@@ -1197,6 +1281,8 @@ text-align: -webkit-center;
     /* left: -3vh; */
     background-color: white;
     border-radius: 15%;
+    height: 55vh;
+    top: -25px;
 }
   /* Full-width textarea */
   .form-container textarea {
@@ -1225,6 +1311,8 @@ text-align: -webkit-center;
     width: 100%;
     margin-bottom:10px;
     opacity: 0.8;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
   }
   
   /* Add a red background color to the cancel button */
