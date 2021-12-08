@@ -411,7 +411,7 @@ input#file {
     justify-content: center;
     font-size: 85px;
     position: relative;
-    top: -3vh;
+    top: -38vh;
     font-family: var(--fontFamilyHeadline);
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
@@ -625,6 +625,14 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     background-color: rgb(198 198 201);
     margin-inline-end: auto;
 }
+.returnBtns2{
+    position: relative;
+    left: -7vw;
+    /* height: 10px;
+    width: 20px;
+    margin-left: 20px; */
+}
+
 .returnBtns:hover{
     color: #f1f1f1;
     background-color: red;
@@ -978,8 +986,20 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     text-align: center;
 }
 
+/* .ZipSearchBar{
+    position: relative;
+    top: -36vh;
+} */
 
-
+.searchBtn{
+    position: relative;
+    left: 2vw;
+  
+    height: 32px;
+    width: 66px;
+    font-family: 'Oswald';
+    color: green;
+}
 .foodAdDescription
 {
     display:flex;
@@ -1004,16 +1024,23 @@ button.loggUtBtnMenuPage.mainBtns:hover {
 }
 .FoodPageFrame
 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-    align-items:center;
-    background-color: white;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: fit-content;
-    width: 60vw;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* padding: 0px 109px; */
+    overflow: scroll;
+    flex-wrap: wrap;
 }
 #test {
     position: absolute;
@@ -1023,7 +1050,7 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     height: 150px;
     width: 150px;
     object-fit: cover;
-    margin: 30px;
+    margin: 20px;
     border: 2px solid rgb(106, 168, 79);
     display: flex;
     align-items: center;
@@ -1080,9 +1107,9 @@ text-align: center;
 } */
 .allergyButtons
 {
-    position: absolute;
-    top: 18vh;
-    transform: translate(100%)
+    position: relative;
+    top: -36vh;
+    /* transform: translate(100%) */
 }
 .beskrivelseInput
 {
@@ -1168,6 +1195,13 @@ flex-direction: row;
 
 .dinHistorikk{
 text-align: -webkit-center;
+}
+.findFoodPageBar{
+    position: relative;
+    top: -36vh;
+    /* justify-content: center;
+    width: 50vw; */
+
 }
 
 

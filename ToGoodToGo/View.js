@@ -221,17 +221,17 @@ function giveAway(){
                     <br>
                 </div>
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAllergy}"> 
-                <button onclick="toUploadImage()" class="returnBtns ">Tilbake</button>
-                    <h4>Har denne retten noen allergier?</h4>
-                    <div id="giveAwayAllergyCheckBoxes">
-                        <label>Egg:</label>
-                        <input onclick="checkEgg()" type="checkbox"/> 
-                        <label>Gluten:</label>
-                        <input onclick="checkGluten()" type="checkbox"/>
-                        <label>Nøtter:</label>
-                        <input onclick="checkNøtter()" type="checkbox"/>
-                        <label>Melk:</label>
-                        <input onclick="checkMelk()" type="checkbox"/>
+                <h4>Har denne retten noen allergier?</h4>
+                <div id="giveAwayAllergyCheckBoxes">
+                <label>Egg:</label>
+                <input onclick="checkEgg()" type="checkbox"/> 
+                <label>Gluten:</label>
+                <input onclick="checkGluten()" type="checkbox"/>
+                <label>Nøtter:</label>
+                <input onclick="checkNøtter()" type="checkbox"/>
+                <label>Melk:</label>
+                <input onclick="checkMelk()" type="checkbox"/>
+              
                     </div>
                     <br>
                     <div id="giveAwayAllergyCheckBoxes">
@@ -459,21 +459,24 @@ function foodPage(){
     html = /*html*/`
     <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
 
-    <div class="overHeadButton">
-        <button onclick="logOut()" class="loggUtBtn">Logg ut</button>
-        <button onclick="accountHomePage()" class="returnBtns loggUtBtn">Tilbake</button>
-    </div>
     <div class="allergyButtons">
         <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
         <button onclick="removeGlutenAllergies()" class="mainBtns">Gluten</button>
         <button onclick="removeNøtterAllergies()" class="mainBtns">Nøtter</button>
         <button onclick="removeMelkAllergies()" class="mainBtns">Melk</button>
         <button onclick="resetAllergies()">RESET HER</button>
+        <br>
     </div>
-    <div class="zipSearchInput">
-        <label>Post Adresse</label>
-        <input class="ZipSearchBar" oninput="model.inputs.foodPagezipCode = this.value" type="text" value="${model.inputs.foodPagezipCode || ''}">
-        <button type="submit" onclick="searchZipCode()">Søk</button>
+
+    <div class="findFoodPageBar">
+        <div class="zipSearchInput">
+            <button onclick="accountHomePage()" class="returnBtns2">Tilbake</button>
+            
+            <label>Post Adresse</label>
+            <input class="ZipSearchBar" oninput="model.inputs.foodPagezipCode = this.value" type="text" value="${model.inputs.foodPagezipCode || ''}">
+            <button class="searchBtn" type="submit" onclick="searchZipCode()">Søk</button>
+        </div>
+        
     </div>
     <div class="FoodPageFrame">${postingAd}</div> 
     `;
@@ -486,9 +489,7 @@ function foodPageAd(index)
     <h1 class="headLine">2 Good 2 Go</h1>
 
         <div class="overHeadFoodPageAdButtons">
-            <div class="userButtons">
-                <button onclick= "logOut()" class="logge ut mainbtns">Logg ut</button>
-            </div>
+          
             <div class="backButton">
                 <button onclick= "foodPage()" class="returnBtns mainbtns">Tilbake</button>
             </div>
