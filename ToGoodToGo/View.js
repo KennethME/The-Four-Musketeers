@@ -139,8 +139,8 @@ function giveAway(){
         </div>
     </div>
                 <div class="${model.inputs.giveAway.prewView}" id="${model.inputs.giveAway.newAdInput}">
+                <button onclick= "returnNewAdInputs()" class="giveAwayReturnBtn returnBtns">Tilbake</button>
                     <form class="giveAwayDescriptionInputs" onsubmit="postAd()">
-                    <button onclick= "accountHomePage()" class="giveAwayReturnBtn returnBtns">Tilbake</button>
                         <label>Tittel:</label>
                         <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.newAd.title}" oninput="model.inputs.newAd.title = this.value" required />
                         <label>Adresse:</label>
@@ -210,7 +210,7 @@ function giveAway(){
                 </div>
    
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadImage}"> 
-                <button onclick= "accountHomePage()" class="giveAwayReturnBtn2 returnBtns">Tilbake</button>
+                <button onclick= "returnToUploadImage()" class="giveAwayReturnBtn2 returnBtns">Tilbake</button>
                     <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                     <img class="uploadPhotoFrame" src="${model.inputs.foodDescriptionInputs.image}" id="output" onchange="model.inputs.foodDescriptionInputs.image=this.value"/>  
                     <button onclick="toAllergyUpload()" class="editDeleteNextBtns tilAllergiBtn" id="${model.inputs.giveAway.uploadImagebtn}">Til Allergi</button>
@@ -219,6 +219,7 @@ function giveAway(){
                     <br>
                 </div>
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAllergy}"> 
+                <button onclick="toUploadImage()" class="returnBtns giveAwayReturnBtn3">Tilbake</button>
                     <h4>Har denne retten noen allergier?</h4>
                     <div id="giveAwayAllergyCheckBoxes">
                         <label>Egg:</label>
@@ -235,6 +236,7 @@ function giveAway(){
                         <label>Ingen allergier</label>
                         <input type="checkbox"/> 
                     </div>
+                  
                     <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.uploadAllergybtn}" class="editDeleteNextBtns"> Personvern</button>
                     <button onclick="toHistoryAnonymousUpload()" id="${model.inputs.giveAway.uploadHistoryAllergybtn}">Personvern</button>
                 </div>    
@@ -645,7 +647,7 @@ function activeAdInformationPage(i){
   
     <button onclick="showMyActiveAds()" class="returnBtns tilbakeActiveAdPage">Tilbake</button>
         <div class="foodDescriptionImage">
-            <div id="foodGroupFrame"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
+            <div id="foodHistory"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
         </div>
         <div class="foodDescriptionInputs">
             <label>Tittel:</label>

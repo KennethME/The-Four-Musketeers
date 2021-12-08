@@ -692,7 +692,12 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     position: relative;
     float: left;
     left: -153px;
-    top: -11px;
+    top: -15px;
+}
+.giveAwayReturnBtn3{
+    position: relative;
+    left: -180px;
+    top: -12px;
 }
 
 .historyNewAdInputBtns:hover{
@@ -991,6 +996,12 @@ button.loggUtBtnMenuPage.mainBtns:hover {
 }
 
 #foodGroupFrame{
+    position: relative;
+    left: -307px;
+    overflow-y: scroll;
+    height: 533px;
+}
+.foodHistory{
     position: relative;
     left: -307px;
     overflow-y: scroll;

@@ -355,6 +355,7 @@ function exitGiveAway()
     restoreModelAds();
     accountHomePage();
 }
+
 function newAdinputs()
 {
     model.inputs.giveAway.newAdInput = "";
@@ -363,6 +364,13 @@ function newAdinputs()
     model.inputs.giveAway.HistoryUploadImagebtn = "isHidden"
     giveAway();
 }
+
+function returnNewAdInputs(){
+    model.inputs.giveAway.newAdInput = "isHidden";
+    model.inputs.giveAway.inputButtons = "";
+    giveAway();
+}
+
 function historyAdInputs()
 {
     model.inputs.giveAway.historyAdImages = "";
@@ -412,6 +420,13 @@ function toUploadImage()
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.uploadImage = "";
     model.inputs.giveAway.uploadImagebtn = "";
+    giveAway();
+}
+function returnToUploadImage()
+{
+    model.inputs.giveAway.newAdInput = "";
+    model.inputs.giveAway.uploadImage = "isHidden";
+    model.inputs.giveAway.uploadImagebtn = "isHidden";
     giveAway();
 }
 
