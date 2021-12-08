@@ -175,16 +175,13 @@ p {
 
 }
 
-
-
-
 .giveAwayDescriptionBorder
 {
     position: absolute;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: 45%;
+    height: 50%;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -194,7 +191,7 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 2px 55px;
+    padding: 0px 55px;
 }
 .giveAwayDescriptionBorderAnonym
 {
@@ -571,38 +568,11 @@ input {
     text-align: -webkit-center;
 
 }
-.loggUtBtn {
-    
-    /* min-inline-size: -webkit-fill-available; */
-    /* top: 0vh; */
-    left: -8vh;
-    position: relative;
-}
-.loggUtBtnAccountHomePage  {
-   
-    /* min-inline-size: -webkit-fill-available; */
-    /* top: 0vh; */
-    left: 2vh;
-    top: 1vh;
-    position: absolute;
-}
-.loggUtBtn1 {
 
-    /* min-inline-size: -webkit-fill-available; */
-    /* top: 0vh; */
-    left: -8vh;
-    position: relative;
-}
 
-.loggUtBtnFindFoodPage {
-    
-     
-        /* min-inline-size: -webkit-fill-available; */
-        top: 33vh;
-        left: -2vh;
-        position: relative;
-    
-}
+
+
+
 .loggUtBtnMenuPage {
    
     min-inline-size: -webkit-fill-available;
@@ -612,33 +582,7 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     box-shadow: -1px 2px 26px 7px red;
 }
 
-.loggUtBtnGiveAwayPage {
- 
-    /* min-inline-size: -webkit-fill-available; */
-    top: -22px;
-    position: relative;
-    left: -49px;
-    float: lef;
-    margin-inline-end: auto;
- 
-}
 
-.loggUtBtnActiveAdPage {
-  
-    position: relative;
- 
-    top: 1px;
-    left: -146px
-  
-}
-.loggUtBtnBrukerInfo {
-    
-    top: 5px;
-    left: 6px;
-    position: fixed;
-    float: left;
-    /* margin-inline-end: auto; */
-}
 .frames
 {
     position: absolute;
@@ -677,43 +621,18 @@ button.loggUtBtnMenuPage.mainBtns:hover {
 }
 
 .returnBtns{
+    position: relative;
     background-color: rgb(198 198 201);
+    margin-inline-end: auto;
 }
 .returnBtns:hover{
     color: #f1f1f1;
     background-color: red;
 }
-.giveAwayReturnBtn{
-    position: relative;
-    float: left;
-    left: -110px;
-}
-.giveAwayReturnBtn2{
-    position: relative;
-    float: left;
-    left: -153px;
-    top: -15px;
-}
-.giveAwayReturnBtn3{
-    position: relative;
-    left: -180px;
-    top: -12px;
-}
-.giveAwayReturnBtn4{
-    position: relative;
-    left: -223px;
-    top: 5px;
-}
 
-.giveAwayReturnBtn5{
-    position: relative;
-    float: left;
-    left: -110px;
-}
 #giveAwayReturnBtn5{
     position: relative;
-    left: -37px;
-    top: -207px;
+    margin-top: -42vh;
 }
 
 .historyNewAdInputBtns:hover{
@@ -898,16 +817,6 @@ button.loggUtBtnMenuPage.mainBtns:hover {
 
 
 
-.loggUtBtnpostedAdsPage {
-   
-    /* min-inline-size: -webkit-fill-available; */
-    top: 8px;
-    left: 8px;
-    /* position: relative; */
-    /* float: left; */
-    position: absolute;
-    /* z-index: 1; */
-}
 .miniFrames2 {
     background-color: rgb(211, 211, 211);
     /* border: 2px solid #607d3b; */
