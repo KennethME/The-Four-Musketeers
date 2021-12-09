@@ -398,7 +398,7 @@ function accountHomePage(){
 };
 function accountInformationPage() {
     html = /*html*/`
-    <h1 class="headLineBrukerInfo">accountInformationPage</h1>
+    <h1 class="headLineBrukerInfo">Brukerkonto Informasjon</h1>
     <div class="accountInfoPageFrame">
     <div id="newUserInfo">
     <button onclick= "accountHomePage()" class="loggUtBtnBrukerInfo mainbtns returnBtns">Tilbake</button>
@@ -537,7 +537,7 @@ function postedAdsPage(){
         // put inn checkbox her for hver ad.
     html = /*html*/`
    
-    <h1 class="postedadsheadLine">NewUserPage</h1>
+    <h1 class="postedadsheadLine">Dine Annonser</h1>
     <div class="postedAdsframe2">
     <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns returnBtns">Tilbake</button>
          <div class="chatBoxPostedAdsPage">
@@ -628,7 +628,7 @@ function showMyActiveAds(){
     }
     html = /*html*/`
     <div class="activeBody">
-       <h1 class="headLineActiveAd">2 Good 2 Go</h1>
+       <h1 class="headLineActiveAd">Bestilte Annonser</h1>
        
       
         <div class="activeAdframes ">

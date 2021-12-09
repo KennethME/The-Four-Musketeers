@@ -285,8 +285,10 @@ input#file {
 .txtPreviewAnonym {
     position: relative;
     top: -65vh;
-    font-size: -webkit-xxx-large;
-    color: black;
+    font-size: 85px;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
 }
 .giveAwayAdChoise
 {
