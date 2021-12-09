@@ -1,4 +1,4 @@
-var userIndex = [0];
+var userIndex = [];
 var today = new Date();
 var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
@@ -295,6 +295,7 @@ function userAdHistory(index){
     model.inputs.hideFFButton.uploadPhotoFrameclass = "uploadPhotoFrame";
     model.inputs.hideFFButton.foodDescriptionInputsclass = "isHidden";
     model.inputs.hideFFButton.foodDescriptionInputsclass2 = "foodDescriptionBorder"
+    model.inputs.giveAway.historyAdImages = "isHidden"
     model.inputs.giveAway.historyAdInput = "";
     model.inputs.giveAway.historyAdInputbtn = "";
 
@@ -330,6 +331,8 @@ function restoreNewAdsInput()
     model.inputs.giveAway.uploadAnonymous = "isHidden";
     model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
     model.inputs.giveAway.inputButtons = "";
+    model.inputs.giveAway.returnIdBtn5 = 'isHidden';
+    model.inputs.giveAway.returnClassBtn5 = 'returnBtns';
     model.inputs.giveAway.disabled = "";
     model.inputs.giveAway.newAdInputBtn = "";
     model.inputs.giveAway.prewView = "giveAwayDescriptionBorder";
@@ -366,6 +369,7 @@ function newAdinputs()
 function returnNewAdInputs(){
     model.inputs.giveAway.newAdInput = "isHidden";
     model.inputs.giveAway.inputButtons = "";
+    exitGiveAway()
     giveAway();
 }
 
@@ -380,12 +384,20 @@ function toUploadHistoryImage()
 {
     model.inputs.giveAway.historyAdImages = "isHidden"
     model.inputs.giveAway.historyAdInput = "isHidden"
+    model.inputs.giveAway.uploadImagebtn = "isHidden"
     model.inputs.giveAway.HistoryUploadImagebtn = "";
     model.inputs.giveAway.uploadImage = "";
+    
     giveAway();
 }
 
-
+function returnHistoryAdInputs()
+{
+    model.inputs.giveAway.historyAdInput= "isHidden"
+    model.inputs.giveAway.historyAdImages = "";
+    
+    giveAway();
+}
 function toHistoryAllergyUpload()
 {
     model.inputs.giveAway.uploadImage = "isHidden";
@@ -430,12 +442,23 @@ function returnToUploadImage()
     model.inputs.giveAway.newAdInput = "";
     model.inputs.giveAway.uploadImage = "isHidden";
     model.inputs.giveAway.uploadImagebtn = "isHidden";
+    model.inputs.giveAway.uploadAllergy = "isHidden";
+    model.inputs.giveAway.returnIdBtn5 = "isHidden"
+    model.inputs.giveAway.returnClassBtn5 = "returnBtns";
     giveAway();
 }
-
+function returnToAllergy()
+{
+    model.inputs.giveAway.uploadImage = "";
+    model.inputs.giveAway.uploadImagebtn = "";
+    model.inputs.giveAway.uploadAllergy = "";
+    model.inputs.giveAway.uploadAllergy = "isHidden";
+    model.inputs.giveAway.uploadAllergybtn = "isHidden";
+    giveAway();
+}
 function toAllergyUpload()
 {
-    model.inputs.giveAway.uploadImage = "isHidden";
+    model.inputs.giveAway.uploadImage = "";
     model.inputs.giveAway.uploadAllergy = "";
     model.inputs.giveAway.uploadAllergybtn = "";
     model.inputs.giveAway.uploadHistoryAllergy = "isHidden";
@@ -467,6 +490,7 @@ function newAdPreview()
     model.inputs.giveAway.prewViewBtn = "";
     model.inputs.giveAway.returnIdBtn5 = "giveAwayReturnBtn5";
     model.inputs.giveAway.returnClassBtn5 = "isHidden";
+    model.inputs.giveAway.uploadImage = "isHidden";
     giveAway();
 }
 
@@ -571,7 +595,7 @@ function contactAdPoster(i){
         foodPage();
     }
     else if(model.ads[i].orderedById.includes(orderById)){
-        alert("du har trykket bestill")
+        alert("du har allerede bestill denne maten")
         foodPage();
     }
     else
@@ -714,4 +738,15 @@ function openForm() {
   }
   function searchZipCode(){
       foodPage()
+  }
+  function openActiveAdForm(i){
+    model.inputs.postedAdsPage.myForm = "isBlock";
+    model.inputs.postedAdsPage.hideOpen = "isHidden";
+    activeAdInformationPage(i)
+  }
+  function closeActiveAdForm(i){
+    model.inputs.postedAdsPage.myForm = "isHidden";
+    
+    model.inputs.postedAdsPage.hideOpen = "";
+    activeAdInformationPage(i)
   }

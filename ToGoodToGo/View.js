@@ -110,7 +110,7 @@ function giveAway(){
         `;
     }
     html = /*html*/`
-    <h1 class="GiveAwayHeadLine">GiveAwayPage</h1>
+    <h1 class="GiveAwayHeadLine">Gi ut Mat</h1>
 
    
     <div class="giveAwayMainFrames">
@@ -120,20 +120,21 @@ function giveAway(){
         <div class="giveAwayAdChoise">
         <div class="overHeadButtons">
         </div>
-        <button class="historyNewAdInputBtns" onclick="newAdinputs()">Gi ut mat?
+        <button class="historyNewAdInputBtns" onclick="newAdinputs()">Ny annonse?
             <img src="https://img.icons8.com/color/200/000000/giving.png"/>
        
         </button>
 
         <button class="historyNewAdInputBtns" onclick="historyAdInputs()">
-            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>History?
+            <img src="https://img.icons8.com/fluency/200/000000/history-folder.png"/>Annonse historikk?
          
         </button>
 
         </div>            
     </div>
     <div class="frames" id="${model.inputs.giveAway.historyAdImages}">
-        <h3>Din Ad Historikk</h3>
+    <button onclick= "returnNewAdInputs()" class="returnBtns ${model.inputs.giveAway.returnClassBtn5}">Tilbake</button>
+    <h3>Din Annonse Historikk</h3>
         <div class="giveAwayHistoryImage">
             ${userAdPhoto}
         </div>
@@ -176,7 +177,9 @@ function giveAway(){
                     <img class="imageDisplay" id="${model.inputs.giveAway.photoPreview}" src="${model.inputs.foodDescriptionInputs.image}"/>
                 </div>  
 
+                <button onclick="toAnonymousUpload()" id="${model.inputs.giveAway.returnIdBtn5}" class="returnBtns">Tilbake</button>
                 <div class="${model.inputs.giveAway.historyPrewView}" id="${model.inputs.giveAway.historyAdInput}">
+                <button onclick= "returnHistoryAdInputs()" class="returnBtns ${model.inputs.giveAway.returnClassBtn5}" >Tilbake</button>
                     <form class="giveAwayDescriptionInputs" onsubmit="postHistoryAd()">
                     <label>Tittel:</label>
                     <input ${model.inputs.giveAway.disabled} type="text" value="${model.inputs.foodDescriptionInputs.title}" oninput="model.inputs.foodDescriptionInputs.title = this.value" required />
@@ -221,6 +224,7 @@ function giveAway(){
                     <br>
                 </div>
                 <div class="giveAwayDescriptionBorder" id="${model.inputs.giveAway.uploadAllergy}"> 
+                <button onclick= "returnToAllergy()" class=" returnBtns">Tilbake</button>
                 <h4>Har denne retten noen allergier?</h4>
                 <div id="giveAwayAllergyCheckBoxes">
                 <label>Egg:</label>
@@ -302,7 +306,7 @@ function mainPage()
 //firstPage();
  //mainPage();
 //AccountPage er ferdig med css.
-accountHomePage();
+mainPage();
 
 function newUser(){
     html = /*html*/`
@@ -344,7 +348,7 @@ show();
 // width
 function accountHomePage(){
     html = /*html*/`
-    <h1 class="headLine">accountHomePage</h1>
+    <h1 class="headLine">Hjemmeside</h1>
 
     <div class="userInfo">
     <button onclick="accountInformationPage()" class="edit mainBtns"><p class>Brukerinformasjon<p></button> 
@@ -457,7 +461,7 @@ function foodPage(){
         <img onclick="foodPageAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame">`;
         }
     html = /*html*/`
-    <h1 class="headLine findFoodPageheadLine">FindFoodPage</h1>
+    <h1 class="headLine findFoodPageheadLine">Søk etter annonser</h1>
 
     <div class="allergyButtons">
         <button onclick="removeEggAllergies()" class="mainBtns">Egg</button>
@@ -523,6 +527,7 @@ show();
 </div> */}
 function postedAdsPage(){
     let userAdPhoto = '';
+    
     for (let i = 0; i < model.ads.length; i++){
         if(model.ads[i].userid == userIndex)
         userAdPhoto += /*html*/`
@@ -531,8 +536,8 @@ function postedAdsPage(){
     }
         // put inn checkbox her for hver ad.
     html = /*html*/`
-  
-    
+   
+    <h1 class="postedadsheadLine">NewUserPage</h1>
     <div class="postedAdsframe2">
     <button onclick="accountHomePage()" class="loggUtBtnpostedAdsPage mainbtns returnBtns">Tilbake</button>
          <div class="chatBoxPostedAdsPage">
@@ -593,7 +598,7 @@ function postedAdsPage(){
                 </div>        
       
              
-        <div id="foodGroupFrame"> <p class="dinHistorikk"> Din historikk:</p>${userAdPhoto}
+        <div id="foodGroupFrame"> <p class="dinHistorikk"> Dine Annonser:</p>${userAdPhoto}
         </div>
     
     </div>
@@ -626,9 +631,8 @@ function showMyActiveAds(){
        <h1 class="headLineActiveAd">2 Good 2 Go</h1>
        
       
-        <div class="activeAdframes">
-        
-        <button onclick="accountHomePage() " class="loggUtBtnAccountHomePage returnBtns">Tilbake</button>
+        <div class="activeAdframes ">
+        <button onclick="accountHomePage() " class="returnBtns activeAdsreturnBtns">Tilbake</button>
             <div>${activeAdPhoto}</div>
         </div>
     </div>
@@ -648,11 +652,26 @@ function activeAdInformationPage(i){
     html = /*html*/`
     <h1 class="activeAdPageheadLine">activeAdPage</h1>
     <div class="activeAdInfoframes">
-  
-    <button onclick="showMyActiveAds()" class="returnBtns tilbakeActiveAdPage">Tilbake</button>
-        <div class="foodDescriptionImage">
-            <div id="foodHistory"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoFrame"></div>
+    
+    
+    <button onclick="showMyActiveAds()" class="returnBtns activeadsPage">Tilbake</button>
+    <div class="foodDescriptionActiveImage">
+            <div id="foodHistory"><img onclick="orderedAd(${i})" src="${model.ads[i].image}" class="foodGroupPhotoActiveFrame"></div>
         </div>
+        <div class="chatBoxPostedAdsPage">
+            <button class="open-button" id="${model.inputs.postedAdsPage.hideOpen}"onclick="openActiveAdForm(${i})">Chat</button>
+            <div class="chat-popup" id="${model.inputs.postedAdsPage.myForm}">
+                <form action="/action_page.php" class="form-container">
+                    <h1>Chat</h1>
+                    <label for="msg"><b>Message</b></label>
+                    <textarea placeholder="Type message.." name="msg" required></textarea>
+                    <button type="submit" class="btn">Send</button>
+                    <button type="button" class="btn cancel" onclick="closeActiveAdForm(${i})">Close</button>
+                </form>
+            </div>
+            
+        </div>
+        
         <div class="foodDescriptionInputs">
             <label>Tittel:</label>
             <input ${model.inputs.editAdInputButton.save} class="brukerInfo" value="${model.ads[i].title}" type="text">

@@ -100,8 +100,8 @@ FÅ VEKK mix-blend-mode: hard-light; PÅ BILDER!!! VIKTIG !! */
 body 
     {
         position: absolute;
-        background-color: #0093E9;
-        background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 82%);
+        background-color: #3bb78f;
+        background-image: linear-gradient(315deg, #3d9679 0%, #036639 74%);
         background-attachment: fixed;
         display: flex;
         height: 100%;
@@ -416,6 +416,18 @@ input#file {
     color: var(--fontFamilyHeadlineColor);
     -webkit-text-stroke: 1.5px black;
 }
+.postedadsheadLine{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 85px;
+    position: absolute;
+    left: 37vw;
+    top: 7vh;
+    font-family: var(--fontFamilyHeadline);
+    color: var(--fontFamilyHeadlineColor);
+    -webkit-text-stroke: 1.5px black;
+}
 .activeAdPageheadLine {
     display: flex;
     align-items: center;
@@ -684,6 +696,9 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     padding: 2px 55px;
     overflow: hidden;
 }
+.activeAdframes::-webkit-scrollbar {
+    display: none;
+}
 .activeAdframes
 {
    
@@ -726,16 +741,20 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     display: flex;
     flex-direction: column;
 }
+.activeAdInfoframes::-webkit-scrollbar{
+    display: none;
+}
 .activeAdInfoframes {
     position: absolute;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
     height: 63%;
-    width: auto;
+    width: 40%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     top: 50%;
@@ -812,7 +831,6 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     justify-content: center;
     margin: 2px;
     overflow: hidden;
-    position: relative;
     float: right;
     left: -46px;
 }
@@ -833,7 +851,6 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     justify-content: center;
     margin: 2px;
     overflow: hidden;
-    position: relative;
     float: right;
     left: -46px;
 }
@@ -927,12 +944,29 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     /* border-radius: 10px; */
 
 }
+.foodDescriptionActiveImage{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    /* text-align: center; */
+    /* overflow-y: scroll; */
+    /* height: 80%; */
+    width: auto;
+    /* border: 2px solid rgb(106, 168, 79); */
+    /* -webkit-writing-mode: vertical-rl; */
+    /* border-radius: 10px; */
+}
 
+#foodGroupFrame::-webkit-scrollbar{
+display: none;
+}
 #foodGroupFrame{
     position: relative;
     left: -307px;
     overflow-y: scroll;
-    height: 533px;
+    height: 580px;
+    background-color: white;
 }
 .foodHistory{
     position: relative;
@@ -1024,23 +1058,28 @@ button.loggUtBtnMenuPage.mainBtns:hover {
 }
 .FoodPageFrame
 {
-    position: absolute;
+    position: fixed;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: 50%;
-    width: 100%;
+    height: 60%;
+    width: 50%;
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: space-around; */
+    flex-direction: row;
+    justify-content: start;
     align-items: center;
     text-align: center;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* padding: 0px 109px; */
+    padding: 16px 39px;
     overflow: scroll;
+    overflow-x:hidden;
+    gap: 10px 30px;
     flex-wrap: wrap;
+}
+.FoodPageFrame::-webkit-scrollbar {
+    display: none;
 }
 #test {
     position: absolute;
@@ -1050,13 +1089,24 @@ button.loggUtBtnMenuPage.mainBtns:hover {
     height: 150px;
     width: 150px;
     object-fit: cover;
-    margin: 20px;
     border: 2px solid rgb(106, 168, 79);
     display: flex;
     align-items: center;
     justify-content: center;
     image-rendering: auto;
+    margin: 20px;
     position: sticky;
+}
+.foodGroupPhotoActiveFrame
+{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border: 2.5px ridge black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    image-rendering: auto;
 }
 .uploadPhotoFrame
 {
@@ -1169,6 +1219,13 @@ flex-direction: row;
     display: grid;
     position: relative;
 }
+.activeAdsreturnBtns {
+    position: absolute;
+    background-color: rgb(198 198 201);
+    margin-inline-end: auto;
+    top: 2vh;
+    left: 1vw;
+}
 .announcements{
     animation: slide 15s linear infinite;
 
@@ -1229,28 +1286,30 @@ text-align: -webkit-center;
   
   /* The popup chat - hidden by default */
   .chat-popup {
-    display: none;
-    position: fixed;
+    display: flex;
+    justify-items: center;
+    justify-content: space-evenly;
     bottom: 0;
+    text-align: center;
     /* right: 15px; */
     border: 3px solid #f1f1f1;
+    background-color: rgb(185, 185, 185);
     z-index: 9;
     width: 100%;
-    left: 0vw;
-    border-radius: 13%;
     height: fit-content;
     top: 3vh;
-    box-shadow: 0px -5px 35px 20px grey;
 }
 
   /* Add styles to the form container */
   .form-container {
     /* max-width: 423px; */
     /* padding: 10px; */
-    position: relative;
     /* left: -3vh; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
     background-color: white;
-    border-radius: 15%;
     height: 55vh;
     top: -25px;
 }
@@ -1297,4 +1356,12 @@ text-align: -webkit-center;
   #isBlock
   {
       display: block;
+      width: 15vw;
+      height: 25vh;
   }
+  .activeadsPage {
+    position: relative;
+    background-color: rgb(198 198 201);
+    margin-inline-end: auto;
+    top: -45%;
+}
